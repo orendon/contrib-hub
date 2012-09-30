@@ -6,6 +6,7 @@ class WannahelpController < ApplicationController
 
   def update
     repo = Repo.find(params[:id])
+    current_user.update_repo_status(repo)
 
     #star(repo.user, repo.name)
     redirect_to user_wannahelp_index_path(current_user)

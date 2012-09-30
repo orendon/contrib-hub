@@ -12,6 +12,7 @@
                   <%= hidden_field_tag "github_id", repo[:github_id] %>
                   <%= submit_tag "", class: repo.need_help ? "help-button" : "no-help-button" %>
                   <%= repo.name %>
+                  <%= repo.is_being_helped_by(current_user) ? "Siiii" : "no..." %>
 
                   <br/><%= repo.description %>
                 </li>

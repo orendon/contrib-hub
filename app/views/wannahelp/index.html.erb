@@ -4,11 +4,15 @@
   <tr>
     <th>Repo</th>
     <th>Author</th>
+    <th>Actions</th>
   </tr>
   <tr>
     <%- @repos.each do |repo| %>
-      <td><%= repo.name %></td>
-      <td><%= repo.user.name %></td>
-    <% end%>
+      <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
+        <td><%= repo.name %></td>
+        <td><%= repo.user.name %></td>
+        <td><%= submit_tag %></td>
+      <% end %>
+    <% end %>
   </tr>
 </table>

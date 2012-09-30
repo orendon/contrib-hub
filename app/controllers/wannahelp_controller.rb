@@ -6,13 +6,14 @@ class WannahelpController < ApplicationController
 
   def update
     repo = Repo.find(params[:id])
-    star(repo.user, repo.name)
+
+    #star(repo.user, repo.name)
     redirect_to user_wannahelp_index_path(current_user)
   end
 
   private
     def star(user, repo)
       github = Github.new basic_auth: 'gomayonqui:desarrollo1'
-      github.repos.starring.starred(owner: 'orendon', repo: 'ruby-shop')
+      github.repos.starring.starred(owner: user.github_id, repo: repo)
     end
 end

@@ -1,18 +1,25 @@
-<h1>Wanna Help</h1>
+  <div class="row-fluid">
+    <div class="span2"></div>
+    <h1>Wanna Help?</h1>
+    <div class="span8 no-box-holder">
+      <div class="row-fluid">
+        <div class="span12 border-left">
+          <h4>Projects needing help:</h4>
+          <ul class="ul-clean">
+            <%- @repos.each do |repo| %>
+              <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
+                <li>
+                  <%= hidden_field_tag "github_id", repo[:github_id] %>
+                  <%= submit_tag "", class: repo.need_help ? "help-button" : "no-help-button" %>
+                  <%= repo.name %>
 
-<table>
-  <tr>
-    <th>Repo</th>
-    <th>Author</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <%- @repos.each do |repo| %>
-      <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
-        <td><%= repo.name %></td>
-        <td><%= repo.user.name %></td>
-        <td><%= submit_tag %></td>
-      <% end %>
-    <% end %>
-  </tr>
-</table>
+                  <br/><%= repo.description %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="span2"></div>
+  </div>

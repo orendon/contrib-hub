@@ -1,0 +1,9 @@
+
+<%= image_tag @user[:avatar_url], size:'200x200' %>
+
+<h2><%= link_to @user[:login], @user[:html_url], :target => "_blank" %></h2>
+<p>Followers: <%= @user[:followers]%></p>
+<p>Following: <%= @user[:following]%></p>
+<%= @user.inspect %>
+
+<h2>Repos needing help :)</h2>

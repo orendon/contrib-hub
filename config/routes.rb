@@ -4,6 +4,8 @@ ContribHub::Application.routes.draw do
 
   root :to => "home#index"
   match "/auth/:provider/callback" => "sessions#create"
+  match "/user/:id/needhelp", :to => "users#needhelp", :as => "needhelp"
+  match "/user/:id/wannahelp", :to => "users#wannahelp", :as => "wannahelp"
 
   resources :users, only: [:show]
 

@@ -52,8 +52,33 @@
                           <%= submit_tag "", class: "no-help-button" %>
                         <% end %>
                         <%=   repo[:name] %>
+                        <br/> <strong>Description:</strong> <%= repo.description %>
                     </li>
                   <% end %>
+                <% end %>
+                </ul>
+              </div>
+            </div>            
+          </div>
+          <div class="span2"></div>
+        </div>
+
+
+
+        <div class="row-fluid">
+          <div class="span2"></div>
+          <div class="span8 no-box-holder">
+            <div class="row-fluid">
+            <h3>Projects I am helping</h3>              
+              <div class="span12 border-left">
+
+                <ul class="ul-clean">
+                <% @user_helping.each do |helped| %>
+                    <li>
+                      <%= button_tag "", class: get_css_status(current_user, helped.repo) %>
+                      <%= helped.repo.name %>
+                      <br/> <strong>Description:</strong> <%= helped.repo.description %>
+                    </li>
                 <% end %>
                 </ul>
               </div>

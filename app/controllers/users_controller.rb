@@ -6,11 +6,9 @@ class UsersController < ApplicationController
     @user = get_info_for(current_user)
     @user_repos = get_repos_list(current_user)
     @user_repos = add_status(@user_repos)
+    @user_helping = HelpedRepos.find_all_by_user_id(current_user.id)
   end
 
-  def needhelp
-    
-  end
 
   private
     def get_info_for(user)

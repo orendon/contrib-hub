@@ -4,6 +4,7 @@ ContribHub::Application.routes.draw do
 
   root :to => "home#index"
   match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy"
 
   resources :users, only: [:show] do
     resources :wannahelp

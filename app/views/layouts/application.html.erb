@@ -42,7 +42,8 @@
             </ul>
             <ul class="pull-right">
               <li class="nav-li">
-                <a class="btn btn-primary btn-auth btn-large btn-github" id="button-login-nav">Sign out</a></li>
+                <%= link_to "Sign Out [#{current_user.name}]", signout_path, class: "btn btn-primary btn-auth btn-large btn-github", id: "button-login-nav" if current_user %>
+                </li>
             </ul>            
           </div><!--/.nav-collapse -->
         </div>

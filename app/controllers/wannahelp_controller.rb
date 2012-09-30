@@ -14,7 +14,7 @@ class WannahelpController < ApplicationController
 
   private
     def star(user, repo)
-      github = Github.new basic_auth: 'gomayonqui:desarrollo1'
+      github = Github.new oauth_token: user.token
       github.repos.starring.starred(owner: user.github_id, repo: repo)
     end
 end

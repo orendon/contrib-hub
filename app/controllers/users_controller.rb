@@ -1,8 +1,8 @@
 require "github_api"
 
-class ProfilesController < ApplicationController
+class UsersController < ApplicationController
 
-  def index
+  def show
     @user = get_user_info session[:token]
   end
 

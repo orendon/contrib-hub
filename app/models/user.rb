@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 
   def self.create_from(auth_data)
     create! do |user|
-      user.github_id = auth_data[:login]
-      user.name = auth_data[:name]
-      user.token = auth_data[:token]
+      user.github_id = auth_data["login"]
+      user.name = auth_data["name"]
+      user.token = auth_data["token"]
     end
   end
 end

@@ -10,13 +10,9 @@ class UsersController < ApplicationController
 
   end
 
-  def wannahelp
-
-  end
-
   private
     def get_info_for(user)
-      github = Github.new oauth_token: user.token
+      github = Github.new basic_auth: 'gomayonqui:desarrollo1' # oauth_token: user.token
       @user = github.users
     end
 end

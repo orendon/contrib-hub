@@ -867,3 +867,5 @@ i[class^="icon-"]{opacity:0.8;}
 .ul-clean li{border-bottom:solid 1px whiteSmoke;margin-bottom: 5px;}
 .border-left{border-left:1px whiteSmoke solid;}
 .margin-top{margin-top: 15px;}
+.help-button {background:url('/assets/help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}
+.no-help-button {background:url('/assets/no-help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}

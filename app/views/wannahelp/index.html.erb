@@ -10,11 +10,10 @@
               <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
                 <li>
                   <%= hidden_field_tag "github_id", repo[:github_id] %>
-                  <%= submit_tag "", class: repo.need_help ? "help-button" : "no-help-button" %>
+                  <%= submit_tag "", class: get_css_status(current_user, repo) %>
                   <%= repo.name %>
-                  <%= repo.is_being_helped_by(current_user) ? "Siiii" : "no..." %>
 
-                  <br/><%= repo.description %>
+                  <br/> <strong>Description:</strong> <%= repo.description %>
                 </li>
               <% end %>
             <% end %>

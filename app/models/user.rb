@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :github_id, :name
+  attr_accessible :github_id, :name, :token
 
   has_many :repos
 

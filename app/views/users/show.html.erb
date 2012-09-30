@@ -7,7 +7,6 @@
 
 
 <%= link_to "Wanna Help", user_wannahelp_index_path(current_user) %>
-<%= link_to "Need Help", needhelp_path(current_user) %>
 
 
 <h2>Following to :)</h2>
@@ -19,12 +18,21 @@
 
 
 <ul>
-<% @user_repos.each do |r| %>
-  <%= form_for(:repo) do |f| %>
+<% @user_repos.each do |repo| %>
+  <%= form_tag(user_needhelp_index_path(current_user), method: :post) do %>
     <li>
-    	<%= f.check_box r[:name] %>
-    	<%= f.label r[:name] %>
-    	<%= f.submit "save", class: "btn" %>
+    	<%= label_tag repo[:name] %>
+    	<%= hidden_field_tag "name", repo[:name] %>
+    	<%= hidden_field_tag "id", repo[:id] %>
+    	<%= hidden_field_tag "github_url", repo[:html_url] %>
+    	<%= hidden_field_tag "full_name", repo[:full_name] %>
+    	<%= hidden_field_tag "description", repo[:description] %>
+    	<%= hidden_field_tag "language", repo[:language] %>
+    	<%= hidden_field_tag "forks", repo[:forks] %>
+    	<%= hidden_field_tag "watchers", repo[:watchers] %>
+    	<%= hidden_field_tag "open_issues", repo[:open_issues] %>
+    	<%= hidden_field_tag "pushed_at", repo[:pushed_at] %>
+    	<%= submit_tag "save", class: "btn" %>
     </li>
   <% end %>
 <% end %>

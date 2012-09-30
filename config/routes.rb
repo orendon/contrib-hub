@@ -4,10 +4,10 @@ ContribHub::Application.routes.draw do
 
   root :to => "home#index"
   match "/auth/:provider/callback" => "sessions#create"
-  match "/user/:id/needhelp", :to => "users#needhelp", :as => "needhelp"
 
   resources :users, only: [:show] do
     resources :wannahelp
+    resources :needhelp
   end
 
   # Sample of regular route:

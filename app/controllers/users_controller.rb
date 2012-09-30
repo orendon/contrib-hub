@@ -1,14 +1,14 @@
 require "github_api"
 
-class ProfilesController < ApplicationController
+class UsersController < ApplicationController
 
-  def index
+  def show
     @user = get_user_info session[:token]
   end
 
   private
     def get_user_info(user_token)
       github = Github.new basic_auth: 'gomayonqui:desarrollo1' #oauth_token: user_token
-      github.users.get
+      @user = github.users.get
     end
 end

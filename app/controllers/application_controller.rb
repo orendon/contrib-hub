@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     end
 
     def validate_session
-      unless params[:controller] == "home"
+      controller = params[:controller]
+      unless controller == "home" || controller == "sessions"
         redirect_to root_path unless session[:user_id]
       end
     end

@@ -41,7 +41,7 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><img src="/assets/logo-contribhub-small.png" alt="logo-contribhub-small"></a>
+          <a class="brand" href="<%= user_url(current_user) %>"><img src="/assets/logo-contribhub-small.png" alt="logo-contribhub-small"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to "I Need Help", user_path(current_user) %></li>

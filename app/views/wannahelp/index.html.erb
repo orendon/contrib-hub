@@ -1,0 +1,14 @@
+<h1>Wanna Help</h1>
+
+<table>
+  <tr>
+    <th>Repo</th>
+    <th>Author</th>
+  </tr>
+  <tr>
+    <%- @repos.each do |repo| %>
+      <td><%= repo.name %></td>
+      <td><%= repo.user.name %></td>
+    <% end%>
+  </tr>
+</table>

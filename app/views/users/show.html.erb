@@ -6,8 +6,8 @@
 <p>Following: <%= @user.get[:following]%></p>
 
 
-<%= link_to "Wanna Help", wannahelp_path(1) %>
-<%= link_to "Need Help", needhelp_path(1) %>
+<%= link_to "Wanna Help", user_wannahelp_index_path(current_user) %>
+<%= link_to "Need Help", needhelp_path(current_user) %>
 
 
 <h2>Following to :)</h2>

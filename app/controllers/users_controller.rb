@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = get_info_for(current_user)
     @user_repos = get_repos_list(current_user)
+    @user_repos = add_status(@user_repos)
   end
 
   def needhelp
@@ -21,4 +22,19 @@ class UsersController < ApplicationController
       repos = Github::Repos.new
       repos.all user: user.github_id
     end
+
+    def add_status(repos)
+      repos.each do |repo|
+        repo[:status] = get_status(repo[:id])
+      end
+      repos
+    end
+
+    def get_status(github_id)
+      repo = Repo.find_by_github_id(github_id)
+      return repo.need_help if repo
+      false
+    end
+
+
 end

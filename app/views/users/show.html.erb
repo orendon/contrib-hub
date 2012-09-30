@@ -1,39 +1,63 @@
+<div class="row-fluid">
+      <div class="span2"></div>
+              <div class="span8 box-holder">
+              <div class="row-fluid">
+              <div class="span6 center-text">
+                <div>
+                <%= image_tag @user.get[:avatar_url], size:'200x200', class: "img-polaroid" %>
+              </div>
+              <div id="home-datos">
+                <h4><%= @user.get[:name]%></h4>
+                <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
+              </div>
+              </div>
+              <div class="span6">
+                <div id="home-botones">
 
-<%= image_tag @user.get[:avatar_url], size:'200x200' %>
-
-<h2><%= link_to @user.get[:login], @user.get[:html_url], :target => "_blank" %></h2>
-<p>Followers: <%= @user.get[:followers]%></p>
-<p>Following: <%= @user.get[:following]%></p>
-
-
-<%= link_to "Wanna Help", user_wannahelp_index_path(current_user) %>
-
-
-<h2>Following to :)</h2>
-<% @user.followers.following.each do |f| %>
-<%= f[:login] %>
-<% end %>
-
-<h2>Need help :)</h2>
+                <p><%= link_to "Wanna Help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large btn-home" %></p>
+                <p><a class="btn btn-primary btn-large btn-home">I need help</a></p>    
+              </div>
+              </div>
+            </div>
+          </div>
+              
+          <div class="span2"></div>
+        </div>
 
 
-<ul>
-<% @user_repos.each do |repo| %>
-  <%= form_tag(user_needhelp_index_path(current_user), method: :post) do %>
-    <li>
-    	<%= label_tag repo[:name] %>
-    	<%= hidden_field_tag "name", repo[:name] %>
-    	<%= hidden_field_tag "id", repo[:id] %>
-    	<%= hidden_field_tag "github_url", repo[:html_url] %>
-    	<%= hidden_field_tag "full_name", repo[:full_name] %>
-    	<%= hidden_field_tag "description", repo[:description] %>
-    	<%= hidden_field_tag "language", repo[:language] %>
-    	<%= hidden_field_tag "forks", repo[:forks] %>
-    	<%= hidden_field_tag "watchers", repo[:watchers] %>
-    	<%= hidden_field_tag "open_issues", repo[:open_issues] %>
-    	<%= hidden_field_tag "pushed_at", repo[:pushed_at] %>
-    	<%= submit_tag "save", class: "btn" %>
-    </li>
-  <% end %>
-<% end %>
-</ul>
+        <div class="row-fluid">
+          <div class="span2"></div>
+          <div class="span8 no-box-holder">
+            <div class="row-fluid">
+            <h3>Your Repos, Need Help?</h3>              
+              <div class="span12 border-left">
+
+                <ul class="ul-clean">
+                <% @user_repos.each do |repo| %>
+                  <%= form_tag(user_needhelp_index_path(current_user), method: :post) do %>
+                    <li>
+                        <%= hidden_field_tag "name", repo[:name] %>
+                        <%= hidden_field_tag "id", repo[:id] %>
+                        <%= hidden_field_tag "github_url", repo[:html_url] %>
+                        <%= hidden_field_tag "full_name", repo[:full_name] %>
+                        <%= hidden_field_tag "description", repo[:description] %>
+                        <%= hidden_field_tag "language", repo[:language] %>
+                        <%= hidden_field_tag "forks", repo[:forks] %>
+                        <%= hidden_field_tag "watchers", repo[:watchers] %>
+                        <%= hidden_field_tag "open_issues", repo[:open_issues] %>
+                        <%= hidden_field_tag "pushed_at", repo[:pushed_at] %>
+                        <% if repo[:status] %>
+                          <%= submit_tag "", class: "help-button" %>
+                        <% else %>
+                          <%= submit_tag "", class: "no-help-button" %>
+                        <% end %>
+                        <%=   repo[:name] %>
+                    </li>
+                  <% end %>
+                <% end %>
+                </ul>
+              </div>
+            </div>            
+          </div>
+          <div class="span2"></div>
+        </div>

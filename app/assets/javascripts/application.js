@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+/*
+$(document).ready(function() {
+  $('#').mixpanel.track("I Wanna Help");
+
+  $('#').mixpanel.track("I Need Help");
+
+  $('#').hover().popover('show')
+});
+*/

@@ -9,10 +9,9 @@ class UsersController < ApplicationController
     @user_helping = HelpedRepos.find_all_by_user_id(current_user.id)
   end
 
-
   private
     def get_info_for(user)
-      github = Github.new basic_auth: 'gomayonqui:desarrollo1' # oauth_token: user.token
+      github = Github.new oauth_token: user.token
       @user = github.users
     end
 
@@ -33,6 +32,4 @@ class UsersController < ApplicationController
       return repo.need_help if repo
       false
     end
-
-
 end

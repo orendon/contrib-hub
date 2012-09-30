@@ -5,7 +5,7 @@ ContribHub::Application.routes.draw do
   root :to => "home#index"
   match "/auth/:provider/callback" => "sessions#create"
 
-  resources :users
+  resources :users, only: [:show]
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

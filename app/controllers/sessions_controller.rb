@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+
   def create
-    session[:token] = auth_data[:token]
-    redirect_to user_path (1)
+    user = User.find_by_github_id(auth_data[:login]) || User.create_from(auth_data)
+    session[:user_id] = user.id
+
+    redirect_to user_path(user)
   end
 
   private

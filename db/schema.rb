@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930072857) do
+ActiveRecord::Schema.define(:version => 20120930114116) do
+
+  create_table "helped_repos", :force => true do |t|
+    t.integer  "repo_id"
+    t.integer  "user_id"
+    t.boolean  "really_helping"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "repos", :force => true do |t|
     t.integer  "user_id"

@@ -51,7 +51,9 @@
                         <% else %>
                           <%= submit_tag "", class: "no-help-button" %>
                         <% end %>
-                        <%=   repo[:name] %>
+                        <%= link_to repo[:name], repo[:html_url], :target => "_blank" %>
+                        - Author:
+                        <%= link_to repo[:owner][:login], "https://github.com/#{repo[:owner][:login]}", :target => "_blank" %>
                         <br/> <strong>Description:</strong> <%= repo.description %>
                     </li>
                   <% end %>
@@ -69,14 +71,15 @@
           <div class="span2"></div>
           <div class="span8 no-box-holder">
             <div class="row-fluid">
-            <h3>Projects I am helping</h3>              
+            <h3>I am helping to:</h3>              
               <div class="span12 border-left">
-
                 <ul class="ul-clean">
                 <% @user_helping.each do |helped| %>
                     <li>
                       <%= button_tag "", class: get_css_status(current_user, helped.repo) %>
-                      <%= helped.repo.name %>
+                      <%= link_to helped.repo.name, helped.repo.github_url, :target => "_blank" %>
+                      - Author:
+                      <%= link_to helped.repo.user.name, "https://github.com/#{helped.repo.user.name}", :target => "_blank" %>
                       <br/> <strong>Description:</strong> <%= helped.repo.description %>
                     </li>
                 <% end %>

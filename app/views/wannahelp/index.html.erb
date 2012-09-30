@@ -12,7 +12,7 @@
                   <%= hidden_field_tag "github_id", repo[:github_id] %>
                   <%= submit_tag "", class: get_css_status(current_user, repo) %>
                   <%= link_to repo.name, "#{repo.github_url}" %>
-                  &nbsp; - &nbsp; <%= link_to "Author: #{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
+                  &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
 
                   <br/> <strong>Description:</strong> <%= repo.description %>
                 </li>

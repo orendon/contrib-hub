@@ -8,4 +8,7 @@ class Repo < ActiveRecord::Base
     helped_repo.nil? ? false : true
   end
 
+  def self.get_repos_form_others(user)
+    where("user_id <> ?", user.id).all
+  end
 end

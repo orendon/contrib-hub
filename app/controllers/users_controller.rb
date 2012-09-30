@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user_repos = add_status(@user_repos)
   end
 
-  def needhelp
-    
-  end
-
   private
     def get_info_for(user)
       github = Github.new oauth_token: user.token
@@ -35,6 +31,4 @@ class UsersController < ApplicationController
       return repo.need_help if repo
       false
     end
-
-
 end

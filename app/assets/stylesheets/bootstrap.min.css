@@ -869,3 +869,4 @@ i[class^="icon-"]{opacity:0.8;}
 .margin-top{margin-top: 15px;}
 .help-button {background:url('/assets/help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}
 .no-help-button {background:url('/assets/no-help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}
+.i-help-button{background:url('/assets/i-help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}

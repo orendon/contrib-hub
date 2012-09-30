@@ -10,7 +10,22 @@
 <%= link_to "Need Help", needhelp_path(1) %>
 
 
-<h2>Repos needing help :)</h2>
+<h2>Following to :)</h2>
 <% @user.followers.following.each do |f| %>
 <%= f[:login] %>
 <% end %>
+
+<h2>Need help :)</h2>
+
+
+<ul>
+<% @user_repos.each do |r| %>
+  <%= form_for(:repo) do |f| %>
+    <li>
+    	<%= f.check_box r[:name] %>
+    	<%= f.label r[:name] %>
+    	<%= f.submit "save", class: "btn" %>
+    </li>
+  <% end %>
+<% end %>
+</ul>

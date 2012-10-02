@@ -3,6 +3,19 @@ class Repo < ActiveRecord::Base
 
   belongs_to :user
 
+  class << self
+    def create_or_update(user, params)
+      repo = Repo.find_or_initialize_by_github_id(params[:id])
+      %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at).each do |attr|
+        repo.send("#{attr}=", params[attr.to_sym])
+      end
+      repo.github_id = params[:id]
+      repo.user_id = user.id
+      repo.need_help = !repo.need_help unless repo.new_record?
+      repo.save
+    end
+  end
+
   def is_being_helped_by(user)
     helped_repo = HelpedRepos.find_by_user_id_and_repo_id(user.id, self.id)
     helped_repo.nil? ? false : true
@@ -11,4 +24,5 @@ class Repo < ActiveRecord::Base
   def self.get_repos_form_others(user)
     where("user_id <> ?", user.id).all
   end
+
 end

@@ -1,4 +1,3 @@
-
 class WannahelpController < ApplicationController
   def index
     @repos = Repo.get_repos_form_others(current_user)

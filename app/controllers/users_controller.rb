@@ -1,5 +1,4 @@
 require "github_api"
-
 class UsersController < ApplicationController
 
   def show

@@ -4,21 +4,34 @@
     <div class="span8 no-box-holder">
       <div class="row-fluid">
         <div class="span12 border-left">
-          <h4>Projects needing help:</h4>
-          <ul class="ul-clean">
-            <%- @repos.each do |repo| %>
-              <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
-                <li>
-                  <%= hidden_field_tag "github_id", repo[:github_id] %>
-                  <%= submit_tag "", class: get_css_status(current_user, repo) %>
-                  <%= link_to repo.name, "#{repo.github_url}" %>
-                  &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
 
-                  <br/> <strong>Description:</strong> <%= repo.description %>
-                </li>
+          <div id="filters">
+            <%= form_for @repos_search, url: user_wannahelp_index_path(current_user), html: { method: :get } do |f| %>
+              <h4>Filters:</h4>
+              <%= f.label :language_eq, "Language:" %>
+              <%= f.select :language_eq, options_for_select(@languages) %>
+              <%= f.submit "Search", class: "btn btn-primary" %>
+            <%- end %>
+          </div>
+
+          <div id="repo-list">
+            <h4>Projects needing help:</h4>
+            <ul class="ul-clean">
+              <%- @repos_search.each do |repo| %>
+                <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
+                  <li>
+                    <%= hidden_field_tag "github_id", repo[:github_id] %>
+                    <%= submit_tag "", class: get_css_status(current_user, repo) %>
+                    <%= link_to repo.name, "#{repo.github_url}" %>
+                    &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
+
+                    <br/> <strong>Description:</strong> <%= repo.description %>
+                  </li>
+                <% end %>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>

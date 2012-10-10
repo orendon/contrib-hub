@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     def add_status(repos)
       repos.each do |repo|
         repo[:status] = get_status(repo[:id])
+        repo[:user_description] = get_description(repo[:id])
       end
       repos
     end
@@ -29,6 +30,12 @@ class UsersController < ApplicationController
     def get_status(github_id)
       repo = Repo.find_by_github_id(github_id)
       return repo.need_help if repo
+      false
+    end
+
+    def get_description(github_id)
+      repo = Repo.find_by_github_id(github_id)
+      return repo.user_description if repo
       false
     end
 end

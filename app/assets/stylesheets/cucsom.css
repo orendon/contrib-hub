@@ -1,0 +1,69 @@
+.nav-li{display:block;}
+#index-subtitle{margin-top: 50px;}
+#button-login-nav{margin-top: 20px;}
+.box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke;box-shadow: 1px 1px 0px black;}
+.no-box-holder{padding: 15px;border-top:1px whiteSmoke solid;}
+.inline{display:inline;}
+.ul-clean{list-style:none;}
+.ul-clean img{margin-right: 5px;}
+.ul-clean li{border-bottom:solid 1px whiteSmoke;margin-bottom: 5px;}
+.border-left{border-left:1px whiteSmoke solid;}
+.margin-top{margin-top: 15px;}
+
+
+ul.user-repos {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 120%;
+}
+ul.user-repos li {
+  border-bottom: 1px solid lightGrey;
+  padding: 7px 0 10px 0;
+}
+
+.no-box-holder{
+  padding: 15px;
+  border-top:1px lightGrey solid;
+}
+.border-left{
+  border-left: 1px solid lightGrey;
+}
+
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+.hidden {
+  display: none;
+}
+
+.help-button {
+  display: inline-block;
+  cursor:pointer;
+  width: 70px !important;
+  height: 20px;
+  border: none;
+  margin: 3px 5px 5px;
+}
+
+.expand-description {
+  margin-top: -20px;
+}
+
+.help-button.on {
+  background: url('/assets/on.png') no-repeat;
+}
+
+.help-button.off {
+  background: url('/assets/off.png') no-repeat;
+}
+
+.help-button.i-help{
+  background: url('/assets/i-help-button.png') no-repeat;
+}
+
+.repo-user-description textarea {
+  width: auto;
+}

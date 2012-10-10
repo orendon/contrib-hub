@@ -1,91 +1,67 @@
 <div class="row-fluid">
-      <div class="span2"></div>
-              <div class="span8 box-holder">
-              <div class="row-fluid">
-              <div class="span6 center-text">
-                <div>
-                <%= image_tag @user.get[:avatar_url], size:'200x200', class: "img-polaroid" %>
-              </div>
-              <div id="home-datos">
-                <h4><%= @user.get[:name]%></h4>
-                <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
-              </div>
-              </div>
-              <div class="span6">
-                <div id="home-botones">
+  <div class="span2"></div>
+    <div class="span9 box-holder">
+    <div class="row-fluid">
+      <div class="span6 center-text">
+        <div>
+        <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
+      </div>
+      <div id="home-datos">
+        <h4><%= @user.get[:name]%></h4>
+        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
+      </div>
+    </div>
+    <div class="span6">
+      <div id="home-botones">
 
-                <p><%= link_to "I wanna help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large btn-home" %></p>
-                <p><a class="btn btn-primary btn-large btn-home">I need help</a></p>    
-              </div>
-              </div>
-            </div>
-          </div>
-              
-          <div class="span2"></div>
-        </div>
+      <p><%= link_to "I wanna help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large btn-home action" %></p>
+      <p><a class="btn btn-primary btn-large btn-home action">I need help</a></p>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="span2"></div>
+</div>
 
 
-        <div class="row-fluid">
-          <div class="span2"></div>
-          <div class="span8 no-box-holder">
-            <div class="row-fluid">
-            <h3>Your Repos, Need Help?</h3>              
-              <div class="span12 border-left">
+<div class="row-fluid">
+  <div class="span2"></div>
+  <div class="span8 no-box-holder">
+    <div class="row-fluid">
+    <h3>Your Repos, Need Help?</h3>
+      <div class="span12 border-left">
 
-                <ul class="ul-clean">
-                <% @user_repos.each do |repo| %>
-                  <%= form_tag(user_needhelp_index_path(current_user), method: :post) do %>
-                    <li>
-                        <%= hidden_field_tag "name", repo[:name] %>
-                        <%= hidden_field_tag "id", repo[:id] %>
-                        <%= hidden_field_tag "github_url", repo[:html_url] %>
-                        <%= hidden_field_tag "full_name", repo[:full_name] %>
-                        <%= hidden_field_tag "description", repo[:description] %>
-                        <%= hidden_field_tag "language", repo[:language] %>
-                        <%= hidden_field_tag "forks", repo[:forks] %>
-                        <%= hidden_field_tag "watchers", repo[:watchers] %>
-                        <%= hidden_field_tag "open_issues", repo[:open_issues] %>
-                        <%= hidden_field_tag "pushed_at", repo[:pushed_at] %>
-                        <% if repo[:status] %>
-                          <%= submit_tag "", class: "help-button" %>
-                        <% else %>
-                          <%= submit_tag "", class: "no-help-button" %>
-                        <% end %>
-                        <%= link_to repo[:name], repo[:html_url], :target => "_blank" %>
-                        - Author:
-                        <%= link_to repo[:owner][:login], "https://github.com/#{repo[:owner][:login]}", :target => "_blank" %>
-                        <br/> <strong>Description:</strong> <%= repo.description %>
-                    </li>
-                  <% end %>
-                <% end %>
-                </ul>
-              </div>
-            </div>            
-          </div>
-          <div class="span2"></div>
-        </div>
+        <ul class="ul-clean user-repos">
+          <%= render :partial => 'users/repo', collection: @user_repos %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="span2"></div>
+</div>
 
 
 
-        <div class="row-fluid">
-          <div class="span2"></div>
-          <div class="span8 no-box-holder">
-            <div class="row-fluid">
-            <h3>I am helping to:</h3>              
-              <div class="span12 border-left">
-                <ul class="ul-clean">
-                <% @user_helping.each do |helped| %>
-                    <li>
-                      <%= button_tag "", class: get_css_status(current_user, helped.repo) %>
-                      <%= link_to helped.repo.name, helped.repo.github_url, :target => "_blank" %>
-                      - Author:
-                      <%= link_to helped.repo.user.name, "https://github.com/#{helped.repo.user.name}", :target => "_blank" %>
-                      <br/> <strong>Description:</strong> <%= helped.repo.description %>
-                    </li>
-                <% end %>
-                </ul>
-              </div>
-            </div>            
-          </div>
-          <div class="span2"></div>
-        </div>
+<div class="row-fluid">
+  <div class="span2"></div>
+  <div class="span8 no-box-holder">
+    <div class="row-fluid">
+    <h3>I am helping to:</h3>
+      <div class="span12 border-left">
+        <ul class="ul-clean">
+        <% @user_helping.each do |helped| %>
+            <li>
+              <%= button_tag "", class: get_css_status(current_user, helped.repo) %>
+              <%= link_to helped.repo.name, helped.repo.github_url, :target => "_blank" %>
+              - Author:
+              <%= link_to helped.repo.user.name, "https://github.com/#{helped.repo.user.name}", :target => "_blank" %>
+              <br/> <strong>Description:</strong> <%= helped.repo.description %>
+            </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="span2"></div>
+</div>

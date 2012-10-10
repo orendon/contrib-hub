@@ -1,9 +1,43 @@
 class Repo < ActiveRecord::Base
-  attr_accessible :github_url, :name, :need_help, :user_id
+  attr_accessible :github_url, :name, :need_help, :user_id, :user_description
 
   belongs_to :user
 
   class << self
+
+    def init_and_toggle_repo(user, name)
+      repo = init_repo(user,name, true)
+      repo
+    end
+
+    def init_and_description(user, name, description)
+      repo = init_repo(user,name)
+      repo.user_description = description
+      repo.save
+      repo
+    end
+
+    def init_repo(user, name, toggle=false)
+      repo = self.find_or_initialize_by_name(name)
+      if repo.new_record?
+        repos = Github::Repos.new
+        reps = repos.all user: user.github_id
+        r = reps.find{|x| x.name == name}
+        Rails.logger.info r.inspect
+        if r
+          %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at).each do |attr|
+            repo.send("#{attr}=", r.send(attr.to_sym))
+          end
+          repo.github_id = r.id
+        end
+        repo.need_help = true
+      else
+        repo.need_help = !repo.need_help if toggle
+      end
+      repo.save if repo.name
+      repo
+    end
+
     def create_or_update(user, params)
       repo = Repo.find_or_initialize_by_github_id(params[:id])
       %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at).each do |attr|

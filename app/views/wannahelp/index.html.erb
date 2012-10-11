@@ -10,7 +10,11 @@
               <h4>Filters:</h4>
               <%= f.label :language_eq, "Language:" %>
               <%= f.select :language_eq, options_for_select(@languages) %>
+              <%= f.label :user_location_like, "Location:" %>
+              <%= f.text_field :user_location_like %>
+              <br/>
               <%= f.submit "Search", class: "btn btn-primary" %>
+              <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
             <%- end %>
           </div>
 

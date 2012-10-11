@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
-  attr_accessible :github_id, :name, :token
+  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude
 
+  # relations
   has_many :repos
   has_many :helped_repos
+
+  # geolocation
+  geocoded_by :location
+  after_validation :geocode, :if => :location_changed?
 
   def update_repo_status(repo)
     if repo.is_being_helped_by(self)
@@ -16,14 +21,16 @@ class User < ActiveRecord::Base
     login = auth_data["info"]["nickname"]
     token = auth_data["credentials"]["token"]
     name = auth_data["info"]["name"]
+    location = auth_data["extra"]["raw_info"]["location"]
 
     user = find_by_github_id(login)
 
     if user
       user.token = token
+      user.location = location
       user.save!
     else
-      user = User.create!(github_id: login, name: name, token: token)
+      user = User.create!(github_id: login, name: name, token: token, location: location)
     end
     user
   end

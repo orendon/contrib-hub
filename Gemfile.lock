@@ -42,6 +42,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    geocoder (1.1.4)
     github_api (0.7.0)
       faraday (~> 0.8.1)
       hashie (~> 1.2.0)
@@ -141,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  geocoder
   github_api
   jquery-rails
   meta_search

@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Test stuff
+/coverage
+/spec/rspec_report.html

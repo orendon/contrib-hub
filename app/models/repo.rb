@@ -15,10 +15,6 @@ class Repo < ActiveRecord::Base
       repo.save
     end
 
-    def get_repos_form_others(user)
-      where("user_id <> ?", user.id).all
-    end
-
     def get_languages
       languages_list = select(:language).uniq
       languages_list.collect(&:language)

@@ -48,15 +48,16 @@ class Repo < ActiveRecord::Base
       repo.need_help = !repo.need_help unless repo.new_record?
       repo.save
     end
+
+    def get_languages
+      languages_list = select(:language).uniq
+      languages_list.collect(&:language)
+    end
   end
 
   def is_being_helped_by(user)
     helped_repo = HelpedRepos.find_by_user_id_and_repo_id(user.id, self.id)
     helped_repo.nil? ? false : true
-  end
-
-  def self.get_repos_form_others(user)
-    where("user_id <> ?", user.id).all
   end
 
 end

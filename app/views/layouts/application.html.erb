@@ -9,12 +9,8 @@
     <meta name="author" content="">
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <%= javascript_include_tag "bootstrap" %>
-    <%= javascript_include_tag "application" %>
-
     <%= csrf_meta_tags %>
+
     <style type="text/css">
       body {
         padding-top: 115px;
@@ -43,12 +39,12 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
           <a class="brand" href="<%= user_url(current_user) %>"><img src="/assets/logo-contribhub-small.png" alt="logo-contribhub-small"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><%= link_to "I Need Help", user_path(current_user) %></li>
+              <li><%= link_to "My Profile", user_path(current_user) %></li>
               <li><%= link_to "I Wanna Help", user_wannahelp_index_path(current_user) %></li>
             </ul>
             <ul class="pull-right">
               <li class="nav-li">
-                <%= link_to "Sign Out [#{current_user.name}]", signout_path, class: "btn btn-primary btn-auth btn-large btn-github", id: "button-login-nav" if current_user %>
+                <%= link_to "Sign Out [#{current_user.name}]", signout_path, class: "btn btn-auth btn-large btn-github", id: "button-login-nav" if current_user %>
                 </li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -58,17 +54,17 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
 
     <div class="container">
 
-
-
       <%= yield %>
 
-
       <footer>
-        <p>ContribHub was developed in PulsoConf's Hackaton </p>
+        <hr/>
+        <p><em>ContribHub was developed in Sep.30.2012 at <a href="http://pulsoconf.co">PulsoConf</a> Hackathon, <br/>and now is growing thanks to people that loves to help.</em></p>
       </footer>
 
     </div> <!-- /container -->
 
+    <%= javascript_include_tag "bootstrap" %>
+    <%= javascript_include_tag "application" %>
 
   </body>
 </html>

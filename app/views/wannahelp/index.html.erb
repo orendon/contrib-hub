@@ -1,10 +1,9 @@
   <div class="row-fluid">
     <div class="span2"></div>
-    <h1>Wanna Help?</h1>
+    <h3>Wanna Help?</h3>
     <div class="span8 no-box-holder">
       <div class="row-fluid">
         <div class="span12 border-left">
-
           <div id="filters">
             <%= form_for @repos_search, url: user_wannahelp_index_path(current_user), html: { method: :get } do |f| %>
               <h4>Filters:</h4>
@@ -18,18 +17,20 @@
             <%- end %>
           </div>
 
+          <br/>
           <div id="repo-list">
             <h4>Projects needing help:</h4>
-            <ul class="ul-clean">
+            <ul class="ul-clean user-repos">
               <%- @repos_search.each do |repo| %>
                 <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
                   <li>
+                    <%= image_tag "repo-icon.png", :size => "25x25" %>
                     <%= hidden_field_tag "github_id", repo[:github_id] %>
-                    <%= submit_tag "", class: get_css_status(current_user, repo) %>
                     <%= link_to repo.name, "#{repo.github_url}" %>
                     &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
-
-                    <br/> <strong>Description:</strong> <%= repo.description %>
+                    <br/>
+                    <%= submit_tag "Help!", class: "btn btn-success" %>
+                    <em><%= repo.description %></em>
                   </li>
                 <% end %>
               <% end %>

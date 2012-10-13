@@ -8,8 +8,8 @@
     <meta name="author" content="">
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
     <%= csrf_meta_tags %>
+
     <style type="text/css">
       body {
         padding-top: 30px;
@@ -34,7 +34,7 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
         <p class="center-text"><img src="assets/logo-contribhub.png"></p>
         <h2 id="index-subtitle" class="center-text">We Love Open Source</h2>
         <p class="center-text">The place to get help and help others with their coding needs</p>
-        <p class="center-text"><a class="btn btn-primary btn-auth btn-large btn-github large" href="/auth/github">Sign in with <strong>GitHub</strong></a></p>
+        <p class="center-text"><a class="btn btn-auth btn-large btn-github large" href="/auth/github">Sign in with <strong>GitHub</strong></a></p>
       </div>
           </div>
           <div class="span2"></div>
@@ -56,10 +56,13 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
       </div>
 
       <footer>
+        <hr/>
+        <p><em>ContribHub was developed in Sep.30.2012 at <a href="http://pulsoconf.co">PulsoConf</a> Hackathon, <br/>and now is growing thanks to people that loves to help.</em></p>
       </footer>
 
     </div> <!-- /container -->
 
+    <%= javascript_include_tag "google-analytics" %>
 
   </body>
 </html>

@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessible :github_id, :name, :token
 
+  # relations
   has_many :repos
   has_many :helped_repos
+
+  # validations
+  validates :github_id, :name, :token, :presence => true
+  validates :github_id, :uniqueness => true
 
   def update_repo_status(repo)
     if repo.is_being_helped_by(self)

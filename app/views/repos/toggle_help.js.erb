@@ -1,0 +1,10 @@
+console.log("toggled <%= @repo_name %>!");
+  var el = $(".help-button[data-repo='<%= @repo_name %>']");
+<% if @repo.need_help %>
+  el.removeClass('off')
+  el.addClass('on')
+<% else %>
+  el.removeClass('on')
+  el.addClass('off')
+<% end %>
+

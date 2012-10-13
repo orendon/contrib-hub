@@ -151,7 +151,6 @@ code{padding:2px 4px;color:#d14;background-color:#f7f7f9;border:1px solid #e1e1e
 pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:20px;word-break:break-all;word-wrap:break-word;white-space:pre;white-space:pre-wrap;background-color:#f5f5f5;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}pre.prettyprint{margin-bottom:20px;}
 pre code{padding:0;color:inherit;background-color:transparent;border:0;}
 .pre-scrollable{max-height:340px;overflow-y:scroll;}
-form{margin:0 0 20px;}
 fieldset{padding:0;margin:0;border:0;}
 legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color:#333333;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15px;color:#999999;}
 label,input,button,select,textarea{font-size:14px;font-weight:normal;line-height:20px;}
@@ -855,18 +854,3 @@ i[class^="icon-"]{opacity:0.8;}
 .affix{position:fixed;}
 .center-text{text-align:center;}
 .btn-home{width:280px;font-size: 30px;margin-top: 25px;}
-#home-botones{margin-top:40px;}
-.nav-li{display:block;}
-#index-subtitle{margin-top: 50px;}
-#button-login-nav{margin-top: 20px;}
-.box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke;box-shadow: 1px 1px 0px black;}
-.no-box-holder{padding: 15px;border-top:1px whiteSmoke solid;}
-.inline{display:inline;}
-.ul-clean{list-style:none;}
-.ul-clean img{margin-right: 5px;}
-.ul-clean li{border-bottom:solid 1px whiteSmoke;margin-bottom: 5px;}
-.border-left{border-left:1px whiteSmoke solid;}
-.margin-top{margin-top: 15px;}
-.help-button {background:url('/assets/help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}
-.no-help-button {background:url('/assets/no-help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}
-.i-help-button{background:url('/assets/i-help-button.png') no-repeat;cursor:pointer;width: 16px !important;height: 16px;border: none;margin-right: 5px;}

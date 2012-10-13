@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode, :if => :location_changed?
 
+  # validations
+  validates :github_id, :name, :token, :presence => true
+  validates :github_id, :uniqueness => true
+
   def update_repo_status(repo)
     if repo.is_being_helped_by(self)
       HelpedRepos.find_by_user_id_and_repo_id(self.id, repo.id).destroy

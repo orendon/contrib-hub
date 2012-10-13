@@ -1,1 +1,1 @@
-rvm use --create ruby-1.9.3-p194@contrib-hub
+rvm use --create 1.9.3@contrib-hub

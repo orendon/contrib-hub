@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20121010222414) do
     t.string   "name"
     t.string   "github_url"
     t.boolean  "need_help"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "github_id"
     t.string   "full_name"
     t.text     "description"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20121010222414) do
     t.integer  "watchers"
     t.integer  "open_issues"
     t.datetime "pushed_at"
+    t.text     "user_description"
   end
 
   create_table "users", :force => true do |t|

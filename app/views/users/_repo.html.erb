@@ -4,16 +4,16 @@
   <p class='right'>
     <span><%= image_tag 'github-admin.png', class: 'expand-description' %></span>
     <% if repo[:status] %>
-      <%= link_to "", "#", class: "help-button on", :"data-repo" => repo[:name] %>
+      <%= link_to "", "#", class: "help-button on", :"data-repo" => repo[:full_name] %>
     <% else %>
-      <%= link_to "", "#", class: "help-button off", :"data-repo" => repo[:name] %>
+      <%= link_to "", "#", class: "help-button off", :"data-repo" => repo[:full_name] %>
     <% end %>
   </p>
   <div class='repo-user-description'>
     <h4>Describe what help do you need</h4>
     <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true do |f| %>
-      <%= text_area_tag :user_description, '', size: '85x10' %>
-      <%= submit_tag "Save" %>
+      <%= text_area_tag :user_description, "", size: '85x5' %>
+      <%= submit_tag "Save", class: "btn btn-primary" %>
     <% end %>
   </div>
 </li>

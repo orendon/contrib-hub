@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 1.9.2
+  - 1.9.3
+before_install:
+  - gem update --system
+  - gem --version
+env:
+  - RAILS=3.2.8
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/

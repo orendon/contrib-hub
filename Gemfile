@@ -7,9 +7,16 @@ gem 'rails', '3.2.8'
 
 gem 'jquery-rails'
 
+# authentication
 gem "github_api"
 gem 'omniauth'
 gem 'omniauth-github'
+
+# searches
+gem 'meta_search'
+
+# geolocation
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.

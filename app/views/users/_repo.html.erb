@@ -12,7 +12,7 @@
   <div class='repo-user-description'>
     <h4>Describe what help do you need</h4>
     <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true do |f| %>
-      <%= text_area_tag :user_description, "", size: '85x5' %>
+      <%= text_area_tag :user_description, "", size: '60x5' %>
       <%= submit_tag "Save", class: "btn btn-primary" %>
     <% end %>
   </div>

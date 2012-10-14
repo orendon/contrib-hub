@@ -1,9 +1,32 @@
 <div class="row-fluid">
   <div class="span3 box-holder">
     <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
-    <div id="center-text">
+      <div id="center-text">
         <h4><%= @user.get[:name]%></h4>
-        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
+        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p> 
+
+        <ul class="unstyled stats">
+          <li>
+            <strong><%= @user.get[:public_repos] %></strong>
+            <span>Repos</span>
+          </li>
+          <li>
+            <strong><%= @user.get[:followers] %></strong>
+            <span>Followers</span>
+          </li>
+          <li>
+            <strong><%= @user.get[:following] %></strong>
+            <span>Following</span>
+          </li>
+          <li>
+            <strong><%= @user_need_help.count %></strong>
+            <span>Help</span>
+          </li>
+          <li>
+            <strong><%= @user_helping.count %></strong>
+            <span>Helping</span>
+          </li>
+        </ul>
 
         <p><%= link_to "I wanna help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large action" %></p>
       </div>

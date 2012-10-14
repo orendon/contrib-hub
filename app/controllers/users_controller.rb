@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user_repos = get_repos_list(current_user)
     @user_repos = add_status(@user_repos)
     @user_helping = HelpedRepos.find_all_by_user_id(current_user.id)
+    @user_need_help = Repo.find_all_by_user_id_and_need_help(current_user.id, true)
   end
 
   private

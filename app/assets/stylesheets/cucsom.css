@@ -67,3 +67,30 @@ ul.user-repos li {
 .repo-user-description textarea {
   width: auto;
 }
+
+ul.stats{
+    border-bottom: 1px solid #DDDDDD;
+    margin: 0 0 17px;
+    padding: 6px 0 15px;
+}
+
+ul.stats li {
+    display: inline-block;
+    list-style-type: none;
+    min-width: 60px;
+}
+
+ul.stats li span {
+    color: #999999;
+    display: block;
+    font-size: 11px;
+    margin-top: -2px;
+}
+
+ul.stats li strong {
+    color: #222222;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}

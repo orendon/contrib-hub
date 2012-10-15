@@ -61,4 +61,8 @@ class Repo < ActiveRecord::Base
     helped_repo.nil? ? false : true
   end
 
+  def self.get_needing_help_counter_for(current_user)
+    where("need_help = ? and user_id= ?", true, current_user)
+  end
+
 end

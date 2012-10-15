@@ -1,51 +1,50 @@
 <div class="row-fluid">
-  <div class="span2"></div>
-    <div class="span9 box-holder">
-    <div class="row-fluid">
-      <div class="span6 center-text">
-        <div>
-        <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
-      </div>
-      <div id="home-datos">
+  <div class="span3 box-holder">
+    <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
+      <div id="center-text">
         <h4><%= @user.get[:name]%></h4>
-        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
-      </div>
-    </div>
-    <div class="span6">
-      <div id="home-botones">
+        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p> 
 
-      <p><%= link_to "I wanna help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large btn-home action" %></p>
-      <p><a class="btn btn-primary btn-large btn-home action">I need help</a></p>
-    </div>
-    </div>
-    </div>
-  </div>
-
-  <div class="span2"></div>
-</div>
-
-<div class="row-fluid">
-  <div class="span2"></div>
-  <div class="span8 no-box-holder">
-    <div class="row-fluid">
-    <h3>Your Repos, Need Help?</h3>
-      <div class="span12 border-left">
-
-        <ul class="ul-clean user-repos">
-          <%= render :partial => 'users/repo', collection: @user_repos %>
+        <ul class="unstyled stats">
+          <li>
+            <strong><%= @user.get[:public_repos] %></strong>
+            <span>Repos</span>
+          </li>
+          <li>
+            <strong><%= @user.get[:followers] %></strong>
+            <span>Followers</span>
+          </li>
+          <li>
+            <strong><%= @user.get[:following] %></strong>
+            <span>Following</span>
+          </li>
+          <li>
+            <strong id="need-help"><%= @user_need_help %></strong>
+            <span>Help</span>
+          </li>
+          <li>
+            <strong><%= @user_helping.count %></strong>
+            <span>Helping</span>
+          </li>
         </ul>
+
+        <p><%= link_to "I wanna help", user_wannahelp_index_path(current_user), class: "btn btn-primary btn-large action" %></p>
       </div>
-    </div>
   </div>
+  <div class="span9">
+    <h3>Your Repos, Need Help?</h3>
+    <div class="span9 border-left">
 
-</div>
+      <ul class="ul-clean user-repos">
+        <%= render :partial => 'users/repo', collection: @user_repos %>
+      </ul>
 
-<div class="row-fluid">
-  <!-- align-center <div class="span2"></div> -->
-  <div class="span8 no-box-holder">
+    </div>
+
+    <div class="span9">
     <div class="row-fluid">
     <h3>I am helping to:</h3>
-      <div class="span12 border-left">
+      <div class="span9 border-left">
         <ul class="ul-clean">
         <% @user_helping.each do |helped| %>
             <li>
@@ -57,8 +56,11 @@
             </li>
         <% end %>
         </ul>
-      </div>
+    </div>
+
     </div>
   </div>
-  <div class="span2"></div>
 </div>
+
+
+<div class="row-fluid"></div>

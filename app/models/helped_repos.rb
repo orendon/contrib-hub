@@ -3,4 +3,6 @@ class HelpedRepos < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :repo
+
+  validates :really_helping, :repo, :user, :presence => true
 end

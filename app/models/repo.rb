@@ -3,6 +3,8 @@ class Repo < ActiveRecord::Base
 
   belongs_to :user
 
+  validates :github_url, :name, :user, :presence => true
+
   class << self
 
     def init_and_toggle_repo(user, name)
@@ -29,6 +31,7 @@ class Repo < ActiveRecord::Base
             repo.send("#{attr}=", r.send(attr.to_sym))
           end
           repo.github_id = r.id
+          repo.github_url = r.html_url
           repo.user_id = user.id
         end
         repo.need_help = true

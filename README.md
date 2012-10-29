@@ -1,6 +1,10 @@
 contrib-hub
 ===========
 
-The contributors are already heroes! What could be better that keep working in this creeping world as a team? Let's make a league of developers justice!
+Open source lovers, making easier to find cool projects to hack on! Wanna help?
 
-I love open source as you, wanna help?
+* Ask for help
+* Find cool repos
+* Collaborate
+
+http://contribhub.co

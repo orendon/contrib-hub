@@ -175,7 +175,9 @@ span.tagit-label {
   
   -webkit-border-radius: 10px 0px 0px 10px;
   border-radius: 10px 0px 0px 10px;
-    
+
+  -webkit-box-shadow: 1px 1px 5px 1px #808080;
+  box-shadow: 1px 1px 5px 1px #808080;
 }
 
 .current-tags > .tag:hover {

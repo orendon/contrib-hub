@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # authentication
 gem "github_api"
@@ -44,6 +45,8 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'acts-as-taggable-on'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

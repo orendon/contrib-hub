@@ -1,4 +1,4 @@
-# Contrib Hub
+# Contrib Hub [![Build Status](https://secure.travis-ci.org/orendon/contrib-hub.png?branch=master)](https://travis-ci.org/orendon/contrib-hub)
 
 Open source lovers, making easier to find cool projects to hack on! Wanna help?
 

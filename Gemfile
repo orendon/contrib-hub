@@ -39,6 +39,7 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.1.0"
   gem 'simplecov', :require => false
   gem "faker", "~> 1.1.2"
+  gem "database_cleaner", "~> 0.7.2"
 end
 
 group :production do

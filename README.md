@@ -1,4 +1,4 @@
-# Contrib Hub [![Build Status](https://secure.travis-ci.org/orendon/contrib-hub.png?branch=master)](https://travis-ci.org/orendon/contrib-hub)
+# ContribHub [![Build Status](https://secure.travis-ci.org/orendon/contrib-hub.png?branch=master)](https://travis-ci.org/orendon/contrib-hub)
 
 Open source lovers, making easier to find cool projects to hack on! Wanna help?
 
@@ -9,8 +9,8 @@ http://contribhub.co
 
 There is still a lot of work to do, but these are the core features:
 * Submit your repo as "Help Wanted"
-* Search repos by your personal interests and usefull filters
-* Find projects asking for help or people near you doing stuff
+* Search repos by your personal interests and useful filters
+* Find projects needing help or people "near you" doing cool stuff
 * Contribute, collaborate.
 
 # Contributing

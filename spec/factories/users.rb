@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:github_id) {|n| "#{n}"}
+    sequence(:github_id) {|n| n }
     name "John Doe"
     sequence(:token) {|n| "123456#{n}"}
     location "City"

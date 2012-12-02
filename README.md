@@ -7,13 +7,14 @@ http://contribhub.co
 # About
 [ContribHub](http://contribhub.co) was born on 2012 at PulsoConf/BogotaConf hackathon after 14 hours of sleep-deprived programming, with the goal of creating a good tool to help other open source lovers to find projects to contribute.
 
+There is still a lot of work to do, but these are the core features:
 * Submit your repo as "Help Wanted"
 * Search repos by your personal interests and usefull filters
 * Find projects asking for help or people near you doing stuff
-* Collaborate
+* Contribute, collaborate.
 
 # Contributing
-Report issues/feature/requests on [GitHub Issues](http://github.com/orendon/contrib-hub/issues).
+Report issues/features/requests on [GitHub Issues](http://github.com/orendon/contrib-hub/issues).
 
 * Fork the project.
 * Make your feature addition or bug fix.

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user_repos = add_status(@user_repos)
     @user_helping = HelpedRepos.find_all_by_user_id(current_user.id)
     @user_need_help = @user_repos.count { |r| r.status? }
+    gon.tags = Repo.fetch_all_tag_names
   end
 
   private

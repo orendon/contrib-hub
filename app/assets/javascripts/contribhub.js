@@ -16,6 +16,8 @@ $(function() {
     e.preventDefault();
   });
 
-  $(".repo-tags").tagit();
+  $(".repo-tags").tagit({
+    availableTags: gon.tags
+  });
 
 })

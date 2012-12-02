@@ -183,3 +183,21 @@ span.tagit-label {
 .current-tags > .tag:hover {
   background: #4a7fbf;
 }
+
+#filters form > ul.tagit {
+  width: 175px;
+}
+
+#filters form > ul.tagit li > input {
+  font-size: 73%;
+}
+
+ul.ui-autocomplete {
+  max-width: 250px;
+  list-style-type: none;
+}
+
+ul.ui-autocomplete > li > a {
+  padding-left: 4px;
+  padding-right: 4px
+}

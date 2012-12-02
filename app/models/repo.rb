@@ -66,6 +66,11 @@ class Repo < ActiveRecord::Base
       tag_list = repo.nil? ? [] : repo.tag_list
     end
 
+    def fetch_all_tag_names
+      tags = ActiveRecord::Base.connection.execute("SELECT name FROM tags")
+      tags.map { |tag| tag["name"] }
+    end
+
   end
 
   def is_being_helped_by(user)

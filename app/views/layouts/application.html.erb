@@ -42,7 +42,7 @@ mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
               <li><%= link_to "My Profile", user_path(current_user) %></li>
               <li><%= link_to "I Wanna Help", user_wannahelp_index_path(current_user) %></li>
             </ul>
-            <ul class="pull-right">
+            <ul class="pull-right signout">
               <li class="nav-li">
                 <%= link_to "Sign Out [#{current_user.name}]", signout_path, class: "btn btn-auth btn-large btn-github", id: "button-login-nav" if current_user %>
                 </li>

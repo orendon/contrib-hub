@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.position
+//= require jquery.ui.autocomplete
+//= require jquery.effects.core
+//= require jquery.effects.blind
+//= require jquery.effects.highlight
+//= require tag-it.min
 //= require_tree .
 
 /*

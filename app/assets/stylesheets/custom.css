@@ -1,0 +1,203 @@
+.nav-li{display:block;}
+#index-subtitle{margin-top: 50px;}
+#button-login-nav{margin-top: 20px;}
+.box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke;box-shadow: 1px 1px 0px black;}
+.no-box-holder{padding: 15px;border-top:1px whiteSmoke solid;}
+.inline{display:inline;}
+.ul-clean{list-style:none;}
+.ul-clean img{margin-right: 5px;}
+.ul-clean li{border-bottom:solid 1px whiteSmoke;margin-bottom: 5px;}
+.border-left{border-left:1px whiteSmoke solid;}
+.margin-top{margin-top: 15px;}
+
+
+ul.user-repos {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 120%;
+}
+
+ul.user-repos li {
+  border-bottom: 1px solid lightGrey;
+  padding: 7px 0 10px 0;
+}
+
+.no-box-holder{
+  padding: 15px;
+  border-top:1px lightGrey solid;
+}
+.border-left{
+  border-left: 1px solid lightGrey;
+}
+
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+.hidden {
+  display: none;
+}
+
+.help-button {
+  display: inline-block;
+  cursor:pointer;
+  width: 70px !important;
+  height: 20px;
+  border: none;
+  margin: 3px 5px 5px;
+}
+
+.expand-description {
+  margin-top: -20px;
+  cursor: pointer;
+}
+
+.help-button.on {
+  background: url('/assets/on.png') no-repeat;
+}
+
+.help-button.off {
+  background: url('/assets/off.png') no-repeat;
+}
+
+.help-button.i-help{
+  background: url('/assets/i-help-button.png') no-repeat;
+}
+
+.repo-user-description textarea {
+  width: auto;
+}
+
+ul.stats{
+  border-bottom: 1px solid #DDDDDD;
+  margin: 0 0 17px;
+  padding: 6px 0 15px;
+}
+
+ul.stats li {
+  display: inline-block;
+  list-style-type: none;
+  min-width: 60px;
+}
+
+ul.stats li span {
+  color: #999999;
+  display: block;
+  font-size: 11px;
+  margin-top: -2px;
+}
+
+ul.stats li strong {
+  color: #222222;
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  }
+
+.smaller-link {
+  font-size: 70%;
+}
+
+.current-tags {
+  margin-top: 4px;
+}
+
+.tagging {
+  margin: 3px;
+  margin-top: 5px;
+  display: none;
+}
+
+.tagging .tag-field, .tagging .add-tag-button {
+  float: left;  
+}
+
+.add-tag-button {
+  margin-left: 4px;
+}
+
+.repo-entry {
+  overflow: hidden;
+}
+
+ul.tagit input[type="text"] {
+  position: relative;
+  top: -8px;
+  outline: none;
+  border:none !important;
+  box-shadow:none !important;
+  font-size: 60%;
+  line-height: 14px;
+  height: 17px;
+}
+
+ul.repo-tags {
+  width: 345px;
+  height: 35px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+ul.tagit > li {
+  border-bottom: none;
+  height: 8px;
+}
+
+li.tagit-choice {
+  position: relative;
+  top: 0px;
+  height: 9px;
+  overflow: hidden;
+}
+
+span.tagit-label {
+  position: relative;
+  font-size: 65%;
+  top: -9px;
+}
+
+.tagging > form .btn {
+  margin-top: 5px;
+}
+
+.current-tags > .tag {
+  margin-right: 2px;
+  background: #3d70ae;
+  color: #fff;
+  font-size: 73%;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 12px;
+  text-decoration: none;
+  
+  -webkit-border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+
+  -webkit-box-shadow: 1px 1px 5px 1px #808080;
+  box-shadow: 1px 1px 5px 1px #808080;
+}
+
+.current-tags > .tag:hover {
+  background: #4a7fbf;
+}
+
+#filters form > ul.tagit {
+  width: 175px;
+}
+
+#filters form > ul.tagit li > input {
+  font-size: 73%;
+}
+
+ul.ui-autocomplete {
+  max-width: 250px;
+  list-style-type: none;
+}
+
+ul.ui-autocomplete > li > a {
+  padding-left: 4px;
+  padding-right: 4px
+}

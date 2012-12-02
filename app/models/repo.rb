@@ -1,19 +1,19 @@
 class Repo < ActiveRecord::Base
-  attr_accessible :github_url, :name, :need_help, :user_id, :user_description
-
+  attr_accessible :github_url, :name, :need_help,
+    :user_id, :user_description, :tag_list
   belongs_to :user
-
   validates :github_url, :name, :user, :presence => true
+  acts_as_taggable
 
   class << self
 
     def init_and_toggle_repo(user, name)
-      repo = init_repo(user,name, true)
+      repo = init_repo(user, name, true)
       repo
     end
 
     def init_and_description(user, name, description)
-      repo = init_repo(user,name)
+      repo = init_repo(user, name)
       repo.user_description = description
       repo.save
       repo
@@ -21,13 +21,15 @@ class Repo < ActiveRecord::Base
 
     def init_repo(user, name, toggle=false)
       repo = self.find_or_initialize_by_full_name(name)
+      
       if repo.new_record?
         repos = Github::Repos.new
         reps = repos.all user: user.github_id
-        r = reps.find{|x| x.full_name == name}
+        r = reps.find { |x| x.full_name == name }
         Rails.logger.info r.inspect
         if r
-          %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at).each do |attr|
+          %w(name github_url need_help created_at updated_at full_name description 
+            language forks watchers open_issues pushed_at).each do |attr|
             repo.send("#{attr}=", r.send(attr.to_sym))
           end
           repo.github_id = r.id
@@ -44,7 +46,8 @@ class Repo < ActiveRecord::Base
 
     def create_or_update(user, params)
       repo = Repo.find_or_initialize_by_github_id(params[:id])
-      %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at).each do |attr|
+      %w(name github_url need_help created_at updated_at full_name description language
+        forks watchers open_issues pushed_at).each do |attr|
         repo.send("#{attr}=", params[attr.to_sym])
       end
       repo.github_id = params[:id]
@@ -57,6 +60,17 @@ class Repo < ActiveRecord::Base
       languages_list = select(:language).uniq
       languages_list.collect(&:language)
     end
+
+    def current_tags_for(repo_full_name, user_id)
+      repo = Repo.find_by_full_name_and_user_id(repo_full_name, user_id)
+      tag_list = repo.nil? ? [] : repo.tag_list
+    end
+
+    def fetch_all_tag_names
+      tags = ActiveRecord::Base.connection.execute("SELECT name FROM tags")
+      tags.map { |tag| tag["name"] }
+    end
+
   end
 
   def is_being_helped_by(user)

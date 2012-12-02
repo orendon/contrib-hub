@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # authentication
 gem "github_api"
@@ -13,7 +14,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 # searches
-gem 'meta_search'
+gem 'ransack'
 
 # geolocation
 gem 'geocoder'
@@ -45,6 +46,12 @@ end
 group :production do
   gem 'pg'
 end
+
+#tagging
+gem 'acts-as-taggable-on'
+
+#preloading tags
+gem 'gon'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

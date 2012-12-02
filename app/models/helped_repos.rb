@@ -4,5 +4,6 @@ class HelpedRepos < ActiveRecord::Base
   belongs_to :user
   belongs_to :repo
 
-  validates :really_helping, :repo, :user, :presence => true
+  validates :repo, :user, :presence => true
+  validates :really_helping, :inclusion => { in: [true, false] }
 end

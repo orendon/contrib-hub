@@ -55,7 +55,7 @@ class Repo < ActiveRecord::Base
 
     def get_languages
       languages_list = select(:language).uniq
-      languages_list.collect(&:language)
+      languages_list.collect(&:language).reject! { |l| l.nil? || l.empty? }
     end
   end
 

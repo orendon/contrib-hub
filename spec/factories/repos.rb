@@ -6,5 +6,6 @@ FactoryGirl.define do
     name { Faker::Name.first_name }
     need_help true
     user_description { Faker::Lorem.paragraph }
+    language { Faker::Lorem.word }
   end
 end

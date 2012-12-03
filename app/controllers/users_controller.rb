@@ -17,7 +17,14 @@ class UsersController < ApplicationController
 
     def get_repos_list(user)
       repos = Github::Repos.new
-      repos.all user: user.github_id
+      repos = repos.all user: user.github_id
+
+      orgs = Github.orgs.all(user: user.github_id).collect { |o| o.login }
+      orgs.each do |o|
+        repos += Github.repos.all(user: o)
+      end
+
+      repos
     end
 
     def add_status(repos)

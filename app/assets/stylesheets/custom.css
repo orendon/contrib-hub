@@ -79,6 +79,7 @@ ul.stats li {
     display: inline-block;
     list-style-type: none;
     min-width: 60px;
+    text-align: center;
 }
 
 ul.stats li span {

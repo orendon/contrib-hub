@@ -41,14 +41,14 @@ describe User do
     end
 
     it "removes the helping connection if it exists" do
-      FactoryGirl.create(:helped_repos, repo: @repo, user: @user)
+      FactoryGirl.create(:helped_repo, repo: @repo, user: @user)
       @user.update_repo_status(@repo)
-      HelpedRepos.where(repo_id: @repo.id, user_id: @user.id).count.should == 0
+      @user.helped_repos.where(repo_id: @repo.id).count.should == 0
     end
 
   #   it "adds the helping connection if it does not exist" do
   #     @user.update_repo_status(@repo)
-  #     HelpedRepos.where(repo_id: @repo.id, user_id: @user.id).count.should == 1
+  #     @user.helped_repos.where(repo_id: @repo.id).count.should == 1
   #   end
   end
 

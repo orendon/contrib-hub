@@ -3,7 +3,7 @@
     <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
       <div id="center-text">
         <h4><%= @user.get[:name]%></h4>
-        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p> 
+        <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
 
         <ul class="unstyled stats">
           <li>
@@ -32,18 +32,18 @@
       </div>
   </div>
   <div class="span9">
-    <h3>Your Repos, Need Help?</h3>
+    <h3>My Repos, Help Wanted?</h3>
     <div class="span9 border-left">
 
       <ul class="ul-clean user-repos">
-        <%= render :partial => 'users/repo', collection: @user_repos %>
+        <%= render :partial => 'users/own_repo', collection: @user_repos %>
       </ul>
 
     </div>
 
     <div class="span9">
     <div class="row-fluid">
-    <h3>I am helping to:</h3>
+    <h3>I'm helping to:</h3>
       <div class="span9 border-left">
         <ul class="ul-clean">
         <% @user_helping.each do |helped| %>

@@ -59,7 +59,7 @@ class Repo < ActiveRecord::Base
     end
   end
 
-  def is_being_helped_by(user)
+  def is_being_helped_by?(user)
     helped_repo = HelpedRepos.find_by_user_id_and_repo_id(user.id, self.id)
     helped_repo.nil? ? false : true
   end

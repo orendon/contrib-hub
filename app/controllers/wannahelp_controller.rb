@@ -21,14 +21,14 @@ private
   def parameterize
     if params[:q].present?
       params[:q][:need_help_true] = true
-      #params[:q][:user_id_not_eq] = current_user.id
+      params[:q][:user_id_not_eq] = current_user.id
       if params[:undefined].present? && params[:undefined][:tags].size > 0
         params[:q][:tags_name_in] = params[:undefined][:tags]
       end
     else
       params[:q] = {
         need_help_true: true,
-        #user_id_not_eq: current_user.id
+        user_id_not_eq: current_user.id
       }
     end
   end

@@ -1,0 +1,10 @@
+<li>
+  <%= image_tag "repo-icon.png", :size => "30x30" %>
+  <%= link_to helped_repo.repo.full_name, helped_repo.repo.github_url, :target => "_blank" %>
+  <p class='right'>
+    <span><%= image_tag 'github-admin.png', class: 'expand-description' %></span>
+  </p>
+  <div class='repo-user-description'>
+    <small><%= helped_repo.repo.description %></small>
+  </div>
+</li>

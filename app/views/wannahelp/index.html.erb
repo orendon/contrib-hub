@@ -30,7 +30,11 @@
                     <%= link_to repo.name, "#{repo.github_url}" %>
                     &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
                     <br/>
-                    <%= submit_tag "Help!", class: "btn btn-success" %>
+                    <% if repo.is_being_helped_by?(current_user)%>
+                    <%= submit_tag "Stop Helping", class: "btn btn-danger" %>
+                    <% else %>
+                      <%= submit_tag "Help!", class: "btn btn-success" %>
+                    <% end %>
                     <small><%= repo.description %></small>
                   </li>
                 <% end %>

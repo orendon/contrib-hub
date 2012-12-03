@@ -3,10 +3,10 @@ class UsersController < ApplicationController
 
   def show
     @user = get_info_for(current_user)
-    @user_repos = get_repos_list(current_user)
-    @user_repos = add_status(@user_repos)
-    @user_helping = HelpedRepo.find_all_by_user_id(current_user.id)
-    @user_need_help = @user_repos.count { |r| r.status? }
+    @own_repos = get_repos_list(current_user)
+    @own_repos = add_status(@own_repos)
+    @repos_helping = HelpedRepo.find_all_by_user_id(current_user.id)
+    @repos_needing_help = @own_repos.count { |r| r.need_help? }
   end
 
   private
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     def add_status(repos)
       repos.each do |repo|
-        repo[:status] = get_status(repo[:id])
+        repo[:need_help] = get_status(repo[:id])
         repo[:user_description] = get_description(repo[:id])
       end
       repos

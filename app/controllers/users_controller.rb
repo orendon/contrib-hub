@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = get_info_for(current_user)
     @user_repos = get_repos_list(current_user)
     @user_repos = add_status(@user_repos)
-    @user_helping = HelpedRepos.find_all_by_user_id(current_user.id)
+    @user_helping = HelpedRepo.find_all_by_user_id(current_user.id)
     @user_need_help = @user_repos.count { |r| r.status? }
   end
 

@@ -45,10 +45,13 @@
   <div class="span9" style="float: right;">
     <h3>I'm helping to:</h3>
     <div class="span9 border-left">
-
-      <ul class="ul-clean user-repos">
-        <%= render :partial => 'users/helped_repo', collection: @repos_helping %>
-      </ul>
+      <%- if @repos_helping.any? %>
+        <ul class="ul-clean user-repos">
+          <%= render :partial => 'users/helped_repo', collection: @repos_helping %>
+        </ul>
+      <% else %>
+        <h4>You're not helping anybody, share some love <%= link_to "here", user_wannahelp_index_path(current_user) %>.</h4>
+      <% end %>
 
     </div>
   </div>

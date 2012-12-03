@@ -20,11 +20,11 @@
           <span>OwnRepos</span>
         </li>
         <li>
-          <strong id="need-help"><%= @user_need_help %></strong>
+          <strong id="need-help"><%= @repos_needing_help %></strong>
           <span>NeedHelp</span>
         </li>
         <li>
-          <strong><%= @user_helping.count %></strong>
+          <strong><%= @repos_helping.count %></strong>
           <span>Helping</span>
         </li>
       </ul>
@@ -36,21 +36,22 @@
     <div class="span9 border-left">
 
       <ul class="ul-clean user-repos">
-        <%= render :partial => 'users/own_repo', collection: @user_repos %>
+        <%= render :partial => 'users/own_repo', collection: @own_repos %>
       </ul>
 
     </div>
+  </div>
 
-    <div class="span9">
-      <h3>I'm helping to:</h3>
-      <div class="span9 border-left">
+  <div class="span9" style="float: right;">
+    <h3>I'm helping to:</h3>
+    <div class="span9 border-left">
 
-        <ul class="ul-clean user-repos">
-          <%= render :partial => 'users/helped_repo', collection: @user_helping %>
-        </ul>
+      <ul class="ul-clean user-repos">
+        <%= render :partial => 'users/helped_repo', collection: @repos_helping %>
+      </ul>
 
-      </div>
     </div>
   </div>
 </div>
+
 <div class="row-fluid"></div>

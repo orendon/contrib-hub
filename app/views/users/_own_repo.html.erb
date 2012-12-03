@@ -3,7 +3,7 @@
   <%= link_to own_repo[:name], own_repo[:html_url], :target => "_blank" %>
   <p class='right'>
     <span><%= image_tag 'github-admin.png', class: 'expand-description' %></span>
-    <% if own_repo[:status] %>
+    <% if own_repo[:need_help] %>
       <%= link_to "", "#", class: "help-button on", :"data-repo" => own_repo[:full_name] %>
     <% else %>
       <%= link_to "", "#", class: "help-button off", :"data-repo" => own_repo[:full_name] %>

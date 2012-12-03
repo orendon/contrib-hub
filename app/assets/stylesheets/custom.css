@@ -1,6 +1,7 @@
 .nav-li{display:block;}
 #index-subtitle{margin-top: 50px;}
-#button-login-nav{margin-top: 20px;}
+.signout { margin-bottom: 0; }
+#button-login-nav{}
 .box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke;box-shadow: 1px 1px 0px black;}
 .no-box-holder{padding: 15px;border-top:1px whiteSmoke solid;}
 .inline{display:inline;}
@@ -10,13 +11,11 @@
 .border-left{border-left:1px whiteSmoke solid;}
 .margin-top{margin-top: 15px;}
 
-
 ul.user-repos {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 120%;
 }
-
 ul.user-repos li {
   border-bottom: 1px solid lightGrey;
   padding: 7px 0 10px 0;
@@ -51,7 +50,6 @@ ul.user-repos li {
 
 .expand-description {
   margin-top: -20px;
-  cursor: pointer;
 }
 
 .help-button.on {
@@ -80,6 +78,7 @@ ul.stats li {
   display: inline-block;
   list-style-type: none;
   min-width: 60px;
+  text-align: center;
 }
 
 ul.stats li span {
@@ -95,7 +94,7 @@ ul.stats li strong {
   font-size: 28px;
   font-weight: bold;
   line-height: 1;
-  }
+}
 
 .smaller-link {
   font-size: 70%;

@@ -40,8 +40,8 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem "faker", "~> 1.1.2"
   gem 'capybara', '~> 2.0.1'
-  gem 'database_cleaner'
   gem 'launchy'
+  gem "database_cleaner", "~> 0.7.2"
 end
 
 group :production do

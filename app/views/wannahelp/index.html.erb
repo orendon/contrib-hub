@@ -2,11 +2,11 @@
   <div class="span3 box-holder">
     <div id="center-text">
       <div id="filters">
-        <% selection = params[:q].present? ? params[:q][:language_eq]: @languages.first %>
         <%= search_form_for @search, url: user_wannahelp_index_path(current_user), 
         html: { method: :get } do |f| %>
           <h4>Filters:</h4>
           <%= f.label :language_eq, "Language:" %>
+          <% selection = params[:q][:language_eq].present? ? params[:q][:language_eq]: 'Ruby' %>
           <%= f.select :language_eq, options_for_select(@languages, selected: selection), {},
             { class: "input-medium" } %>
           <%= f.label :user_location_matches, "Location:" %>
@@ -34,13 +34,17 @@
               &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", 
               "https://github.com/#{repo.user.github_id}" %>
               <br/>
-              <%= submit_tag "Help!", class: "btn btn-success" %>
+              <% if repo.is_being_helped_by?(current_user)%>
+                <%= submit_tag "Stop Helping", class: "btn btn-danger" %>
+              <% else %>
+                <%= submit_tag "Help!", class: "btn btn-success" %>
+              <% end %>
               <small><%= repo.description %></small>
             </li>
           <% end %>
         <% end %>
         </ul>
-      </div>
+      </div>       
     </div>
   </div>
 <div class="row-fluid"></div>

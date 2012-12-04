@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   class << self
 
-    def self.find_or_create_from(auth_data)
+    def find_or_create_from(auth_data)
       login = auth_data["info"]["nickname"]
       token = auth_data["credentials"]["token"]
       name = auth_data["info"]["name"]

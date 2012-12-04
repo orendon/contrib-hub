@@ -6,7 +6,7 @@
         html: { method: :get } do |f| %>
           <h4>Filters:</h4>
           <%= f.label :language_eq, "Language:" %>
-          <% selection = params[:q][:language_eq].present? ? params[:q][:language_eq]: 'Ruby' %>
+          <% selection = params[:q][:language_eq].present? ? params[:q][:language_eq]: @languages.first %>
           <%= f.select :language_eq, options_for_select(@languages, selected: selection), {},
             { class: "input-medium" } %>
           <%= f.label :user_location_matches, "Location:" %>

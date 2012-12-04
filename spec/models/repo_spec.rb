@@ -32,6 +32,8 @@ describe Repo do
   
   describe "get_languages" do
     @repo1 = FactoryGirl.create(:repo, language: "Ruby")
+    @repo2 = FactoryGirl.create(:repo, language: "")
+    @repo3 = FactoryGirl.create(:repo, language: nil)
     Repo.get_languages.should == ["Ruby"]
   end
 

@@ -12,6 +12,8 @@ gem "github_api"
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem "friendly_id"
+
 # searches
 gem 'meta_search'
 

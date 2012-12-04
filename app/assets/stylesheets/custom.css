@@ -11,6 +11,9 @@
 .border-left{border-left:1px whiteSmoke solid;}
 .margin-top{margin-top: 15px;}
 
+.navbar-fixed-top {
+  z-index: 1;
+}
 
 ul.user-repos {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

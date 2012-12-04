@@ -1,5 +1,5 @@
 module UsersHelper
   def status(repo)
-    repo[:need_help] ? 'hidden' : ''
+    'hidden' unless repo[:need_help]
   end
 end

@@ -10,30 +10,30 @@
       <%= link_to "", "#", class: "help-button off", :"data-repo" => own_repo[:full_name] %>
     <% end %>
   </p>
-  <div class='repo-user-description'>
-    <h4>Describe what help do you need</h4>
-    <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true, 
-      :html => { :class => 'help-desc' } do |f| %>
-      <%= text_area_tag :user_description, "", size: '60x5' %>
-      <br>
-      <%= submit_tag "Save", class: "btn btn-primary" %>
-    <% end %>
-  </div>
   <div class="current-tags">
     <% Repo.current_tags_for(own_repo[:full_name], current_user.id).each do |tag| %>
       <%= link_to tag, nil, class: 'tag' %>
     <% end %>
-    <%= link_to 'add/remove tag', nil, class: 'add-tag-link smaller-link' %>
+    <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", :"data-repo" => own_repo[:full_name] %>
   </div>
   <div class="tagging">
     <%= form_tag tagging_update_tags_path, remote: true do %>
       <ul class="repo-tags">
       <% Repo.current_tags_for(own_repo[:full_name], current_user.id).each do |tag| %>
-        <li><span><%= tag %></span></li>  
+        <li><span><%= tag %></span></li>
       <% end %>
       </ul>
       <%= hidden_field_tag :repo_name, own_repo[:full_name], class: 'hidden-repo-name'%>
       <%= submit_tag 'Save', class: 'btn btn-info save-tags-btn' %>
-    <% end %>  
+    <% end %>
+  </div>
+  <div class='repo-user-description'>
+    <h4>Describe what help do you need</h4>
+    <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true,
+      :html => { :class => 'help-desc' } do |f| %>
+      <%= text_area_tag :user_description, "", size: '60x5' %>
+      <br>
+      <%= submit_tag "Save", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </li>

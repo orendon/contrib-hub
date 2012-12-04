@@ -35,12 +35,10 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem "rspec-rails", "~> 2.12.0"
+  gem "rspec-rails", "~> 2.11.0"
   gem "factory_girl_rails", "~> 4.1.0"
   gem 'simplecov', :require => false
   gem "faker", "~> 1.1.2"
-  gem 'capybara', '~> 2.0.1'
-  gem 'launchy'
   gem "database_cleaner", "~> 0.7.2"
 end
 

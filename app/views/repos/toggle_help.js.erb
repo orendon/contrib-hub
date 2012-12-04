@@ -1,13 +1,16 @@
 console.log("toggled <%= @repo_name %>!");
   var el = $(".help-button[data-repo='<%= @repo_name %>']");
   var wrench = $(".expand-description[data-repo='<%= @repo_name %>']");
+  var tagging = $(".add-tag-link[data-repo='<%= @repo_name %>']");
 <% if @repo.need_help %>
   el.removeClass('off');
-  wrench.removeClass('hidden');
   el.addClass('on');
+  wrench.removeClass('hidden');
+  tagging.removeClass('hidden');
 <% else %>
   el.removeClass('on');
-  wrench.addClass('hidden');
   el.addClass('off');
+  wrench.addClass('hidden');
+  tagging.addClass('hidden');
 <% end %>
 $("#need-help").html('<%= @user_need_help %>');

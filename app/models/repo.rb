@@ -1,9 +1,24 @@
 class Repo < ActiveRecord::Base
   attr_accessible :github_url, :name, :need_help,
     :user_id, :user_description, :tag_list
-  belongs_to :user
-  validates :github_url, :name, :user, :presence => true
+
+  ## tagging
   acts_as_taggable
+
+  ## relations
+  belongs_to :user
+
+  ## validations
+  validates :github_url, :github_id, :name, :user, :presence => true
+
+  ## instance methods
+
+  def is_being_helped_by?(user)
+    helped_repo = user.helped_repos.find_by_repo_id(self.id)
+    helped_repo.nil? ? false : true
+  end
+
+  ## class methods
 
   class << self
 
@@ -21,14 +36,14 @@ class Repo < ActiveRecord::Base
 
     def init_repo(user, name, toggle=false)
       repo = self.find_or_initialize_by_full_name(name)
-      
+
       if repo.new_record?
         repos = Github::Repos.new
         reps = repos.all user: user.github_id
         r = reps.find { |x| x.full_name == name }
         Rails.logger.info r.inspect
         if r
-          %w(name github_url need_help created_at updated_at full_name description 
+          %w(name github_url need_help created_at updated_at full_name description
             language forks watchers open_issues pushed_at).each do |attr|
             repo.send("#{attr}=", r.send(attr.to_sym))
           end
@@ -71,15 +86,10 @@ class Repo < ActiveRecord::Base
       tags.map { |tag| tag["name"] }
     end
 
-  end
+    def get_needing_help_counter_for(current_user)
+      where("need_help = ? and user_id= ?", true, current_user)
+    end
 
-  def is_being_helped_by?(user)
-    helped_repo = user.helped_repos.find_by_repo_id(self.id)
-    helped_repo.nil? ? false : true
-  end
-
-  def self.get_needing_help_counter_for(current_user)
-    where("need_help = ? and user_id= ?", true, current_user)
   end
 
 end

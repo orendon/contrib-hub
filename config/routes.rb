@@ -7,13 +7,14 @@ ContribHub::Application.routes.draw do
   match "/signout" => "sessions#destroy"
 
   resources :users, only: [:show] do
-    resources :wannahelp
-    resources :needhelp
+    resources :wannahelp, only: [:index]
   end
 
-  match '/repos/toggle_need_help' => "repos#toggle_need_help"
-  match '/repos/update_user_description' => "repos#update_user_description"
+  post '/needhelp/toggle' => "repos#toggle_need_help"
+  post '/wannahelp/toggle' => 'wannahelp#toggle'
+
   post '/tagging/update_tags' => 'tagging#update_tags'
+  match '/repos/update_user_description' => "repos#update_user_description"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

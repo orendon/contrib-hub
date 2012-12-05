@@ -75,10 +75,14 @@ GEM
     gon (4.0.1)
       actionpack (>= 2.3.0)
       json
+    haml (3.1.7)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.2.0)
     i18n (0.6.1)
+    jasminerice (0.0.10)
+      coffee-rails
+      haml
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -209,6 +213,7 @@ DEPENDENCIES
   geocoder
   github_api
   gon
+  jasminerice
   jquery-rails
   jquery-ui-rails
   launchy

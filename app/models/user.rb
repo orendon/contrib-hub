@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
       login = auth_data["info"]["nickname"]
       token = auth_data["credentials"]["token"]
       name = auth_data["info"]["name"]
-      name = login if name.empty?
+      name = login if name.nil?
       location = auth_data["extra"]["raw_info"]["location"]
 
       user = find_by_github_id(login)

@@ -5,7 +5,6 @@ class WannahelpController < ApplicationController
     @search = Repo.search(params[:q])
     @repos = @search.result(distinct: true)
     @languages = Repo.get_languages
-    @languages ||= []
     gon.tags = Repo.fetch_all_tag_names
   end
 

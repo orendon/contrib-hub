@@ -2,7 +2,7 @@
   <div class="span3 box-holder">
     <div id="center-text">
       <div id="filters">
-        <%= search_form_for @search, url: user_wannahelp_index_path(current_user), 
+        <%= search_form_for @search, url: user_wannahelp_index_path(current_user),
         html: { method: :get } do |f| %>
           <h4>Filters:</h4>
           <%= f.label :language_eq, "Language:" %>
@@ -16,7 +16,7 @@
           <%= f.submit "Search", class: "btn btn-primary" %>
           <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
         <% end %>
-      </div>    
+      </div>
     </div>
   </div>
   <div class="span9">
@@ -25,25 +25,22 @@
       <div id="repo-list">
         <ul class="ul-clean user-repos">
         <% @repos.each do |repo| %>
-          <%= form_tag(user_wannahelp_path(current_user, repo), method: :put) do %>
-            <li>
-              <%= image_tag "repo-icon.png", :size => "25x25" %>
-              <%= hidden_field_tag "github_id", repo[:github_id] %>
-              <%= link_to repo.name, "#{repo.github_url}" %>
-              &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}", 
-              "https://github.com/#{repo.user.github_id}" %>
-              <br/>
-              <% if repo.is_being_helped_by?(current_user)%>
-                <%= submit_tag "Stop Helping", class: "btn btn-danger" %>
-              <% else %>
-                <%= submit_tag "Help!", class: "btn btn-success" %>
-              <% end %>
-              <small><%= repo.description %></small>
-            </li>
-          <% end %>
+          <li>
+            <%= image_tag "repo-icon.png", :size => "25x25" %>
+            <%= link_to repo.name, "#{repo.github_url}" %>
+            &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}",
+            "https://github.com/#{repo.user.github_id}" %>
+            <br/>
+            <% if repo.is_being_helped_by?(current_user) %>
+              <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id] %>
+            <% else %>
+              <%= link_to "I Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id] %>
+            <% end %>
+            <small><%= repo.description %></small>
+          </li>
         <% end %>
         </ul>
-      </div>       
+      </div>
     </div>
   </div>
 <div class="row-fluid"></div>

@@ -12,7 +12,7 @@ $(function() {
 
   $('.help-button').click(function(e) {
     var repoName = $(this).attr('data-repo')
-    $.post("/repos/toggle_help", { repo: repoName });
+    $.post("/repos/toggle_need_help", { repo: repoName });
     e.preventDefault();
   });
 

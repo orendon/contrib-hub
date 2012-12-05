@@ -11,7 +11,7 @@ ContribHub::Application.routes.draw do
     resources :needhelp
   end
 
-  match '/repos/toggle_help' => "repos#toggle_help"
+  match '/repos/toggle_need_help' => "repos#toggle_need_help"
   match '/repos/update_user_description' => "repos#update_user_description"
   post '/tagging/update_tags' => 'tagging#update_tags'
 

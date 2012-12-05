@@ -13,7 +13,7 @@
   <div class="current-tags">
     <% Repo.current_tags_for(own_repo[:full_name], current_user.id).each do |tag| %>
       <%= link_to tag, "#", class: 'tag' %>
-    <% end %>
+    <% end if own_repo[:need_help] %>
     <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", :"data-repo" => own_repo[:full_name] %>
   </div>
   <div class="tagging">

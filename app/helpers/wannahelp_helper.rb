@@ -1,6 +1,6 @@
 module WannahelpHelper
   def current_value(key)
-    (params[:search] ? params[:search][key]: "")
+    (params[:q] ? params[:q][key]: "")
   end
 
   def get_filter(languages)

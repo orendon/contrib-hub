@@ -115,7 +115,7 @@ ul.stats li strong {
 }
 
 .tagging .tag-field, .tagging .add-tag-button {
-  float: left;  
+  float: left;
 }
 
 .add-tag-button {
@@ -168,23 +168,19 @@ span.tagit-label {
 
 .current-tags > .tag {
   margin-right: 2px;
-  background: #3d70ae;
-  color: #fff;
+  background: #f7f7f7;
+  color: #808080;
   font-size: 73%;
   padding: 3px;
-  padding-left: 10px;
-  padding-right: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
   text-decoration: none;
-  
-  -webkit-border-radius: 10px 0px 0px 10px;
-  border-radius: 10px 0px 0px 10px;
 
-  -webkit-box-shadow: 1px 1px 5px 1px #808080;
-  box-shadow: 1px 1px 5px 1px #808080;
-}
+  -webkit-border-radius: 8px 8px 8px 8px;
 
-.current-tags > .tag:hover {
-  background: #4a7fbf;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C6C6C6;
 }
 
 #filters form > ul.tagit {

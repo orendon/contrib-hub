@@ -1,0 +1,11 @@
+console.log("toggled helped repo: <%= @repo_id %>!");
+var el = $(".wanna-help-btn[data-id='<%= @repo_id %>']");
+<% if @repo.is_being_helped_by?(current_user) %>
+  el.removeClass('btn-success');
+  el.addClass('btn-danger');
+  el.html('Stop Helping');
+<% else %>
+  el.removeClass('btn-danger');
+  el.addClass('btn-success');
+  el.html('I Wanna Help!');
+<% end %>

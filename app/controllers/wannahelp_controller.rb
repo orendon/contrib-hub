@@ -8,11 +8,14 @@ class WannahelpController < ApplicationController
     gon.tags = Repo.fetch_all_tag_names
   end
 
-  def update
-    repo = Repo.find(params[:id])
-    current_user.update_repo_status(repo)
+  def toggle
+    @repo_id = params[:repo]
+    @repo = Repo.find(@repo_id)
+    current_user.update_repo_status(@repo)
     #star(repo.user, repo.name)
-    redirect_to user_wannahelp_index_path(current_user)
+    respond_to do |format|
+      format.js
+    end
   end
 
 private

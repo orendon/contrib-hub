@@ -11,8 +11,14 @@ $(function() {
   });
 
   $('.help-button').click(function(e) {
-    var repoName = $(this).attr('data-repo')
-    $.post("/repos/toggle_help", { repo: repoName });
+    var repoName = $(this).attr('data-repo');
+    $.post("/needhelp/toggle", { repo: repoName });
+    e.preventDefault();
+  });
+
+  $('.wanna-help-btn').click(function(e) {
+    var repo_id = $(this).data('id')
+    $.post("/wannahelp/toggle", { repo: repo_id });
     e.preventDefault();
   });
 

@@ -2,10 +2,10 @@
 
 Open source lovers, making easier to find cool projects to hack on! Wanna help?
 
-http://contribhub.co
+http://contribhub.com
 
 # About
-[ContribHub](http://contribhub.co) was born on 2012 at PulsoConf/BogotaConf hackathon after 14 hours of sleep-deprived programming, with the goal of creating a good tool to help other open source lovers to find projects to contribute.
+[ContribHub](http://contribhub.com) was born on 2012 at PulsoConf/BogotaConf hackathon after 14 hours of sleep-deprived programming, with the goal of creating a good tool to help other open source lovers to find projects to contribute.
 
 There is still a lot of work to do, but these are the core features:
 * Submit your repo as "Help Wanted"

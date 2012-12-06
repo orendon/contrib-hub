@@ -4,46 +4,42 @@ describe User do
 
   describe "base" do
     it "has a valid factory" do
-      FactoryGirl.build(:user).should be_valid
+      expect(build(:user)).to be_valid
     end
   end
 
   describe "validations" do
-    before(:each) do
-      @user = FactoryGirl.build(:user)
-    end
+    let(:user) { FactoryGirl.build(:user) }
 
     it "is invalid without a github_id" do
-      @user.github_id = nil
-      @user.should_not be_valid
+      user.github_id = nil
+      expect(user).to_not be_valid
     end
 
     it "is invalid without a name" do
-      @user.name = nil
-      @user.should_not be_valid
+      user.name = nil
+      expect(user).to_not be_valid
     end
 
     it "is invalid without a token" do
-      @user.token = nil
-      @user.should_not be_valid
+      user.token = nil
+      expect(user).to_not be_valid
     end
 
     it "is invalid with a duplicate github_id" do
-      user_1 = FactoryGirl.create(:user)
-      FactoryGirl.build(:user, github_id: user_1.github_id).should_not be_valid
+      user_1 = create(:user)
+      expect(build(:user, github_id: user_1.github_id)).to_not be_valid
     end
   end
 
   describe "update_repo_status" do
-    before(:each) do
-      @user = FactoryGirl.create(:user)
-      @repo = FactoryGirl.create(:repo)
-    end
+      let(:user) { create(:user) }
+      let(:repo) { create(:repo) }
 
     it "removes the helping connection if it exists" do
-      FactoryGirl.create(:helped_repo, repo: @repo, user: @user)
-      @user.update_repo_status(@repo)
-      @user.helped_repos.where(repo_id: @repo.id).count.should == 0
+      create(:helped_repo, repo: repo, user: user)
+      user.update_repo_status(repo)
+      expect(user.helped_repos.where(repo_id: repo.id).count).to eq 0
     end
 
   #   it "adds the helping connection if it does not exist" do

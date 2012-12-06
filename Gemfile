@@ -28,20 +28,21 @@ gem 'newrelic_rpm'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
   gem 'sqlite3'
-  gem "rspec-rails", "~> 2.11.0"
+  gem "rspec-rails", "~> 2.12.0"
   gem "factory_girl_rails", "~> 4.1.0"
   gem 'simplecov', :require => false
   gem "faker", "~> 1.1.2"
   gem "database_cleaner", "~> 0.7.2"
+  gem "capybara", "~> 2.0.1"
+  gem "launchy"
+  gem "jasminerice"
 end
 
 group :production do

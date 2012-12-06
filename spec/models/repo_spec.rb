@@ -4,28 +4,26 @@ describe Repo do
 
   describe "base" do
     it "has a valid factory" do
-      FactoryGirl.build(:repo).should be_valid
+      expect(build(:repo)).to be_valid
     end
   end
 
   describe "validations" do
-    before(:each) do
-      @repo = FactoryGirl.build(:repo)
-    end
+    let(:repo) { build(:repo) }
 
     it "is invalid without a github_url" do
-      @repo.github_url = nil
-      @repo.should_not be_valid
+      repo.github_url = nil
+      expect(repo).to_not be_valid
     end
 
     it "is invalid without a name" do
-      @repo.name = nil
-      @repo.should_not be_valid
+      repo.name = nil
+      expect(repo).to_not be_valid
     end
 
     it "is invalid without a user" do
-      @repo.user = nil
-      @repo.should_not be_valid
+      repo.user = nil
+      expect(repo).to_not be_valid
     end
 
   end

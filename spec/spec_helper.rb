@@ -34,8 +34,8 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-  ## custom config
-  # config.include FactoryGirl::Syntax::Methods
+  ## Avoid repreating FactoryGirl
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

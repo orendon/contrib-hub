@@ -21,6 +21,9 @@ gem 'ransack'
 # geolocation
 gem 'geocoder'
 
+# pagination
+gem 'kaminari'
+
 gem 'newrelic_rpm'
 
 # Gems used only for assets and not required

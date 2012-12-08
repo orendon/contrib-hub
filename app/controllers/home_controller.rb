@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-  layout 'landing'
-  
+  layout 'landing2'
+
   def index
   end
 end

@@ -7,4 +7,5 @@
   <div class='repo-user-description'>
     <small><%= helped_repo.repo.description %></small>
   </div>
+  <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => helped_repo.repo[:id] %>
 </li>

@@ -3,7 +3,7 @@ class WannahelpController < ApplicationController
 
   def index
     @search = Repo.search(params[:q])
-    @repos = @search.result(distinct: true)
+    @repos = @search.result(distinct: true).page(params[:page]).per(5)
     @languages = Repo.get_languages
     gon.tags = Repo.fetch_all_tag_names
   end

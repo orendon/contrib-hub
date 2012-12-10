@@ -2,7 +2,7 @@
 #index-subtitle{margin-top: 50px;}
 .signout { margin-bottom: 0; }
 #button-login-nav{}
-.box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke;box-shadow: 1px 1px 0px black;}
+.box-holder{border: 1px solid;padding: 15px 15px 15px 15px;border-radius: 10px;margin-bottom: 30px;background-color: whiteSmoke; box-shadow: 1px 1px 0px black;}
 .no-box-holder{padding: 15px;border-top:1px whiteSmoke solid;}
 .inline{display:inline;}
 .ul-clean{list-style:none;}

@@ -1,11 +1,13 @@
 class WannahelpController < ApplicationController
+  include Utils
+
   before_filter :parameterize
 
   def index
     @search = Repo.search(params[:q])
     @repos = @search.result(distinct: true)
-    @languages = Repo.get_languages
-    gon.tags = Repo.fetch_all_tag_names
+    @languages = get_all_languages
+    gon.tags = get_all_tag_names
   end
 
   def toggle

@@ -7,13 +7,7 @@
         <i class="icon-user"></i>&nbsp;
         <a href="<%= @user.get[:html_url] %>" target="_blank">GitHub Profile</a>
         <br/>
-        <i class="icon-home"></i>&nbsp;
-        <a href="#"><%= current_user.location %></a>
-      </p>
-      <p>
-        <img src="http://maps.google.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=14&size=512x512&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false">
+        <i class="icon-home"></i>&nbsp;<%= current_user.location %>
       </p>
       <ul class="unstyled stats">
         <li>
@@ -38,10 +32,7 @@
           <span>Helping</span>
         </li>
       </ul>
-      <p>
-        <%= link_to "I wanna help", user_wannahelp_index_path(current_user),
-          class: "btn btn-primary btn-large action" %>
-      </p>
+      <p><%= build_static_map(current_user) %></p>
     </div>
   </div>
 

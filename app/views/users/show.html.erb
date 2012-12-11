@@ -3,7 +3,12 @@
     <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
     <div id="center-text">
       <h4><%= @user.get[:name]%></h4>
-      <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
+      <p>
+        <i class="icon-user"></i>&nbsp;
+        <a href="<%= @user.get[:html_url] %>" target="_blank">GitHub Profile</a>
+        <br/>
+        <i class="icon-home"></i>&nbsp;<%= current_user.location %>
+      </p>
       <ul class="unstyled stats">
         <li>
           <strong><%= @user.get[:followers] %></strong>
@@ -26,13 +31,11 @@
           <strong><%= @repos_helping.count %></strong>
           <span>Helping</span>
         </li>
-      </ul>      
-      <p>
-        <%= link_to "I wanna help", user_wannahelp_index_path(current_user), 
-          class: "btn btn-primary btn-large action" %>
-      </p>
+      </ul>
+      <p><%= build_static_map(current_user) %></p>
     </div>
   </div>
+
   <div class="span9">
     <h3>My Repos, Help Wanted?</h3>
     <div class="span9 border-left">

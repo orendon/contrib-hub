@@ -4,7 +4,7 @@ module UsersHelper
   end
 
   def build_static_map(user)
-    user_marker = "&markers=color:blue%7Clabel:Y%7C#{user.latitude},#{user.longitude}" unless user.location.nil?
+    user_marker = "&markers=color:blue%7Clabel:X%7C#{user.latitude},#{user.longitude}" unless user.location.nil?
     helping_markers = build_repos_markers(user.helped_repos_coords)
     size = "250x250"
     map_url = "http://maps.google.com/maps/api/staticmap?&size=#{size}&maptype=roadmap#{user_marker}#{helping_markers}&sensor=false"
@@ -16,7 +16,7 @@ module UsersHelper
   def build_repos_markers(coords)
     markers = ""
     coords.each do |coord|
-      markers << "&markers=color:Red%7Clabel:R%7C#{coord[:latitude]},#{coord[:longitude]}"
+      markers << "&markers=color:Red%7Clabel:O%7C#{coord[:latitude]},#{coord[:longitude]}"
     end
     markers
   end

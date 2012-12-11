@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+  include UserPresenter
 
   attr_accessible :github_id, :name, :token, :location, :latitude, :longitude
 

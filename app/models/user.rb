@@ -28,6 +28,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_helped_repos_coords
+    User.get_helped_repos_coords(self.id)
+  end
+
+  def coords
+    { latitude: self.latitude, longitude: self.longitude }
+  end
+
   ## class methods
 
   class << self
@@ -49,6 +57,15 @@ class User < ActiveRecord::Base
         user = User.create!(github_id: login, name: name, token: token, location: location)
       end
       user
+    end
+
+    def get_helped_repos_coords(user_id)
+      coords = []
+      helped_repos = User.includes(:helped_repos).find(user_id).helped_repos
+      helped_repos.each do |helping|
+        coords << helping.repo.user.coords if helping.repo.user.location
+      end
+      coords
     end
 
   end

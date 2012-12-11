@@ -10,4 +10,8 @@ module UserPresenter
     end
     coords
   end
+
+  def need_help_counter
+    self.repos.where(need_help: true).count
+  end
 end

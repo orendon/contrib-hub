@@ -1,27 +1,29 @@
 require "github_api"
+
 class UsersController < ApplicationController
+  include Utils
 
   def show
-    @user = get_info_for(current_user)
-    @own_repos = get_repos_list(current_user)
-    @own_repos = add_status(@own_repos)
-    @repos_helping = HelpedRepo.find_all_by_user_id(current_user.id)
-    @repos_needing_help = @own_repos.count { |r| r.need_help? }
-    gon.tags = Repo.fetch_all_tag_names
+    @user = github_data_for(current_user)
+    @own_repos = github_repos_for(current_user)
+    @own_repos = set_help_status(@own_repos)
+    @repos_helping = current_user.helped_repos
+    @repos_needing_help = current_user.need_help_counter
+    gon.tags = get_all_tag_names
   end
 
   private
-    def get_info_for(user)
+    def github_data_for(user)
       github = Github.new oauth_token: user.token
-      @user = github.users
+      github.users
     end
 
-    def get_repos_list(user)
+    def github_repos_for(user)
       repos = Github::Repos.new
       repos.all user: user.github_id
     end
 
-    def add_status(repos)
+    def set_help_status(repos)
       repos.each do |repo|
         repo[:need_help] = get_status(repo[:id])
         repo[:user_description] = get_description(repo[:id])

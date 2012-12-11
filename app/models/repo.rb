@@ -18,6 +18,10 @@ class Repo < ActiveRecord::Base
     helped_repo.nil? ? false : true
   end
 
+  def current_tags
+    tag_list.empty? ? [] : self.tag_list
+  end
+
   ## class methods
 
   class << self
@@ -69,25 +73,6 @@ class Repo < ActiveRecord::Base
       repo.user_id = user.id
       repo.need_help = !repo.need_help unless repo.new_record?
       repo.save
-    end
-
-    def get_languages
-      languages_list = select(:language).uniq
-      languages_list.collect(&:language).reject { |l| l.nil? || l.empty? }
-    end
-
-    def current_tags_for(repo_full_name, user_id)
-      repo = Repo.find_by_full_name_and_user_id(repo_full_name, user_id)
-      tag_list = repo.nil? ? [] : repo.tag_list
-    end
-
-    def fetch_all_tag_names
-      tags = ActiveRecord::Base.connection.execute("SELECT name FROM tags")
-      tags.map { |tag| tag["name"] }
-    end
-
-    def get_needing_help_counter_for(current_user)
-      where("need_help = ? and user_id= ?", true, current_user)
     end
 
   end

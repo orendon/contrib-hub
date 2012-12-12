@@ -1,4 +1,6 @@
 class Repo < ActiveRecord::Base
+  include RepoPresenter
+
   attr_accessible :github_url, :name, :need_help,
     :user_id, :user_description, :tag_list
 
@@ -16,10 +18,6 @@ class Repo < ActiveRecord::Base
   def is_being_helped_by?(user)
     helped_repo = user.helped_repos.find_by_repo_id(self.id)
     helped_repo.nil? ? false : true
-  end
-
-  def current_tags
-    tag_list.empty? ? [] : self.tag_list
   end
 
   ## class methods

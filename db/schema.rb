@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211223619) do
+ActiveRecord::Schema.define(:version => 20121212121047) do
 
   create_table "helped_repos", :force => true do |t|
     t.integer  "repo_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20121211223619) do
     t.integer  "open_issues"
     t.datetime "pushed_at"
     t.text     "user_description"
+    t.datetime "last_sync"
   end
 
   create_table "taggings", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20121211223619) do
     t.integer  "following"
     t.integer  "public_repos"
     t.integer  "public_gists"
+    t.datetime "last_sync"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true

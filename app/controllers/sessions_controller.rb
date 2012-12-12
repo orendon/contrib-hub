@@ -15,5 +15,5 @@ class SessionsController < ApplicationController
   private
     def auth_data
       request.env["omniauth.auth"]
-    end  
+    end
 end

@@ -21,6 +21,7 @@ gem 'ransack'
 # geolocation
 gem 'geocoder'
 
+# analytics
 gem 'newrelic_rpm'
 
 # Gems used only for assets and not required

@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
@@ -13,6 +10,7 @@ gem "github_api"
 gem 'omniauth'
 gem 'omniauth-github'
 
+# friendly urls
 gem "friendly_id"
 
 # searches
@@ -23,6 +21,14 @@ gem 'geocoder'
 
 # analytics
 gem 'newrelic_rpm'
+
+# tagging
+gem 'acts-as-taggable-on'
+
+# preloading tags
+gem 'gon'
+
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,7 +41,7 @@ group :assets do
 end
 
 group :development, :test do
-  gem "thin"
+  gem 'quiet_assets'
   gem 'sqlite3'
   gem "rspec-rails", "~> 2.12.0"
   gem 'shoulda-matchers'
@@ -51,12 +57,6 @@ end
 group :production do
   gem 'pg'
 end
-
-#tagging
-gem 'acts-as-taggable-on'
-
-#preloading tags
-gem 'gon'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

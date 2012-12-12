@@ -13,16 +13,11 @@ class UsersController < ApplicationController
   private
 
   def merge_github_repos(user, user_repos)
-    github_repos = get_github_repos_for(user)
+    github_repos = GithubUtils.get_repos_list_for(user)
     github_repos.each do |repo|
       user_repos << repo unless existing_repo?(user_repos, repo)
     end
     user_repos
-  end
-
-  def get_github_repos_for(user)
-    repos = Github::Repos.new
-    repos.all user: user.github_id
   end
 
   def existing_repo?(existing_repos, repo)

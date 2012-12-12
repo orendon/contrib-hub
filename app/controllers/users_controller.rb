@@ -4,42 +4,28 @@ class UsersController < ApplicationController
   include Utils
 
   def show
-    @user = github_data_for(current_user)
-    @own_repos = github_repos_for(current_user)
-    @own_repos = set_help_status(@own_repos)
-    @repos_helping = current_user.helped_repos
+    saved_repos = current_user.repos
+    @own_repos = merge_github_repos(current_user, saved_repos.to_a)
     @repos_needing_help = current_user.need_help_counter
     gon.tags = get_all_tag_names
   end
 
   private
-    def github_data_for(user)
-      github = Github.new oauth_token: user.token
-      github.users
-    end
 
-    def github_repos_for(user)
-      repos = Github::Repos.new
-      repos.all user: user.github_id
+  def merge_github_repos(user, user_repos)
+    github_repos = get_github_repos_for(user)
+    github_repos.each do |repo|
+      user_repos << repo unless existing_repo?(user_repos, repo)
     end
+    user_repos
+  end
 
-    def set_help_status(repos)
-      repos.each do |repo|
-        repo[:need_help] = get_status(repo[:id])
-        repo[:user_description] = get_description(repo[:id])
-      end
-      repos
-    end
+  def get_github_repos_for(user)
+    repos = Github::Repos.new
+    repos.all user: user.github_id
+  end
 
-    def get_status(github_id)
-      repo = Repo.find_by_github_id(github_id)
-      return repo.need_help if repo
-      false
-    end
-
-    def get_description(github_id)
-      repo = Repo.find_by_github_id(github_id)
-      return repo.user_description if repo
-      false
-    end
+  def existing_repo?(existing_repos, repo)
+    existing_repos.select {|r| r[:github_id] == repo.id }.any?
+  end
 end

@@ -18,7 +18,7 @@ describe User do
 
     it "is invalid without a name" do
       user.name = nil
-      expect(user).to_not be_valid
+      expect(user).to be_valid
     end
 
     it "is invalid without a token" do

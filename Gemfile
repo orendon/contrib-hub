@@ -22,6 +22,14 @@ gem 'geocoder'
 # analytics
 gem 'newrelic_rpm'
 
+# tagging
+gem 'acts-as-taggable-on'
+
+# preloading tags
+gem 'gon'
+
+gem 'thin'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -48,12 +56,6 @@ end
 group :production do
   gem 'pg'
 end
-
-#tagging
-gem 'acts-as-taggable-on'
-
-#preloading tags
-gem 'gon'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

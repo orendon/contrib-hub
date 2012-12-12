@@ -33,6 +33,15 @@ class User < ActiveRecord::Base
   def sync_github_data
     user_data = GithubUtils.get_user_details_for(self)
     self.update_attributes!(user_data)
+
+    github_repos = GithubUtils.get_repos_list_for(self)
+    self.repos.each do |repo|
+      matched_repo = github_repos.find { |x| x.full_name == repo.full_name }
+      if matched_repo
+        repo_data = GithubUtils.normalize_repo(matched_repo)
+        repo.update_attributes!(repo_data)
+      end
+    end
   end
 
   ## class methods

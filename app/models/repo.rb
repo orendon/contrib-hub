@@ -1,8 +1,9 @@
 class Repo < ActiveRecord::Base
   include RepoPresenter
 
-  attr_accessible :github_url, :name, :need_help,
-    :user_id, :user_description, :tag_list
+  attr_accessible :github_url, :name, :need_help, :user_id, :user_description,
+    :github_url, :full_name, :description, :language, :forks, :watchers,
+    :open_issues, :pushed_at, :tag_list, :last_sync
 
   ## tagging
   acts_as_taggable
@@ -42,7 +43,6 @@ class Repo < ActiveRecord::Base
 
       if repo.new_record?
         github_repo = GithubUtils.get_repo_details(user, name)
-
         if github_repo
           %w(name github_url need_help created_at updated_at full_name description
             language forks watchers open_issues pushed_at).each do |attr|
@@ -56,7 +56,8 @@ class Repo < ActiveRecord::Base
       else
         repo.need_help = !repo.need_help if toggle
       end
-      repo.save if repo.name
+      repo.last_sync = Time.now
+      repo.save
       repo
     end
 

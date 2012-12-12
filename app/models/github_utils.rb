@@ -25,4 +25,14 @@ class GithubUtils
     normalized_user[:last_sync]   = Time.now
     normalized_user
   end
+
+  def self.normalize_repo(repo)
+    normalized_repo = {}
+    %w(name full_name description language forks watchers open_issues pushed_at)
+      .each { |attr| normalized_repo[attr.to_sym] = repo.send(attr.to_sym) }
+
+    normalized_repo[:github_url]  = repo[:html_url]
+    normalized_repo[:last_sync]   = Time.now
+    normalized_repo
+  end
 end

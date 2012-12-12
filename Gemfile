@@ -35,7 +35,6 @@ group :assets do
 end
 
 group :development, :test do
-  gem "thin"
   gem 'sqlite3'
   gem "rspec-rails", "~> 2.12.0"
   gem "factory_girl_rails", "~> 4.1.0"
@@ -45,6 +44,11 @@ group :development, :test do
   gem "capybara", "~> 2.0.1"
   gem "launchy"
   gem "jasminerice"
+end
+
+group :development do
+  gem 'thin'
+  gem 'quiet_assets'
 end
 
 group :production do

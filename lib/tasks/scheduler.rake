@@ -10,6 +10,7 @@ task :sync_github_data => :environment do
     begin
       user.sync_github_data
     rescue Exception => e
+      puts "error ocurred, logging..."
       ErrorLog.create(message: e.message, backtrace: e.backtrace,
         action: 'sync_github_data', extras: user.github_id)
     end

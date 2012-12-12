@@ -38,6 +38,7 @@ group :development, :test do
   gem "thin"
   gem 'sqlite3'
   gem "rspec-rails", "~> 2.12.0"
+  gem 'shoulda-matchers'
   gem "factory_girl_rails", "~> 4.1.0"
   gem 'simplecov', :require => false
   gem "faker", "~> 1.1.2"

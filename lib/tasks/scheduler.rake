@@ -7,7 +7,12 @@ task :sync_github_data => :environment do
   User.order("last_sync asc").limit(max_records).each do |user|
     puts "syncing #{user.github_id}..."
 
-    user.sync_github_data
+    begin
+      user.sync_github_data
+    rescue Exception => e
+      ErrorLog.create(message: e.message, backtrace: e.backtrace,
+        action: 'sync_github_data', extras: user.github_id)
+    end
   end
 
   puts "done."

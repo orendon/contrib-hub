@@ -6,11 +6,23 @@ class GithubUtils
 
   def self.get_user_details_for(user)
     github = Github.new oauth_token: user.token
-    github.users
+    normalize_user(github.users)
   end
 
   def self.get_repo_details(user, repo_name)
     repos = get_repos_list_for(user)
     repos.find { |x| x.full_name == repo_name }
+  end
+
+  private
+
+  def self.normalize_user(user)
+    normalized_user = {}
+    %w(email name avatar_url followers following public_repos public_gists)
+      .each { |attr| normalized_user[attr.to_sym] = user.get.send(attr.to_sym) }
+
+    normalized_user[:github_url]  = user.get[:html_url]
+    normalized_user[:last_sync]   = Time.now
+    normalized_user
   end
 end

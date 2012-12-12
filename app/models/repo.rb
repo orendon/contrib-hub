@@ -12,6 +12,7 @@ class Repo < ActiveRecord::Base
 
   ## validations
   validates :github_url, :github_id, :name, :user, :presence => true
+  validates :github_id, :uniqueness => true
 
   ## instance methods
 

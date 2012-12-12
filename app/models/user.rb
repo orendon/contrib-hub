@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   include UserPresenter
 
   attr_accessible :github_id, :name, :token, :location, :latitude, :longitude, :email,
-    :avatar_url, :github_url, :public_repos, :public_gists, :followers, :following
+    :avatar_url, :github_url, :public_repos, :public_gists, :followers, :following, :last_sync
 
   ## friendly url
   friendly_id :github_id, use: :slugged
@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def sync_github_data
+    user_data = GithubUtils.get_user_details_for(self)
+    self.update_attributes!(user_data)
+  end
+
   ## class methods
 
   class << self
@@ -46,13 +51,14 @@ class User < ActiveRecord::Base
         public_repos: auth_data["extra"]["raw_info"]["public_repos"],
         public_gists: auth_data["extra"]["raw_info"]["public_gists"],
         followers:    auth_data["extra"]["raw_info"]["followers"],
-        following:    auth_data["extra"]["raw_info"]["following"]
+        following:    auth_data["extra"]["raw_info"]["following"],
+        last_sync:    Time.now
       }
 
       user = find_by_github_id(user_data[:github_id])
 
       if user
-        user.update_attributes(user_data)
+        user.update_attributes!(user_data)
       else
         user = User.create!(user_data)
       end

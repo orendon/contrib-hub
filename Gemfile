@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
@@ -13,6 +10,7 @@ gem "github_api"
 gem 'omniauth'
 gem 'omniauth-github'
 
+# friendly urls
 gem "friendly_id"
 
 # searches
@@ -35,6 +33,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'sqlite3'
   gem "rspec-rails", "~> 2.12.0"
   gem "factory_girl_rails", "~> 4.1.0"
@@ -44,11 +43,6 @@ group :development, :test do
   gem "capybara", "~> 2.0.1"
   gem "launchy"
   gem "jasminerice"
-end
-
-group :development do
-  gem 'thin'
-  gem 'quiet_assets'
 end
 
 group :production do

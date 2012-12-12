@@ -4,10 +4,8 @@ class UsersController < ApplicationController
   include Utils
 
   def show
-    @user = github_data_for(current_user)
     @own_repos = github_repos_for(current_user)
     @own_repos = set_help_status(@own_repos)
-    @repos_helping = current_user.helped_repos
     @repos_needing_help = current_user.need_help_counter
     gon.tags = get_all_tag_names
   end

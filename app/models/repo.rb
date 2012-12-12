@@ -1,6 +1,9 @@
 class Repo < ActiveRecord::Base
-  attr_accessible :github_url, :name, :need_help,
-    :user_id, :user_description, :tag_list
+  include RepoPresenter
+
+  attr_accessible :github_url, :name, :need_help, :user_id, :user_description,
+    :github_url, :full_name, :description, :language, :forks, :watchers,
+    :open_issues, :pushed_at, :tag_list, :last_sync
 
   ## tagging
   acts_as_taggable
@@ -10,16 +13,13 @@ class Repo < ActiveRecord::Base
 
   ## validations
   validates :github_url, :github_id, :name, :user, :presence => true
+  validates :github_id, :uniqueness => true
 
   ## instance methods
 
   def is_being_helped_by?(user)
     helped_repo = user.helped_repos.find_by_repo_id(self.id)
     helped_repo.nil? ? false : true
-  end
-
-  def current_tags
-    tag_list.empty? ? [] : self.tag_list
   end
 
   ## class methods
@@ -42,24 +42,22 @@ class Repo < ActiveRecord::Base
       repo = self.find_or_initialize_by_full_name(name)
 
       if repo.new_record?
-        repos = Github::Repos.new
-        reps = repos.all user: user.github_id
-        r = reps.find { |x| x.full_name == name }
-        Rails.logger.info r.inspect
-        if r
+        github_repo = GithubUtils.get_repo_details(user, name)
+        if github_repo
           %w(name github_url need_help created_at updated_at full_name description
             language forks watchers open_issues pushed_at).each do |attr|
-            repo.send("#{attr}=", r.send(attr.to_sym))
+            repo.send("#{attr}=", github_repo.send(attr.to_sym))
           end
-          repo.github_id = r.id
-          repo.github_url = r.html_url
+          repo.github_id = github_repo.id
+          repo.github_url = github_repo.html_url
           repo.user_id = user.id
         end
         repo.need_help = true
       else
         repo.need_help = !repo.need_help if toggle
       end
-      repo.save if repo.name
+      repo.last_sync = Time.now
+      repo.save
       repo
     end
 

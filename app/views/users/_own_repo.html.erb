@@ -11,7 +11,7 @@
     <% end %>
   </p>
   <div class="current-tags">
-    <% Repo.find_by_github_id(own_repo[:id]).current_tags.each do |tag| %>
+    <% own_repo.current_tags.each do |tag| %>
       <%= link_to tag, "#", class: 'tag' %>
     <% end if own_repo[:need_help] %>
     <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", :"data-repo" => own_repo[:full_name] %>
@@ -19,7 +19,7 @@
   <div class="tagging">
     <%= form_tag tagging_update_tags_path, remote: true do %>
       <ul class="repo-tags">
-        <% Repo.find_by_github_id(own_repo[:id]).current_tags.each do |tag| %>
+        <% own_repo.current_tags.each do |tag| %>
           <li><span><%= tag %></span></li>
         <% end if own_repo[:need_help] %>
       </ul>

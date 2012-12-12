@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204051405) do
+ActiveRecord::Schema.define(:version => 20121211223619) do
 
   create_table "helped_repos", :force => true do |t|
     t.integer  "repo_id"
@@ -60,12 +60,19 @@ ActiveRecord::Schema.define(:version => 20121204051405) do
     t.string   "github_id"
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.string   "email"
+    t.string   "avatar_url"
+    t.string   "github_url"
+    t.integer  "followers"
+    t.integer  "following"
+    t.integer  "public_repos"
+    t.integer  "public_gists"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true

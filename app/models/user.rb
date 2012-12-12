@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   include UserPresenter
 
-  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude
+  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude, :email,
+    :avatar_url, :github_url, :public_repos, :public_gists, :followers, :following
 
   ## friendly url
   friendly_id :github_id, use: :slugged
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   after_validation :geocode, :if => :location_changed?
 
   ## validations
-  validates :github_id, :name, :token, :presence => true
+  validates :github_id, :token, :presence => true
   validates :github_id, :uniqueness => true
 
   ## instance methods
@@ -34,20 +35,26 @@ class User < ActiveRecord::Base
   class << self
 
     def find_or_create_from(auth_data)
-      login = auth_data["info"]["nickname"]
-      token = auth_data["credentials"]["token"]
-      name = auth_data["info"]["name"]
-      name = login if name.nil?
-      location = auth_data["extra"]["raw_info"]["location"]
+      user_data = {
+        github_id:    auth_data["info"]["nickname"],
+        token:        auth_data["credentials"]["token"],
+        name:         auth_data["info"]["name"],
+        email:        auth_data["info"]["email"],
+        location:     auth_data["extra"]["raw_info"]["location"],
+        avatar_url:   auth_data["extra"]["raw_info"]["avatar_url"],
+        github_url:   auth_data["extra"]["raw_info"]["html_url"],
+        public_repos: auth_data["extra"]["raw_info"]["public_repos"],
+        public_gists: auth_data["extra"]["raw_info"]["public_gists"],
+        followers:    auth_data["extra"]["raw_info"]["followers"],
+        following:    auth_data["extra"]["raw_info"]["following"]
+      }
 
-      user = find_by_github_id(login)
+      user = find_by_github_id(user_data[:github_id])
 
       if user
-        user.token = token
-        user.location = location
-        user.save!
+        user.update_attributes(user_data)
       else
-        user = User.create!(github_id: login, name: name, token: token, location: location)
+        user = User.create!(user_data)
       end
       user
     end

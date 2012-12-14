@@ -44,8 +44,7 @@ class Repo < ActiveRecord::Base
       if repo.new_record?
         github_repo = GithubUtils.get_repo_details(user, name)
         if github_repo
-          %w(name github_url need_help created_at updated_at full_name description
-            language forks watchers open_issues pushed_at).each do |attr|
+          repo_attributes.each do |attr|
             repo.send("#{attr}=", github_repo.send(attr.to_sym))
           end
           repo.github_id = github_repo.id
@@ -63,8 +62,7 @@ class Repo < ActiveRecord::Base
 
     def create_or_update(user, params)
       repo = Repo.find_or_initialize_by_github_id(params[:id])
-      %w(name github_url need_help created_at updated_at full_name description language
-        forks watchers open_issues pushed_at).each do |attr|
+      repo_attributes.each do |attr|
         repo.send("#{attr}=", params[attr.to_sym])
       end
       repo.github_id = params[:id]
@@ -73,6 +71,12 @@ class Repo < ActiveRecord::Base
       repo.save
     end
 
+  end
+  
+  private
+  
+  def repo_attributes
+    %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at)
   end
 
 end

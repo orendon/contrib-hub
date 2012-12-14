@@ -71,7 +71,6 @@ class User < ActiveRecord::Base
       else
         user = User.create!(user_data)
       end
-      user
     end
 
   end

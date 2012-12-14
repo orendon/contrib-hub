@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 
     def find_or_create_from(auth_hash)
       user_data = OmniauthUtils.normalize_hash(auth_hash)
-      user_data[last_sync:] = Time.now
+      user_data[:last_sync] = Time.now
 
       user = find_by_github_id(user_data[:github_id])
       if user
@@ -58,6 +58,8 @@ class User < ActiveRecord::Base
       else
         user = User.create!(user_data)
       end
+
+      user
     end
 
   end

@@ -48,24 +48,11 @@ class User < ActiveRecord::Base
 
   class << self
 
-    def find_or_create_from(auth_data)
-      user_data = {
-        github_id:    auth_data["info"]["nickname"],
-        token:        auth_data["credentials"]["token"],
-        name:         auth_data["info"]["name"],
-        email:        auth_data["info"]["email"],
-        location:     auth_data["extra"]["raw_info"]["location"],
-        avatar_url:   auth_data["extra"]["raw_info"]["avatar_url"],
-        github_url:   auth_data["extra"]["raw_info"]["html_url"],
-        public_repos: auth_data["extra"]["raw_info"]["public_repos"],
-        public_gists: auth_data["extra"]["raw_info"]["public_gists"],
-        followers:    auth_data["extra"]["raw_info"]["followers"],
-        following:    auth_data["extra"]["raw_info"]["following"],
-        last_sync:    Time.now
-      }
+    def find_or_create_from(auth_hash)
+      user_data = OmniauthUtils.normalize_hash(auth_hash)
+      user_data[last_sync:] = Time.now
 
       user = find_by_github_id(user_data[:github_id])
-
       if user
         user.update_attributes!(user_data)
       else

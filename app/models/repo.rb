@@ -75,7 +75,7 @@ class Repo < ActiveRecord::Base
   
   private
   
-  def repo_attributes
+  def self.repo_attributes
     %w(name github_url need_help created_at updated_at full_name description language forks watchers open_issues pushed_at)
   end
 

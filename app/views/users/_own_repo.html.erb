@@ -14,7 +14,8 @@
     <% own_repo.current_tags.each do |tag| %>
       <%= link_to tag, "#", class: 'tag' %>
     <% end if own_repo[:need_help] %>
-    <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", :"data-repo" => own_repo[:full_name] %>
+    <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", 
+      :"data-repo" => own_repo[:full_name] %>
   </div>
   <div class="tagging">
     <%= form_tag tagging_update_tags_path, remote: true do %>
@@ -29,11 +30,21 @@
   </div>
   <div class='repo-user-description'>
     <h4>Describe what help do you need</h4>
-    <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true,
-      :html => { :class => 'help-desc' } do |f| %>
-      <%= text_area_tag :user_description, "", size: '60x5' %>
-      <br>
-      <%= submit_tag "Save", class: "btn btn-primary" %>
-    <% end %>
+    <div class="btn-toolbar">
+      <div class="btn-group">
+        <a class="btn code-insert" href="#" alt="Insert code sample"><i class="icon-wrench"></i></a>
+      </div>
+    </div>
+    <div class="form-desc">
+      <%= form_for :repo, url: '/repos/update_user_description', remote: true,
+        html: { class: 'help-desc' } do |f| %>
+        <%= hidden_field_tag :repo, own_repo[:full_name] %>
+        <% language = own_repo[:language].nil? ? 'ruby' : own_repo[:language].downcase %>
+        <%= hidden_field_tag :language, language %>
+        <%= text_area_tag :user_description, own_repo[:user_description], size: '75x12' %>
+        <%= submit_tag "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
   </div>
 </li>

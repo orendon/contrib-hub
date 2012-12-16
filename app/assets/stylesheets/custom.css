@@ -54,6 +54,7 @@ ul.user-repos li {
 
 .expand-description {
   margin-top: -20px;
+  cursor: pointer;
 }
 
 .help-button.on {
@@ -199,4 +200,21 @@ ul.ui-autocomplete {
 ul.ui-autocomplete > li > a {
   padding-left: 4px;
   padding-right: 4px
+}
+
+.user-description {
+  margin: 10px;  
+}
+
+#fancybox-container {
+  min-width: 700px;
+  max-height: 500px;
+}
+
+.user-desc {
+  visibility: hidden;
+}
+
+#desc-details-form {
+  display: inline;
 }

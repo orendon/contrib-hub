@@ -28,6 +28,15 @@ gem 'acts-as-taggable-on'
 # preloading tags
 gem 'gon'
 
+#syntax highligting
+gem 'pygments.rb'
+
+#markdown
+gem 'redcarpet'
+
+#fancybox
+gem 'fancybox-rails'
+
 gem 'thin'
 
 # Gems used only for assets and not required

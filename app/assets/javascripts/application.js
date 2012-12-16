@@ -20,6 +20,8 @@
 //= require jquery.effects.blind
 //= require jquery.effects.highlight
 //= require tag-it.min
+//= require jquery.highlighttextarea
+//= require fancybox
 //= require_tree .
 
 /*

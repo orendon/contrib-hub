@@ -10,7 +10,10 @@
  *
  *= require_self
  *= require_tree .
+ *= require pygments
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require jquery.tagit
+ *= require jquery.highlighttextarea
+ *= require fancybox
  */

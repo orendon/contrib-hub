@@ -27,6 +27,10 @@
         <% @repos.each do |repo| %>
           <li>
             <%= image_tag "repo-icon.png", :size => "25x25" %>
+            <% if repo.is_fork? %>
+              <span>Forked!</span>
+            <% end%>
+            
             <%= link_to repo.name, "#{repo.github_url}" %>
             &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}",
             "https://github.com/#{repo.user.github_id}" %>

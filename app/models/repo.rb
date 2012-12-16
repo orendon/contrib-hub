@@ -3,7 +3,7 @@ class Repo < ActiveRecord::Base
 
   attr_accessible :github_url, :name, :need_help, :user_id, :user_description,
     :github_id, :full_name, :description, :language, :forks, :watchers,
-    :open_issues, :pushed_at, :tag_list, :last_sync
+    :open_issues, :pushed_at, :tag_list, :last_sync, :fork
 
   ## tagging
   acts_as_taggable
@@ -25,6 +25,11 @@ class Repo < ActiveRecord::Base
   def toggle_need_help!
     update_attribute(:need_help, !need_help)
   end
+  
+  def is_fork?
+    fork
+  end
+  
   ## class methods
 
   class << self
@@ -40,7 +45,8 @@ class Repo < ActiveRecord::Base
         :watchers => github_repo['watchers'],
         :open_issues => github_repo['open_issues'],
         :pushed_at => github_repo['pushed_at'],
-        :github_id => github_repo['id']
+        :github_id => github_repo['id'],
+        :fork => github_repo['fork']
       }
     end
   end

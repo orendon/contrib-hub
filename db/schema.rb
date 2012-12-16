@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212223959) do
+ActiveRecord::Schema.define(:version => 20121216034139) do
 
   create_table "error_logs", :force => true do |t|
     t.string   "message"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121212223959) do
     t.datetime "pushed_at"
     t.text     "user_description"
     t.datetime "last_sync"
+    t.boolean  "fork"
   end
 
   create_table "taggings", :force => true do |t|

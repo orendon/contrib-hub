@@ -23,23 +23,43 @@
     <h3>Projects needing help:</h3>
     <div class="span9 border-left">
       <div id="repo-list">
-        <ul class="ul-clean user-repos">
-        <% @repos.each do |repo| %>
-          <li>
-            <%= image_tag "repo-icon.png", :size => "25x25" %>
-            <%= link_to repo.name, "#{repo.github_url}" %>
-            &nbsp; - Author: &nbsp; <%= link_to "#{repo.user.github_id}",
-            "https://github.com/#{repo.user.github_id}" %>
-            <br/>
-            <% if repo.is_being_helped_by?(current_user) %>
-              <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id] %>
-            <% else %>
-              <%= link_to "I Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id] %>
-            <% end %>
-            <small><%= repo.description %></small>
-          </li>
-        <% end %>
-        </ul>
+        <table>
+          <tr>
+            <th></th>
+            <th>Forked</th>
+            <th>Author</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Issues</th>
+            <th>Description</th>
+            <th>Helping?</th>
+          </tr>
+          <% @repos.each do |repo| %>
+            <tr>
+              <td>
+                <%= image_tag "repo-icon.png", :size => "25x25" %>
+                <%= link_to repo.name, "#{repo.github_url}" %>
+              </td>
+              <td><%= repo.is_fork? ? 'Forked!' : ''%></td>
+              <td>
+                <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
+              </td>
+              <td><%= repo.created_at %></td>
+              <td><%= repo.updated_at %></td>
+              <td><%= repo.open_issues %></td> 
+              <td>
+                <small><%= repo.description %></small>
+              </td>
+              <td>
+                <% if repo.is_being_helped_by?(current_user) %>
+                  <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id] %>
+                <% else %>
+                  <%= link_to "I Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id] %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     </div>
   </div>

@@ -40,24 +40,62 @@
   </div>
 
   <div class="span9">
-    <h3>My Repos, Help Wanted?</h3>
+    <h3>
+      <a href="<%= repo.github_url%>" target="_blank">
+        <%= repo.name %>
+      </a>
+    </h3>
+    <p>
+      <i class="icon-user"></i>&nbsp;
+      <a href="<%= user.github_url %>" target="_blank"><%= user.name%></a>
+      <br/>
+      <i class="icon-home"></i>&nbsp;<%= user.location %>
+    </p>
+
     <div class="span9 border-left">
-      <ul class="ul-clean user-repos">
-        <%= render :partial => 'users/own_repo', collection: @own_repos %>
+      <p>
+        <%= repo.description %>
+      </p>
+      <p>
+        <%= repo.user_description %>
+      </p>
+      <ul class="unstyled stats">
+        <li>
+          <strong><%= repo.watchers %></strong>
+          <span>Watchers</span>
+        </li>
+        <li>
+          <strong><%= repo.forks %></strong>
+          <span>Forks</span>
+        </li>
+        <li>
+          <strong><%= repo.open_issues %></strong>
+          <span>Issues</span>
+        </li>
+        <li>
+          <strong></strong>
+          <span>Stars</span>
+        </li>
+        <li>
+          <strong></strong>
+          <span>Pull Requests</span>
+        </li>
       </ul>
     </div>
   </div>
-  <div class="span9" style="float: right;">
-    <h3>I'm helping to:</h3>
-    <div class="span9 border-left">
-      <%- if current_user.helped_repos.any? %>
-        <ul class="ul-clean user-repos">
-          <%= render :partial => 'users/helped_repo', collection: current_user.helped_repos %>
-        </ul>
-      <% else %>
-        <h4>You're not helping anybody, share some love <%= link_to "here", user_wannahelp_index_path(current_user) %>.</h4>
+  <div class="span9">
+    <ul class="helpers">
+      <% helpers.each do |helper| %>
+      <li>
+        <strong><%= helper.name %></strong>
+      </li>
       <% end %>
-    </div>
+    </ul>
+    <p><%= image_tag MapUrlBuilder.helper_map(helpers, repo) %></p>
+    
   </div>
+  
+  
+  
 </div>
 <div class="row-fluid"></div>

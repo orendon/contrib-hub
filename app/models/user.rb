@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   validates :github_id, :uniqueness => true
 
   ## instance methods
-
   def update_repo_status(repo)
     if repo.is_being_helped_by?(self)
       HelpedRepo.find_by_user_id_and_repo_id(self.id, repo.id).destroy
@@ -51,7 +50,7 @@ class User < ActiveRecord::Base
     def find_or_create_from(auth_hash)
       user_data = OmniauthUtils.normalize_hash(auth_hash)
       user_data[:last_sync] = Time.now
-
+            
       user = find_by_github_id(user_data[:github_id])
       if user
         user.update_attributes!(user_data)
@@ -59,6 +58,12 @@ class User < ActiveRecord::Base
         user = User.create!(user_data)
       end
 
+      github_repos = GithubUtils.get_repos_list_for(user)
+      github_repos.each do |remote_repo|
+        data = Repo.extract_info(remote_repo)
+        user.repos.create(data)
+      end
+      
       user
     end
 

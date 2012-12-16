@@ -1,0 +1,32 @@
+jQuery ->
+  new FancyCode()
+  
+class FancyCode
+  
+  constructor: ->
+    _self = this
+    $('a[href=#fancybox-container]').on 'click', (event) ->
+      _self.setRepoId($(this).parent().next().attr 'value')
+
+    @openBox @afterOpened
+   
+  setRepoId: (@repoId) -> console.log @repoId
+
+  openBox: (callback) ->
+    $('a[href=#fancybox-container]').fancybox
+      autoDimensions: true
+      onComplete: callback
+
+  afterOpened: =>
+    $('#fancybox-container').children().remove()
+    @sendGetUserDescRequest @repoId
+
+  sendGetUserDescRequest: (repoId) =>
+    $.post '/repos/post_repo', { repo_id: repoId }, (data) ->
+      box = $("#fancybox-container")
+      box.empty()
+      box.append(data)
+      $.fancybox.center()
+      'json'
+
+@FancyCode = FancyCode

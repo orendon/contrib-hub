@@ -9,12 +9,22 @@ class ReposController < ApplicationController
   end
 
   def update_user_description
-    @repo_name = params[:repo]
-    @desc = params[:user_description]
-    @repo = Repo.init_and_description(current_user, @repo_name, @desc)
+    repo_name, desc = params[:repo], params[:user_description]
+    @repo = Repo.find_by_user_id_and_full_name(current_user.id, params[:repo])
+    @repo.user_description = desc
+    @repo.save!
 
     respond_to do |format|
-      format.js
+      format.js { @repo }
     end
   end
+
+  def post_repo
+    @repo = Repo.find(params[:repo_id])
+    content = view_context.markdown(@repo.user_description)
+    respond_to do |format|
+      format.json { render json: content.to_json }
+    end
+  end
+
 end

@@ -55,6 +55,15 @@ gem 'acts-as-taggable-on'
 #preloading tags
 gem 'gon'
 
+#syntax highligting
+gem 'pygments.rb'
+
+#markdown
+gem 'redcarpet'
+
+#fancybox
+gem 'fancybox-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

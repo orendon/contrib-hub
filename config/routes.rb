@@ -15,6 +15,7 @@ ContribHub::Application.routes.draw do
 
   post '/tagging/update_tags' => 'tagging#update_tags'
   match '/repos/update_user_description' => "repos#update_user_description"
+  post '/repos/post_repo' => 'repos#post_repo'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

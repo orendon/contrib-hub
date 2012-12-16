@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204051405) do
+ActiveRecord::Schema.define(:version => 20121212223959) do
+
+  create_table "error_logs", :force => true do |t|
+    t.string   "message"
+    t.string   "action"
+    t.text     "backtrace"
+    t.string   "extras"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "helped_repos", :force => true do |t|
     t.integer  "repo_id"
@@ -37,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20121204051405) do
     t.integer  "open_issues"
     t.datetime "pushed_at"
     t.text     "user_description"
+    t.datetime "last_sync"
   end
 
   create_table "taggings", :force => true do |t|
@@ -60,12 +70,20 @@ ActiveRecord::Schema.define(:version => 20121204051405) do
     t.string   "github_id"
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.string   "email"
+    t.string   "avatar_url"
+    t.string   "github_url"
+    t.integer  "followers"
+    t.integer  "following"
+    t.integer  "public_repos"
+    t.integer  "public_gists"
+    t.datetime "last_sync"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true

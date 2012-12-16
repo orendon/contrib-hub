@@ -1,21 +1,29 @@
 <div class="row-fluid">
   <div class="span3 box-holder">
-    <%= image_tag @user.get[:avatar_url], size:'100x100', class: "img-polaroid" %>
+    <%= image_tag current_user.avatar_url, size:'100x100', class: "img-polaroid" %>
     <div id="center-text">
-      <h4><%= @user.get[:name]%></h4>
-      <p><%= link_to "GitHub Profile", @user.get[:html_url], :target => "_blank" %></p>
+      <h4><%= current_user.name%></h4>
+      <p>
+        <i class="icon-user"></i>&nbsp;
+        <a href="<%= current_user.github_url %>" target="_blank">GitHub Profile</a>
+        <br/>
+        <i class="icon-home"></i>&nbsp;<%= current_user.location %>
+      </p>
       <ul class="unstyled stats">
         <li>
-          <strong><%= @user.get[:followers] %></strong>
+          <strong><%= current_user.followers %></strong>
           <span>Followers</span>
         </li>
         <li>
-          <strong><%= @user.get[:following] %></strong>
+          <strong><%= current_user.following %></strong>
           <span>Following</span>
         </li>
-        <li>&nbsp;</li>
         <li>
-          <strong><%= @user.get[:public_repos] %></strong>
+          <strong><%= current_user.public_gists %></strong>
+          <span>Gists</span>
+        </li>
+        <li>
+          <strong><%= current_user.public_repos %></strong>
           <span>Own Repos</span>
         </li>
         <li>
@@ -23,16 +31,14 @@
           <span>Need Help</span>
         </li>
         <li>
-          <strong><%= @repos_helping.count %></strong>
+          <strong><%= current_user.helped_repos.count %></strong>
           <span>Helping</span>
         </li>
-      </ul>      
-      <p>
-        <%= link_to "I wanna help", user_wannahelp_index_path(current_user), 
-          class: "btn btn-primary btn-large action" %>
-      </p>
+      </ul>
+      <p><%= build_static_map(current_user) %></p>
     </div>
   </div>
+
   <div class="span9">
     <h3>My Repos, Help Wanted?</h3>
     <div class="span9 border-left">
@@ -44,9 +50,9 @@
   <div class="span9" style="float: right;">
     <h3>I'm helping to:</h3>
     <div class="span9 border-left">
-      <%- if @repos_helping.any? %>
+      <%- if current_user.helped_repos.any? %>
         <ul class="ul-clean user-repos">
-          <%= render :partial => 'users/helped_repo', collection: @repos_helping %>
+          <%= render :partial => 'users/helped_repo', collection: current_user.helped_repos %>
         </ul>
       <% else %>
         <h4>You're not helping anybody, share some love <%= link_to "here", user_wannahelp_index_path(current_user) %>.</h4>

@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+  include UserPresenter
 
-  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude
+  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude, :email,
+    :avatar_url, :github_url, :public_repos, :public_gists, :followers, :following, :last_sync
 
   ## friendly url
   friendly_id :github_id, use: :slugged
@@ -15,7 +17,7 @@ class User < ActiveRecord::Base
   after_validation :geocode, :if => :location_changed?
 
   ## validations
-  validates :github_id, :name, :token, :presence => true
+  validates :github_id, :token, :presence => true
   validates :github_id, :uniqueness => true
 
   ## instance methods
@@ -28,26 +30,35 @@ class User < ActiveRecord::Base
     end
   end
 
+  def sync_github_data
+    user_data = GithubUtils.get_user_details_for(self)
+    self.update_attributes!(user_data)
+
+    github_repos = GithubUtils.get_repos_list_for(self)
+    self.repos.each do |repo|
+      matched_repo = github_repos.find { |x| x.full_name == repo.full_name }
+      if matched_repo
+        repo_data = GithubUtils.normalize_repo(matched_repo)
+        repo.update_attributes!(repo_data)
+      end
+    end
+  end
+
   ## class methods
 
   class << self
 
-    def find_or_create_from(auth_data)
-      login = auth_data["info"]["nickname"]
-      token = auth_data["credentials"]["token"]
-      name = auth_data["info"]["name"]
-      name = login if name.nil?
-      location = auth_data["extra"]["raw_info"]["location"]
+    def find_or_create_from(auth_hash)
+      user_data = OmniauthUtils.normalize_hash(auth_hash)
+      user_data[:last_sync] = Time.now
 
-      user = find_by_github_id(login)
-
+      user = find_by_github_id(user_data[:github_id])
       if user
-        user.token = token
-        user.location = location
-        user.save!
+        user.update_attributes!(user_data)
       else
-        user = User.create!(github_id: login, name: name, token: token, location: location)
+        user = User.create!(user_data)
       end
+
       user
     end
 

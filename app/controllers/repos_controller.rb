@@ -2,7 +2,7 @@ class ReposController < ApplicationController
   def toggle_need_help
     @repo_name = params[:repo]
     @repo = Repo.init_and_toggle_repo(current_user, @repo_name)
-    @user_need_help = Repo.get_needing_help_counter_for(current_user.id).count
+    @user_need_help = current_user.need_help_counter
     respond_to do |format|
       format.js
     end

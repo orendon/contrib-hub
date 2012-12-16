@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   validates :github_id, :uniqueness => true
 
   ## instance methods
-
   def update_repo_status(repo)
     if repo.is_being_helped_by?(self)
       HelpedRepo.find_by_user_id_and_repo_id(self.id, repo.id).destroy

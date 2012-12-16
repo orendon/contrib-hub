@@ -39,7 +39,8 @@
       <%= form_for :repo, url: '/repos/update_user_description', remote: true,
         html: { class: 'help-desc' } do |f| %>
         <%= hidden_field_tag :repo, own_repo[:full_name] %>
-        <%= hidden_field_tag :language, own_repo[:language].downcase %>
+        <% language = own_repo[:language].nil? ? 'ruby' : own_repo[:language].downcase %>
+        <%= hidden_field_tag :language, language %>
         <%= text_area_tag :user_description, own_repo[:user_description], size: '75x12' %>
         <%= submit_tag "Save", class: "btn btn-primary" %>
       <% end %>

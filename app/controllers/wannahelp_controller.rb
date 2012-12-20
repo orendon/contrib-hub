@@ -1,10 +1,11 @@
 class WannahelpController < ApplicationController
   include Utils
 
-  before_filter :parameterize
-
   def index
-    @search = Repo.search(params[:q])
+    search_options = default_search_opts
+    search_options.merge!( {:tags_name_in => params[:undefined][:tags]} ) if search_with_tags?
+    
+    @search = Repo.search(search_options)
     @repos = @search.result(distinct: true)
     @languages = get_all_languages
     gon.tags = get_all_tag_names
@@ -20,23 +21,19 @@ class WannahelpController < ApplicationController
     end
   end
 
-private
-
-  def parameterize
-    if params[:q].present?
-      params[:q][:need_help_true] = true
-      params[:q][:user_id_not_eq] = current_user.id
-      if params[:undefined].present? && params[:undefined][:tags].size > 0
-        params[:q][:tags_name_in] = params[:undefined][:tags]
-      end
-    else
-      params[:q] = {
-        need_help_true: true,
-        user_id_not_eq: current_user.id
-      }
-    end
+  private
+  
+  def default_search_opts
+    {
+      :need_help_true => true,
+      :user_id_not_eq => current_user.id
+    }
   end
-
+  
+  def search_with_tags?
+    params[:undefined].present? && !params[:undefined][:tags].empty?
+  end
+  
   def star(user, repo)
     github = Github.new oauth_token: user.token
     github.repos.starring.starred(owner: user.github_id, repo: repo)

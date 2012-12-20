@@ -1,5 +1,8 @@
 <li class="repo-entry">
   <%= image_tag "repo-icon.png", :size => "30x30" %>
+  <% if own_repo.is_fork? %>
+    <span>Forked!</span>
+  <% end%>
   <%= link_to own_repo[:name], own_repo[:html_url], :target => "_blank" %>
   <p class='right'>
     <% if own_repo[:need_help] %>
@@ -33,6 +36,7 @@
       :html => { :class => 'help-desc' } do |f| %>
       <%= text_area_tag :user_description, "", size: '60x5' %>
       <br>
+      <%= hidden_field_tag :repo_name, own_repo[:full_name], class: 'hidden-repo-name'%>
       <%= submit_tag "Save", class: "btn btn-primary" %>
     <% end %>
   </div>

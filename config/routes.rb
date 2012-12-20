@@ -16,6 +16,8 @@ ContribHub::Application.routes.draw do
   post '/tagging/update_tags' => 'tagging#update_tags'
   match '/repos/update_user_description' => "repos#update_user_description"
 
+  get '/repos/:project_name' => 'repos#show'
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

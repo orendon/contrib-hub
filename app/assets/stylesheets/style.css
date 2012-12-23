@@ -1,0 +1,316 @@
+.sprites {
+  background: url("../images/sprites.png") top left no-repeat;
+}
+.flechas {
+  width: 424px;
+  height: 113px;
+  background-position: -10px -10px;
+}
+.compu {
+  width: 72px;
+  height: 80px;
+  background-position: -10px -133px;
+}
+.github {
+  width: 75px;
+  height: 67px;
+  background-position: -92px -133px;
+}
+.github-black {
+  width: 75px;
+  height: 67px;
+  background-position: -177px -133px;
+}
+.i-want-to-contrib {
+  width: 244px;
+  height: 38px;
+  background-position: -10px -223px;
+}
+.i-want-to-be-contrib {
+  width: 279px;
+  height: 38px;
+  background-position: -10px -271px;
+}
+.logo-contribhub {
+  width: 173px;
+  height: 27px;
+  background-position: -10px -319px;
+}
+.dropdownnav {
+  width: 40px;
+  height: 29px;
+  background-position: -262px -133px;
+}
+/* Left will inherit from right (so we don't need to duplicate code */
+.github-fork-ribbon {
+/* The right and left lasses determine the side we attach our banner to */
+  position: absolute;
+/* Add a bit of padding to give some substance outside the "stitching" */
+  padding: 2px 0;
+/* Set the base colour */
+  background-color: #a00;
+/* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+  background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15));
+/* Add a drop shadow */
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+/* for .navbar-fixed-top */
+  z-index: 2;
+}
+.github-fork-ribbon a {
+/* Set the font */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+/* Set the text properties */
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0,0,0,0.5);
+  text-align: center;
+/* Set the geometry. If you fiddle with these you'll also need to tweak the top and right values in #github-fork-ribbon. */
+  width: 200px;
+  line-height: 20px;
+/* Set the layout properties */
+  display: inline-block;
+  padding: 2px 0;
+/* Add "stitching" effect */
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: rgba(255,255,255,0.7);
+}
+.github-fork-ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+.github-fork-ribbon-wrapper.left {
+  left: 0;
+}
+.github-fork-ribbon-wrapper.right {
+  right: 0;
+}
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+  top: 42px;
+  right: -43px;
+/* Rotate the banner 45 degrees */
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+/* Attach to the left of the page */
+  top: 42px;
+  left: -43px;
+/* Rotate the banner -45 degrees */
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+body {
+  font-family: Lato;
+}
+body > header {
+  background-color: #282828;
+  height: 80px;
+  box-shadow: 0px 0px 50px #555;
+}
+iframe {
+  background-position: center top;
+}
+article header h3 {
+  color: #006fb5;
+  font-size: 36px;
+}
+aside {
+  background-color: #282828;
+  color: #fff;
+}
+aside header h4 {
+  font-size: 18px;
+  margin: 20px;
+  text-transform: uppercase;
+}
+aside ul {
+  list-style: none;
+  margin: 0;
+}
+p {
+  color: #6d6d6d;
+}
+p strong {
+  color: #333;
+}
+button span {
+  text-indent: -9999px;
+  display: block;
+}
+footer {
+  background-color: #c9c9c9;
+  padding-top: 20px;
+  margin-top: 40px;
+}
+footer ul {
+  list-style: none;
+  margin: 0px;
+}
+a.sprites {
+  display: block;
+}
+button.contrib {
+  background-color: #f2f2f2;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 15px 25px;
+}
+button.contrib:hover {
+  background-color: #e2e2e2;
+}
+section,
+.container {
+  position: relative;
+}
+.button-zone {
+  margin-top: 30px;
+}
+.github-black:hover {
+  background-position: -92px -133px;
+}
+.icon {
+  display: inline-block;
+}
+.map {
+  height: 360px;
+  overflow: hidden;
+}
+.nostyle {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.pop-up-content {
+  margin: 15px 0 0 10px;
+  text-align: center;
+  width: 90%;
+}
+.pop-up-info {
+  background-color: #282828;
+  color: #fff;
+  height: 360px;
+  opacity: 0.95;
+  position: absolute;
+  top: 282px;
+  z-index: 9999;
+}
+.pop-up-info:hover {
+  top: 0px;
+}
+.filters {
+  height: 60px;
+  margin: 0;
+}
+.filters p {
+  padding: 20px 0 0 10px;
+}
+.leyend-zone {
+  margin: 5px auto 10px;
+  width: 330px;
+}
+.leyend-zone p {
+  font-size: 18px;
+  font-style: italic;
+  margin: 0px 0 20px 0;
+  text-align: center;
+  font-family: "Lato";
+  font-weight: 300;
+}
+.leyend-zone .to-contrib {
+  margin: 0px auto;
+  padding: 20px 0;
+  width: 230px;
+}
+.main-menu {
+  margin-top: 24px;
+}
+.main-menu li {
+  display: inline-block;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 7px 15px 7px;
+  margin: 0 5px 0 0;
+}
+.main-menu li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.main-menu li.active,
+.main-menu li:hover {
+  background-color: #f2f2f2;
+}
+.main-menu li.active a,
+.main-menu li:hover a {
+  color: #282828;
+}
+.sidebar-body {
+  margin-left: 20px;
+}
+.sidebar-body li {
+  margin: 20px auto;
+  display: block;
+}
+.sidebar-body a,
+.sidebar-body a:hover {
+  color: #fff;
+}
+.submenu {
+  padding: 0 0 0 15px;
+  display: inline-block;
+}
+.submenu > li {
+  margin: 0 0 0 0px;
+  color: #a4a4a4;
+  font-size: 14px;
+  line-height: 1.1;
+}
+#dropnav {
+  display: block !important;
+  margin-top: 25px;
+}
+#dropnav:hover {
+  background-color: transparent;
+}
+#dropnav + ul {
+  margin-left: -130px;
+}
+#flechas {
+  position: absolute;
+  margin-left: 5px;
+  z-index: -1;
+}
+#log-in-git-hub {
+  margin: 0px 25px;
+}
+#logo {
+  margin: 22px 0 0 20px;
+  text-indent: -9999px;
+}
+#copyright {
+  font-size: 12px;
+}
+#mapa {
+  position: absolute;
+  width: 100%;
+}

@@ -4,20 +4,19 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="span3"><a href="#" id="logo" class="sprites logo-contribhub">Contrib Hub</a></div>
+      <div class="span3"><a href="<%= root_url %>" id="logo" class="sprites logo-contribhub">Contrib Hub</a></div>
       <nav role="navegation" class="span6">
         <ul class="main-menu">
-          <%- if include_menu %>
+          <%- if @home_page %>
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Search</a></li>
-          <% else %>
-          <li class="active"><a href="#">Home</a></li>
             <li><a href="/auth/github">Sign In</a></li>
+          <% else %>
+            <li class="active"><a href="#">Profile</a></li>
+            <li><a href="#">Search</a></li>
           <% end %>
         </ul>
       </nav>
-      <%- if include_menu %>
+      <%- if not @home_page %>
         <div class="login span1 offset1">
           <ul class="nav pull-right">
             <li id="fat-menu" class="dropdown"><a href="#" id="dropnav" role="button" data-toggle="dropdown" class="dropdown-toggle sprites dropdownnav"></a>

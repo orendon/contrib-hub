@@ -1,70 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7",lang=''><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8",lang=''><![endif]--><!--[if IE 8]><html class="no-js lt-ie9",lang=''><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+  <!--<![endif]-->
   <head>
-    <%= include_gon %>
     <meta charset="utf-8">
-    <title>ContribHub - We Love Open Source as You, Wanna Help?</title>
+    <title>ContribHub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The place where GitHubbers join">
+    <meta name="description" content="ContribHub">
     <meta name="author" content="">
-
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <!-- Css Styles-->
+    <%= stylesheet_link_tag "style", "bootstrap.min", "bootstrap-responsive.min", :media => "all" %>
     <%= csrf_meta_tags %>
-
-    <style type="text/css">
-      body {
-        padding-top: 115px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- Libraries-->
+    <!-- Javascript extra-->
+    <%= javascript_include_tag "modernizr-2.6.2" %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="javascripts/html5shiv/html5shiv.js"></script>
+      <script src="javascripts/html5shiv/html5shiv-printshiv.js"></script>
     <![endif]-->
-    <!-- start Mixpanel --><script type="text/javascript">(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config peopleidentify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);mixpanel.init("8472ff84b777931eba16c07752882f6b");</script><!-- end Mixpanel -->
+    <!-- Support for IE6-8 of HTML5 elements-->
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="github-fork-ribbon-wrapper right">
-        <div class="github-fork-ribbon">
-          <a href="https://github.com/orendon/contrib-hub">Fork me on GitHub</a>
-        </div>
-      </div>
+    <%= render "/layouts/header" %>
 
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<%= user_url(current_user) %>"><img src="/assets/logo-contribhub-small.png" alt="logo-contribhub-small"></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><%= link_to "My Profile", user_path(current_user) %></li>
-              <li><%= link_to "I Wanna Help", user_wannahelp_index_path(current_user) %></li>
-            </ul>
-            <ul class="pull-right signout">
-              <li class="nav-li">
-                <%= link_to "Sign Out [#{current_user.name}]", signout_path, class: "btn btn-auth btn-large btn-github", id: "button-login-nav" if current_user %>
-                </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    <%= yield %>
 
-    <div class="container">
+    <%= render "/layouts/footer" %>
 
-      <%= yield %>
-
-      <%= render "/layouts/footer" %>
-
-    </div> <!-- /container -->
-
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "bootstrap.min", "google-analytics" %>
 
   </body>
+
 </html>

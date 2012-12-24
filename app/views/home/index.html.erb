@@ -1,42 +1,25 @@
 <%= render "map" %>
 <section class="content-main container">
-  <div class="filters">
-    <p><strong>Repo Stars </strong>/ filter</p>
-  </div>
+
   <div class="row">
     <aside class="left-column span4">
       <header>
-        <h4 class="title">Info about the famous repos</h4>
+        <h4 class="title">Featured Repos</h4>
       </header>
       <div class="sidebar-body">
         <ul>
-          <li>
-            <div class="icon sprites compu"></div>
-            <ul class="submenu">
-              <li>Name: Contribhub</li>
-              <li>Owner's Location: Colombia</li>
-              <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
-              <li>Last change: Pull Request 34 </li>
-            </ul>
-          </li>
-          <li>
-            <div class="icon sprites compu"></div>
-            <ul class="submenu">
-              <li>Name: Contribhub</li>
-              <li>Owner's Location: Colombia</li>
-              <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
-              <li>Last change: Pull Request 34 </li>
-            </ul>
-          </li>
-          <li>
-            <div class="icon sprites compu"></div>
-            <ul class="submenu">
-              <li>Name: Contribhub</li>
-              <li>Owner's Location: Colombia</li>
-              <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
-              <li>Last change: Pull Request 34 </li>
-            </ul>
-          </li>
+          <% @featured_repos.each do |repo| %>
+            <li>
+              <div class="icon sprites compu"></div>
+              <ul class="submenu">
+                <li><strong>Repo:</strong> <a href="<%= repo.github_url %>"><%= repo.full_name %></a></li>
+                <li><strong>Author:</strong> <%= repo.user.name %></li>
+                <li><strong>From:</strong> <%= repo.user.location %></li>
+                <li><strong>Lang:</strong> <%= repo.language %></li>
+                <li><strong>Issues:</strong> <%= repo.open_issues %></li>
+              </ul>
+            </li>
+          <% end %>
         </ul>
       </div>
     </aside>

@@ -138,6 +138,7 @@ article header h3 {
 aside {
   background-color: #282828;
   color: #fff;
+  opacity: 0.95;
 }
 aside header h4 {
   font-size: 18px;

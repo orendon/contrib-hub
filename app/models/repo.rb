@@ -16,7 +16,7 @@ class Repo < ActiveRecord::Base
   validates :github_id, :uniqueness => true
 
   ## instance methods
-  
+
   def is_being_helped_by?(user)
     helped_repo = user.helped_repos.find_by_repo_id(self.id)
     helped_repo.nil? ? false : true
@@ -25,15 +25,18 @@ class Repo < ActiveRecord::Base
   def toggle_need_help!
     update_attribute(:need_help, !need_help)
   end
-  
+
   def is_fork?
     fork
   end
-  
+
   ## class methods
 
   class << self
-    
+    def get_featured_repos(counter)
+      self.includes(:user).where(need_help: true).order("RANDOM()").limit(counter)
+    end
+
     def extract_info(github_repo)
       {
         :name => github_repo['name'],

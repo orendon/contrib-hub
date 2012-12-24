@@ -14,5 +14,7 @@ class ApplicationController < ActionController::Base
       unless controller == "home" || controller == "sessions"
         redirect_to root_path unless session[:user_id]
       end
+
+      @home_page = true if controller == "home"
     end
 end

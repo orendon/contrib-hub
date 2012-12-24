@@ -83,6 +83,12 @@
   border-style: dotted;
   border-color: rgba(255,255,255,0.7);
 }
+.github-fork-ribbon a:hover{
+  color: #c9c9c9;
+  text-decoration: none;
+}
+
+
 .github-fork-ribbon-wrapper {
   width: 150px;
   height: 150px;
@@ -212,6 +218,11 @@ section,
   position: absolute;
   top: 282px;
   z-index: 9999;
+
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .pop-up-info:hover {
   top: 0px;
@@ -314,3 +325,69 @@ section,
   position: absolute;
   width: 100%;
 }
+/* Profile */
+.username{
+  text-align: center;
+}
+.img-polaroid{
+  display: block;
+  margin: 0 auto;
+}
+.img-polaroid:hover{
+  -ms-transform:rotate(-7deg); 
+  -moz-transform:rotate(-7deg); 
+  -webkit-transform:rotate(-7deg); 
+  -o-transform:rotate(-7deg); 
+  transform:rotate(-7deg);
+}
+.headerprofile{
+  margin-bottom: 20px;
+}
+#center-text p{
+  padding-left: 100px;
+}
+#center-text a,i{
+  font-size: 16px;
+}
+ul.stats {
+border-bottom: 1px solid #DDD;
+margin: 0 0 17px;
+padding: 6px 0 15px;
+padding-left: 20px;
+}
+ul.stats li {
+display: inline-block;
+list-style-type: none;
+min-width: 100px;
+text-align: center;
+background: #eee;
+margin: 3px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+ul.stats li:hover{
+background: #fff;
+}
+ul.stats li strong {
+color: #444;
+display: block;
+font-size: 28px;
+font-weight: bold;
+line-height: 1;
+}
+ul.stats li span {
+color: #777;
+}
+.minimap{
+  width: 370px;
+  height: 370px;
+}
+.minimap img{
+  display: block;
+  margin:0 auto;
+}
+.repoh3{
+  color: #006fb5;
+  font-size: 24px;
+}
+/* Projects */

@@ -17,6 +17,7 @@ ContribHub::Application.routes.draw do
   match '/repos/update_user_description' => "repos#update_user_description"
 
   get '/repos/:project_name' => 'repos#show'
+  get '/users_map' => "home#users_map"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

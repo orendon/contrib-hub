@@ -1,63 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7",lang=''><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8",lang=''><![endif]--><!--[if IE 8]><html class="no-js lt-ie9",lang=''><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+  <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>ContribHub - We Love Open Source as You, Wanna Help?</title>
+    <title>ContribHub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The place where GitHubbers join">
+    <meta name="description" content="ContribHub">
     <meta name="author" content="">
-
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <!-- Css Styles-->
+    <%= stylesheet_link_tag "style", "bootstrap.min", "bootstrap-responsive.min", :media => "all" %>
     <%= csrf_meta_tags %>
-
-    <style type="text/css">
-      body {
-        padding-top: 30px;
-        padding-bottom: 0px;
-      }
-    </style>
+    <!-- Libraries-->
+    <!-- Javascript extra-->
+    <script src="javascripts/modernizr-2.6.2.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+      <script src="javascripts/html5shiv/html5shiv.js"></script>
+      <script src="javascripts/html5shiv/html5shiv-printshiv.js"></script>
+    <![endif]-->
+    <!-- Support for IE6-8 of HTML5 elements-->
   </head>
-
   <body>
-    <div class="github-fork-ribbon-wrapper right">
-      <div class="github-fork-ribbon">
-        <a href="https://github.com/orendon/contrib-hub">Fork me on GitHub</a>
+
+    <%= render "/layouts/header" %>
+
+    <section class="map">
+      <div id="mapa">
+        <iframe width="100%" height="360px" frameborder="0" allowtransparency="yes" marginwidth="0" marginheight="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=&amp;aq=&amp;sll=6.235925,-75.575137&amp;sspn=0.395897,0.611115&amp;ie=UTF8&amp;ll=6.265027,-75.569565&amp;spn=0.012371,0.019097&amp;t=m&amp;z=16&amp;output=embed"></iframe>
       </div>
-    </div>
-    <div class="container">
-      <div class="row-fluid">
-      <div class="span2"></div>
-      <div class="span8">
-        <div class="hero-unit">
-        <p class="center-text"><img src="assets/logo-contribhub.png"></p>
-        <h2 id="index-subtitle" class="center-text">Open source lovers</h2>
-        <p class="center-text">making easier to find cool repos to hack on! </p>
-        <p class="center-text"><a class="btn btn-auth btn-large btn-github large" href="/auth/github">Sign in with <strong>GitHub</strong></a></p>
-      </div>
+      <div class="container">
+        <div class="row">
+          <div class="pop-up-info span4">
+            <div class="pop-up-content">
+              <h2>Open Source Lovers</h2>
+            </div>
           </div>
-          <div class="span2"></div>
         </div>
-
-      <div class="row-fluid center-text">
-        <div class="span2"></div>
-        <div class="span4">
-          <img src="assets/help.png" style="height:130px">
-          <h2>I Need Help</h2>
-          <p><strong>Ask</strong> your GitHub's friends so they can contribute to your Open Source project</p>
-        </div>
-        <div class="span4">
-          <img src="assets/lupa-search.png" style="height:130px">
-          <h2>I Want to Help</h2>
-          <p><strong>Search</strong> for an Open Source project and help them</p>
-       </div>
-        <div class="span2"></div>
       </div>
+    </section>
+    <section class="content-main container">
+      <div class="filters">
+        <p><strong>Repo Stars </strong>/ filter</p>
+      </div>
+      <div class="row">
+        <aside class="left-column span4">
+          <header>
+            <h4 class="title">Info about the famous repos</h4>
+          </header>
+          <div class="sidebar-body">
+            <ul>
+              <li>
+                <div class="icon sprites compu"></div>
+                <ul class="submenu">
+                  <li>Name: Contribhub</li>
+                  <li>Owner's Location: Colombia</li>
+                  <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
+                  <li>Last change: Pull Request 34 </li>
+                </ul>
+              </li>
+              <li>
+                <div class="icon sprites compu"></div>
+                <ul class="submenu">
+                  <li>Name: Contribhub</li>
+                  <li>Owner's Location: Colombia</li>
+                  <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
+                  <li>Last change: Pull Request 34 </li>
+                </ul>
+              </li>
+              <li>
+                <div class="icon sprites compu"></div>
+                <ul class="submenu">
+                  <li>Name: Contribhub</li>
+                  <li>Owner's Location: Colombia</li>
+                  <li>Repo: <a href="#">http//:git.hub/AbX65s</a></li>
+                  <li>Last change: Pull Request 34 </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <div class="center-column span8">
+          <article>
+            <header>
+              <h3 class="slogan">Making easier to find cool repos to hack on!</h3>
+            </header>
+            <div class="article-body">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              </p>
+              <div class="button-zone">
+                <button id="i-want-to-contrib" class="nostyle contrib"><span class="sprites i-want-to-contrib">I Want to contrib</span></button>
+                <button id="log-in-git-hub" class="nostyle"><span class="sprites github-black">Login github</span></button>
+                <button id="i-wat-to-be-contrib" class="nostyle contrib"><span class="sprites i-want-to-be-contrib">I Want to be contrib</span></button>
+              </div>
+              <div class="leyend-zone">
+                <div id="flechas" class="flechas sprites"></div>
+                <p class="to-contrib">Search for an Open Source project and help them</p>
+                <p class="to-be-contrib">Ask your GitHub's friends so they can contribute to your Open Source project</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <%= render "/layouts/footer" %>
+    <%= render "/layouts/footer" %>
 
-    </div> <!-- /container -->
-
-    <%= javascript_include_tag "google-analytics" %>
+    <%= javascript_include_tag "google-analytics", "bootstrap.min" %>
 
   </body>
 </html>

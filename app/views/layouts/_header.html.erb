@@ -4,28 +4,33 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="span3"><a href="#" id="logo" class="sprites logo-contribhub">Contrib Hub</a></div>
+      <div class="span3"><a href="<%= root_url %>" id="logo" class="sprites logo-contribhub">Contrib Hub</a></div>
       <nav role="navegation" class="span6">
         <ul class="main-menu">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Info</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Share Us</a></li>
+          <%- if @home_page %>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/auth/github">Sign In</a></li>
+          <% else %>
+            <li class="active"><a href="#">Profile</a></li>
+            <li><a href="#">Search</a></li>
+          <% end %>
         </ul>
       </nav>
-      <div class="login span1 offset1">
-        <ul class="nav pull-right">
-          <li id="fat-menu" class="dropdown"><a href="#" id="dropnav" role="button" data-toggle="dropdown" class="dropdown-toggle sprites dropdownnav"></a>
-            <ul role="menu" aria-labelledby="drop3" class="dropdown-menu">
-              <li><a href="#" tabindex="-1">Action</a></li>
-              <li><a href="#" tabindex="-1">Another action</a></li>
-              <li><a href="#" tabindex="-1">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#" tabindex="-1">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <%- if not @home_page %>
+        <div class="login span1 offset1">
+          <ul class="nav pull-right">
+            <li id="fat-menu" class="dropdown"><a href="#" id="dropnav" role="button" data-toggle="dropdown" class="dropdown-toggle sprites dropdownnav"></a>
+              <ul role="menu" aria-labelledby="drop3" class="dropdown-menu">
+                <li><a href="#" tabindex="-1">Action</a></li>
+                <li><a href="#" tabindex="-1">Another action</a></li>
+                <li><a href="#" tabindex="-1">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#" tabindex="-1">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 </header>

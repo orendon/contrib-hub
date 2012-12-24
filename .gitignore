@@ -17,14 +17,7 @@
 # Test stuff
 /coverage
 /spec/rspec_report.html
+
 .DS_Store
+*DS_Store
 
-app/.DS_Store
-
-app/assets/.DS_Store
-
-app/assets/stylesheets/.DS_Store
-
-app/views/.DS_Store
-
-app/assets/images/.DS_Store

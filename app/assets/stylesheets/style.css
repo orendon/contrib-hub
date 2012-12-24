@@ -390,4 +390,30 @@ color: #777;
   color: #006fb5;
   font-size: 24px;
 }
+.user-repos{
+display: block;
+list-style-type: none;
+}
+.user-repos li{
+width: 90%;
+height: auto;
+background-color: #ddd;
+padding: 15px;
+border-radius: 10px;
+margin: 10px 0;
+}
+.user-repos li img{
+border-radius: 50%;
+display: inline-block;
+padding: 3px;
+}
+.user-repos li a{
+color: #006fb5;
+font-size: 18px;
+text-decoration: none;
+width: 80%;
+display: inline-block;
+}
+
+
 /* Projects */

@@ -88,7 +88,6 @@
   text-decoration: none;
 }
 
-
 .github-fork-ribbon-wrapper {
   width: 150px;
   height: 150px;
@@ -311,6 +310,9 @@ section,
   margin-left: 5px;
   z-index: -1;
 }
+#auth-login {
+  text-decoration: none;
+}
 #log-in-git-hub {
   margin: 0px 25px;
 }
@@ -321,10 +323,15 @@ section,
 #copyright {
   font-size: 12px;
 }
+
 #mapa {
   position: absolute;
   width: 100%;
 }
+#mapa img {
+  max-width: none;
+}
+
 /* Profile */
 .username{
   text-align: center;
@@ -356,24 +363,24 @@ padding: 6px 0 15px;
 padding-left: 20px;
 }
 ul.stats li {
-display: inline-block;
-list-style-type: none;
-min-width: 100px;
-text-align: center;
-background: #eee;
-margin: 3px;
-border: 1px solid #ccc;
-border-radius: 5px;
+  display: inline-block;
+  list-style-type: none;
+  min-width: 100px;
+  text-align: center;
+  background: #eee;
+  margin: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 ul.stats li:hover{
-background: #fff;
+  background: #fff;
 }
 ul.stats li strong {
-color: #444;
-display: block;
-font-size: 28px;
-font-weight: bold;
-line-height: 1;
+  color: #444;
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
 }
 ul.stats li span {
 color: #777;

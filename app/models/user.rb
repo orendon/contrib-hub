@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     def find_or_create_from(auth_hash)
       user_data = OmniauthUtils.normalize_hash(auth_hash)
       user_data[:last_sync] = Time.now
-            
+
       user = find_by_github_id(user_data[:github_id])
       if user
         user.update_attributes!(user_data)
@@ -63,8 +63,12 @@ class User < ActiveRecord::Base
         data = Repo.extract_info(remote_repo)
         user.repos.create(data)
       end
-      
+
       user
+    end
+
+    def get_users_needing_help
+      self.joins(:repos).where("repos.need_help=?", true)
     end
 
   end

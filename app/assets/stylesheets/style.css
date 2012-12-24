@@ -1,5 +1,5 @@
 .sprites {
-  background: url("../images/sprites.png") top left no-repeat;
+  background: url("/assets/sprites.png") top left no-repeat;
 }
 .flechas {
   width: 424px;
@@ -126,7 +126,7 @@ body {
 }
 body > header {
   background-color: #282828;
-  height: 80px;
+  height: 70px;
   box-shadow: 0px 0px 50px #555;
 }
 iframe {
@@ -315,7 +315,7 @@ section,
   margin: 0px 25px;
 }
 #logo {
-  margin: 22px 0 0 20px;
+  margin: 22px 0 0 70px;
   text-indent: -9999px;
 }
 #copyright {
@@ -334,10 +334,10 @@ section,
   margin: 0 auto;
 }
 .img-polaroid:hover{
-  -ms-transform:rotate(-7deg); 
-  -moz-transform:rotate(-7deg); 
-  -webkit-transform:rotate(-7deg); 
-  -o-transform:rotate(-7deg); 
+  -ms-transform:rotate(-7deg);
+  -moz-transform:rotate(-7deg);
+  -webkit-transform:rotate(-7deg);
+  -o-transform:rotate(-7deg);
   transform:rotate(-7deg);
 }
 .headerprofile{

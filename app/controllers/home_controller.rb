@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def users_map
-    users = User.includes(:repos).where("repos.need_help=?", true)
+    users = User.joins(:repos).where("repos.need_help=?", true)
     coords = users.map(&:coords)
     render :json => coords.to_json
   end

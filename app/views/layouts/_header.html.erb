@@ -11,8 +11,8 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="/auth/github">Sign In</a></li>
           <% else %>
-            <li class="active"><a href="#">Profile</a></li>
-            <li><a href="#">Search</a></li>
+            <li><%= link_to "My Profile", user_path(current_user) %></li>
+            <li><%= link_to "I Wanna Help", user_wannahelp_index_path(current_user) %></li>
           <% end %>
         </ul>
       </nav>

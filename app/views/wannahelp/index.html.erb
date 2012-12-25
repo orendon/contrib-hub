@@ -1,66 +1,17 @@
-<div class="row-fluid">
-  <div class="span3 box-holder">
-    <div id="center-text">
-      <div id="filters">
-        <%= search_form_for @search, url: user_wannahelp_index_path(current_user),
-        html: { method: :get } do |f| %>
-          <h4>Filters:</h4>
-          <%= f.label :language_eq, "Language:" %>
-          <%= f.select :language_eq, options_for_select(get_filter(@languages), current_value(:language_eq)), {},
-            {class: "input-medium"} %>
-          <%= f.label :user_location_matches, "Location:" %>
-          <%= f.text_field :user_location_matches, class: "input-medium" %>
-          <%= f.label :tags, "Tagged with:" %>
-          <ul class="repo-tags">
-          </ul>
-          <%= f.submit "Search", class: "btn btn-primary" %>
-          <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
-        <% end %>
+<section class="content-main container">
+  <div class="filters"></div>
+  <div class="row">
+    <%= render "filters" %>
+
+    <div class="center-column span8">
+      <article>
+        <header>
+          <h3 class="repoh3">Projects needing help:</h3>
+        </header>
+
+        <%= render "results" %>
       </div>
-    </div>
+    </article>
   </div>
-  <div class="span9">
-    <h3>Projects needing help:</h3>
-    <div class="span9 border-left">
-      <div id="repo-list">
-        <table>
-          <tr>
-            <th></th>
-            <th>Forked</th>
-            <th>Author</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th>Issues</th>
-            <th>Description</th>
-            <th>Helping?</th>
-          </tr>
-          <% @repos.each do |repo| %>
-            <tr>
-              <td>
-                <%= image_tag "repo-icon.png", :size => "25x25" %>
-                <%= link_to repo.name, "#{repo.github_url}" %>
-              </td>
-              <td><%= repo.is_fork? ? 'Forked!' : ''%></td>
-              <td>
-                <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
-              </td>
-              <td><%= repo.created_at %></td>
-              <td><%= repo.updated_at %></td>
-              <td><%= repo.open_issues %></td> 
-              <td>
-                <small><%= repo.description %></small>
-              </td>
-              <td>
-                <% if repo.is_being_helped_by?(current_user) %>
-                  <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id] %>
-                <% else %>
-                  <%= link_to "I Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id] %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-  </div>
-<div class="row-fluid"></div>
+
+</section>

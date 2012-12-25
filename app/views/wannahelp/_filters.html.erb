@@ -1,0 +1,20 @@
+<aside class="left-column span4" style="width:270px;">
+  <div style="padding-left:20px;">
+    <%= search_form_for @search, url: user_wannahelp_index_path(current_user), html: { method: :get } do |f| %>
+      <h4>Filters</h4>
+      <%= f.label :language_eq, "Language:" %>
+      <%= f.select :language_eq, options_for_select(get_filter(@languages), current_value(:language_eq)), {},
+        {class: "input-medium"} %>
+      <!--
+      <%= f.label :user_location_matches, "Location:" %>
+      <%= f.text_field :user_location_matches, class: "input-medium" %>
+      <%= f.label :tags, "Tagged with:" %>
+      <ul class="repo-tags">
+      </ul>
+      -->
+      <br/><br/>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
+    <% end %>
+  </div>
+</aside>

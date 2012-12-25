@@ -37,4 +37,6 @@ $(function() {
     $(target).addClass('active');
   });
 
+  $(".results-tooltip").popover();
+
 })

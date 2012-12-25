@@ -1,0 +1,20 @@
+<section class="content-main container">
+  <div class="filters"></div>
+  <div class="row">
+
+    <%= render "profile_sidebar" %>
+
+    <div class="center-column span8">
+      <article>
+        <header>
+          <h3 class="repoh3">Update location?</h3>
+        </header>
+        <%= form_tag(user_path(current_user), :method => :put) do %>
+          <%= label_tag(:location, "New location:") %>
+          <%= text_field_tag(:location, current_user.location) %>
+          <%= submit_tag("Update") %>
+        <% end %>
+      </article>
+    </div>
+  </div>
+</section>

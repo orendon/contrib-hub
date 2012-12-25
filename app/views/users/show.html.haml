@@ -1,0 +1,31 @@
+%section.content-main.container
+  .filters
+  .row
+    = render "shared/profile_sidebar"
+
+    .center-column.span8
+      %article
+        %header
+          %h3.repoh3 My Repos, Help Wanted?
+        %ul#user-tabs.nav.nav-tabs
+          %li.active
+            %a{:href => '#own'} My Own Repos
+          %li
+            %a{:href => '#forks'} My Forks
+          %li
+            %a{:href => '#orgs'} Organizations
+        .tab-content
+          #own.tab-pane.active
+            %ul.ul-clean.user-repos
+              = render :partial => 'users/own_repo', collection: @own_repos.select { |r| not r.fork }
+          #forks.tab-pane
+            %ul.ul-clean.user-repos
+              = render :partial => 'users/own_repo', collection: @own_repos.select { |r| r.fork? }
+          #orgs.tab-pane
+            %ul.ul-clean.user-repos
+              %li Coming soon...
+      %article
+        %header
+          %h3.repoh3 I'm contributing to:
+        %ul.ul-clean.user-repos
+          = render :partial => 'users/helped_repo', collection: current_user.helped_repos

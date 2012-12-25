@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem "haml-rails"
 
 # authentication
 gem "github_api"
@@ -15,6 +16,7 @@ gem "friendly_id"
 
 # searches
 gem 'ransack'
+gem 'kaminari'
 
 # geolocation
 gem 'geocoder'

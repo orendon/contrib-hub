@@ -4,9 +4,9 @@ class WannahelpController < ApplicationController
   def index
     search_options = default_search_opts
     search_options.merge!( {:tags_name_in => params[:undefined][:tags]} ) if search_with_tags?
-    
+
     @search = Repo.search(search_options)
-    @repos = @search.result(distinct: true)
+    @repos = @search.result(distinct: true).page(params[:page]).per(8)
     @languages = get_all_languages
     gon.tags = get_all_tag_names
   end
@@ -22,18 +22,18 @@ class WannahelpController < ApplicationController
   end
 
   private
-  
+
   def default_search_opts
     {
       :need_help_true => true,
       :user_id_not_eq => current_user.id
     }
   end
-  
+
   def search_with_tags?
     params[:undefined].present? && !params[:undefined][:tags].empty?
   end
-  
+
   def star(user, repo)
     github = Github.new oauth_token: user.token
     github.repos.starring.starred(owner: user.github_id, repo: repo)

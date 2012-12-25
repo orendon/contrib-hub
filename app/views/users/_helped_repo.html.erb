@@ -1,11 +1,13 @@
-<li>
+<li class="repo-entry">
   <%= image_tag "repo-icon.png", :size => "30x30" %>
   <%= link_to helped_repo.repo.full_name, "https://github.com/#{helped_repo.repo.full_name}", :target => "_blank" %>
+  <!--
   <p class='right'>
     <span><%= image_tag 'github-admin.png', class: 'expand-description' %></span>
   </p>
   <div class='repo-user-description'>
     <small><%= helped_repo.repo.description %></small>
   </div>
-  <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => helped_repo.repo[:id] %>
+  -->
+  <button class="btn btn-danger wanna-help-btn" type="button" data-id="<%=helped_repo.repo[:id]%>">Remove</button>
 </li>

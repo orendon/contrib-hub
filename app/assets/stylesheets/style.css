@@ -358,10 +358,10 @@ section,
   font-size: 16px;
 }
 ul.stats {
-border-bottom: 1px solid #DDD;
-margin: 0 0 17px;
-padding: 6px 0 15px;
-padding-left: 20px;
+  border-bottom: 1px solid #DDD;
+  margin: 0 0 17px;
+  padding: 6px 0 15px;
+  padding-left: 20px;
 }
 ul.stats li {
   display: inline-block;
@@ -399,28 +399,28 @@ color: #777;
   font-size: 24px;
 }
 .user-repos{
-display: block;
-list-style-type: none;
+  display: block;
+  list-style-type: none;
 }
 .user-repos li{
-width: 90%;
-height: auto;
-background-color: #ddd;
-padding: 15px;
-border-radius: 10px;
-margin: 10px 0;
+  width: 90%;
+  height: auto;
+  background-color: #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 .user-repos li img{
-border-radius: 50%;
-display: inline-block;
-padding: 3px;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 3px;
 }
 .user-repos li a{
-color: #006fb5;
-font-size: 18px;
-text-decoration: none;
-width: 80%;
-display: inline-block;
+  color: #006fb5;
+  font-size: 18px;
+  text-decoration: none;
+  width: 80%;
+  display: inline-block;
 }
 
 

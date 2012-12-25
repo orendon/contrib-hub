@@ -6,7 +6,7 @@ class WannahelpController < ApplicationController
     search_options.merge!( {:tags_name_in => params[:undefined][:tags]} ) if search_with_tags?
 
     @search = Repo.search(search_options)
-    @repos = @search.result(distinct: true).page(params[:page]).per(8)
+    @repos = @search.result(distinct: true).page(params[:page]).per(12)
     @languages = get_all_languages
     gon.tags = get_all_tag_names
   end

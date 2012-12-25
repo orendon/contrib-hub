@@ -1,44 +1,36 @@
-<div class="row-fluid">
-  <div class="span3 box-holder">
-    <%= image_tag current_user.avatar_url, size:'100x100', class: "img-polaroid" %>
-    <div id="center-text">
-      <h4><%= current_user.name%></h4>
-      <p>
-        <i class="icon-user"></i>&nbsp;
-        <a href="<%= current_user.github_url %>" target="_blank">GitHub Profile</a>
-        <br/>
-        <i class="icon-home"></i>&nbsp;<%= current_user.location %>
-      </p>
-      <ul class="unstyled stats">
-        <li>
-          <strong><%= current_user.followers %></strong>
-          <span>Followers</span>
-        </li>
-        <li>
-          <strong><%= current_user.following %></strong>
-          <span>Following</span>
-        </li>
-        <li>
-          <strong><%= current_user.public_gists %></strong>
-          <span>Gists</span>
-        </li>
-        <li>
-          <strong><%= current_user.public_repos %></strong>
-          <span>Own Repos</span>
-        </li>
-        <li>
-          <strong id="need-help"><%= @repos_needing_help %></strong>
-          <span>Need Help</span>
-        </li>
-        <li>
-          <strong><%= current_user.helped_repos.count %></strong>
-          <span>Helping</span>
-        </li>
-      </ul>
-      <p><%= image_tag MapUrlBuilder.user_map(current_user) %></p>
+<section class="content-main container">
+  <div class="filters"></div>
+  <div class="row">
+
+    <%= render "profile_sidebar" %>
+
+    <div class="center-column span8">
+      <article>
+        <header>
+          <h3 class="repoh3">My Repos, Help Wanted?</h3>
+        </header>
+        <ul class="ul-clean user-repos">
+          <li class="repo-entry">
+            <img alt="Repo-icon" height="30" src="images/repo-icon.png" width="30" />
+            <a href="" target="_blank">Repo Name</a>
+            <button class="btn" type="button">Contrib</button>
+          </li>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <header>
+          <h3 class="repoh3">I'm contributing to:</h3>
+        </header>
+        <ul class="ul-clean user-repos">
+          <%= render :partial => 'users/helped_repo', collection: current_user.helped_repos %>
+        </ul>
+      </article>
     </div>
   </div>
+</section>
 
+<!--
   <div class="span9">
     <h3>My Repos, Help Wanted?</h3>
     <div class="span9 border-left">
@@ -61,3 +53,4 @@
   </div>
 </div>
 <div class="row-fluid"></div>
+-->

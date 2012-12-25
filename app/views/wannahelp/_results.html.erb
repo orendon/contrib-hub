@@ -1,0 +1,44 @@
+<div id="repo-list">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Project</th>
+        <th>Author</th>
+        <th># Issues</th>
+        <th># Forks</th>
+        <th>Last Update</th>
+        <th>Helping?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @repos.each do |repo| %>
+        <tr>
+          <td>
+            <a href="#" class="results-tooltip" rel="tooltip" data-placement="left" data-original-title="<%= repo.full_name %>" data-content="<%= repo.description %>">
+              <i class="icon-question-sign"></i>
+            </a>
+          </td>
+          <td>
+            <%= link_to repo.name, "#{repo.github_url}" %>
+          </td>
+          <td>
+            <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
+          </td>
+          <td><%= repo.open_issues %></td>
+          <td><%= repo.forks %></td>
+          <td>
+            <small><%= repo.pushed_at %></small>
+          </td>
+          <td>
+            <% if repo.is_being_helped_by?(current_user) %>
+              <%= link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id] %>
+            <% else %>
+              <%= link_to "I Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id] %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -13,13 +13,17 @@ class MapUrlBuilder
     MapUrlBuilder.new('350x350').add_marker('blue', user.coords).url
   end
 
+  def self.search_map(repos)
+    MapUrlBuilder.new('250x250').add_markers('red', repos).url
+  end
+
   def add_marker(colour, coords)
     @markers << build_string(colour, coords[:latitude], coords[:longitude])
     self
   end
 
   def add_markers(colour, items)
-    items.each{ |i| @markers << build_string( colour, i[:latitude], i[:longitude] ) }
+    items.each{ |i| @markers << build_string( colour, i.coords[:latitude], i.coords[:longitude] ) }
     self
   end
 

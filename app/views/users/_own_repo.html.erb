@@ -1,18 +1,25 @@
 <li class="repo-entry">
   <%= image_tag "repo-icon.png", :size => "30x30" %>
+  <!--
   <% if own_repo.is_fork? %>
     <span>Forked!</span>
   <% end%>
+  -->
   <%= link_to own_repo[:name], own_repo[:html_url], :target => "_blank" %>
   <p class='right'>
     <% if own_repo[:need_help] %>
+      <!--
       <span><%= image_tag 'github-admin.png', class: 'expand-description', :"data-repo" => own_repo[:full_name] %></span>
-      <%= link_to "", "#", class: "help-button on", :"data-repo" => own_repo[:full_name]%>
+      -->
+      <button class="help-button on" type="button" data-repo="<%= own_repo[:full_name] %>"></button>
     <% else %>
+      <!--
       <span><%= image_tag 'github-admin.png', class: 'expand-description hidden', :"data-repo" => own_repo[:full_name] %></span>
-      <%= link_to "", "#", class: "help-button off", :"data-repo" => own_repo[:full_name] %>
+      -->
+      <button class="help-button off" type="button" data-repo="<%= own_repo[:full_name] %>"></button>
     <% end %>
   </p>
+  <!--
   <div class="current-tags">
     <% own_repo.current_tags.each do |tag| %>
       <%= link_to tag, "#", class: 'tag' %>
@@ -40,4 +47,5 @@
       <%= submit_tag "Save", class: "btn btn-primary" %>
     <% end %>
   </div>
+  -->
 </li>

@@ -10,8 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+
 //= require jquery
 //= require jquery_ujs
+
 //= require jquery.ui.core
 //= require jquery.ui.widget
 //= require jquery.ui.position
@@ -20,14 +22,6 @@
 //= require jquery.effects.blind
 //= require jquery.effects.highlight
 //= require tag-it.min
-//= require_tree .
 
-/*
-$(document).ready(function() {
-  $('#').mixpanel.track("I Wanna Help");
-
-  $('#').mixpanel.track("I Need Help");
-
-  $('#').hover().popover('show')
-});
-*/
+//= require bootstrap.min
+//= require google-analytics

@@ -1,0 +1,44 @@
+<aside class="left-column span4">
+  <header class="headerprofile">
+    <h4 class="username"><%= current_user.name%></h4>
+    <%= image_tag current_user.avatar_url, size:'100x100', class: "img-polaroid" %>
+  </header>
+  <div id="center-text">
+    <p>
+      <i class="icon-user icon-white"></i>&nbsp;
+      <a href="<%= current_user.github_url %>" target="_blank">GitHub Profile</a>
+      <br/>
+      <i class="icon-home icon-white"></i>&nbsp;
+      <a href="" target="_blank"><%= current_user.location %></a>
+    </p>
+    <ul class="unstyled stats">
+      <li>
+        <strong><%= current_user.followers %></strong>
+        <span>Followers</span>
+      </li>
+      <li>
+        <strong><%= current_user.following %></strong>
+        <span>Following</span>
+      </li>
+      <li>
+        <strong><%= current_user.public_gists %></strong>
+        <span>Gists</span>
+      </li>
+      <li>
+        <strong><%= current_user.public_repos %></strong>
+        <span>Own Repos</span>
+      </li>
+      <li>
+        <strong id="need-help"><%= @repos_needing_help %></strong>
+        <span>Need Help</span>
+      </li>
+      <li>
+        <strong><%= current_user.helped_repos.count %></strong>
+        <span>Helping</span>
+      </li>
+    </ul>
+    <div class="minimap">
+       <%= image_tag MapUrlBuilder.user_map(current_user) %>
+    </div>
+  </div>
+</aside>

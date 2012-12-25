@@ -1,0 +1,147 @@
+.no-box-holder{
+  padding: 15px;
+  border-top:1px lightGrey solid;
+}
+.border-left{
+  border-left: 1px solid lightGrey;
+}
+
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+.hidden {
+  display: none;
+}
+
+.help-button {
+  display: inline-block;
+  cursor:pointer;
+  width: 70px !important;
+  height: 20px;
+  border: none;
+  margin: 3px 5px 5px;
+}
+
+.expand-description {
+  margin-top: -20px;
+}
+
+.help-button.on {
+  background: url('/assets/on.png') no-repeat;
+}
+
+.help-button.off {
+  background: url('/assets/off.png') no-repeat;
+}
+
+.help-button.i-help{
+  background: url('/assets/i-help-button.png') no-repeat;
+}
+
+.repo-user-description textarea {
+  width: auto;
+}
+
+.smaller-link {
+  font-size: 70%;
+}
+
+.current-tags {
+  margin-top: 4px;
+}
+
+.tagging {
+  margin: 3px;
+  margin-top: 5px;
+  display: none;
+}
+
+.tagging .tag-field, .tagging .add-tag-button {
+  float: left;
+}
+
+.add-tag-button {
+  margin-left: 4px;
+}
+
+.repo-entry {
+  overflow: hidden;
+}
+
+ul.tagit input[type="text"] {
+  position: relative;
+  top: -8px;
+  outline: none;
+  border:none !important;
+  box-shadow:none !important;
+  font-size: 60%;
+  line-height: 14px;
+  height: 17px;
+}
+
+ul.repo-tags {
+  width: 345px;
+  height: 35px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+ul.tagit > li {
+  border-bottom: none;
+  height: 8px;
+}
+
+li.tagit-choice {
+  position: relative;
+  top: 0px;
+  height: 9px;
+  overflow: hidden;
+}
+
+span.tagit-label {
+  position: relative;
+  font-size: 65%;
+  top: -9px;
+}
+
+.tagging > form .btn {
+  margin-top: 5px;
+}
+
+.current-tags > .tag {
+  margin-right: 2px;
+  background: #f7f7f7;
+  color: #808080;
+  font-size: 73%;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  text-decoration: none;
+
+  -webkit-border-radius: 8px 8px 8px 8px;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C6C6C6;
+}
+
+#filters form > ul.tagit {
+  width: 175px;
+}
+
+#filters form > ul.tagit li > input {
+  font-size: 73%;
+}
+
+ul.ui-autocomplete {
+  max-width: 250px;
+  list-style-type: none;
+}
+
+ul.ui-autocomplete > li > a {
+  padding-left: 4px;
+  padding-right: 4px
+}

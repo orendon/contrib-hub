@@ -9,9 +9,34 @@
         <header>
           <h3 class="repoh3">My Repos, Help Wanted?</h3>
         </header>
-        <ul class="ul-clean user-repos">
-          <%= render :partial => 'users/own_repo', collection: @own_repos %>
+        <ul class="nav nav-tabs" id="user-tabs">
+          <li class="active">
+            <a href="#own">My Own Repos</a>
+          </li>
+          <li>
+            <a href="#forks">My Forks</a>
+          </li>
+          <li>
+            <a href="#orgs">Organizations</a>
+          </li>
         </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="own">
+            <ul class="ul-clean user-repos">
+              <%= render :partial => 'users/own_repo', collection: @own_repos.select { |r| not r.fork } %>
+            </ul>
+          </div>
+          <div class="tab-pane" id="forks">
+            <ul class="ul-clean user-repos">
+              <%= render :partial => 'users/own_repo', collection: @own_repos.select { |r| r.fork? } %>
+            </ul>
+          </div>
+          <div class="tab-pane" id="orgs">
+            <ul class="ul-clean user-repos">
+              <li>coming soon...</li>
+            </ul>
+          </div>
+        </div>
       </article>
       <article>
         <header>

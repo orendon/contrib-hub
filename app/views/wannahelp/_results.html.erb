@@ -3,8 +3,7 @@
     <thead>
       <tr>
         <th></th>
-        <th>Project</th>
-        <th>Author</th>
+        <th>Author/Project</th>
         <th># Issues</th>
         <th># Forks</th>
         <th>Last Update</th>
@@ -22,10 +21,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to repo.name, "#{repo.github_url}" %>
-          </td>
-          <td>
-            <%= link_to "#{repo.user.github_id}", "https://github.com/#{repo.user.github_id}" %>
+            <%= link_to repo.full_name, "#{repo.github_url}" %>
           </td>
           <td><%= repo.open_issues %></td>
           <td><%= repo.forks %></td>

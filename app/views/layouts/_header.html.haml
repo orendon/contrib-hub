@@ -1,0 +1,25 @@
+%header
+  .github-fork-ribbon-wrapper.left
+    .github-fork-ribbon
+      %a{:href => "https://github.com/orendon/contrib-hub"} Fork me on GitHub
+  .container
+    .row
+      .span3
+        %a#logo.sprites.logo-contribhub{:href => root_url} Contrib Hub
+      .nav.span6{:role => 'navegation'}
+        %ul.main-menu
+          - if @home_page
+            %li
+              %a{:href => "/auth/github"} Sign In
+          - else
+            %li= link_to "My Profile", user_path(current_user)
+            %li= link_to "I Wanna Help", user_wannahelp_index_path(current_user)
+      - if not @home_page
+        .login.span1.offset1
+          %ul.nav.pull-right
+            %li#fat-menu.dropdown
+              %a#dropnav.dropdown-toggle.sprites.dropdownnav{:role => 'button', :href => '#', :'data-toggle' => 'dropdown'}
+              %ul.dropdown-menu{:role => 'menu', :'aria-labelledby' => 'drop3'}
+                %li= link_to "My Profile", user_path(current_user)
+                %li.divider
+                %li= link_to "Sign Out", signout_path()

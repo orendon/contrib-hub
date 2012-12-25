@@ -1,0 +1,8 @@
+%li.repo-entry
+  = image_tag "repo-icon.png", :size => "30x30"
+  = link_to own_repo[:name], own_repo[:html_url], :target => "_blank"
+  %p.right
+    - if own_repo[:need_help]
+      %button.help-button.on{:type => "button", :'data-repo' => own_repo[:full_name]}
+    - else
+      %button.help-button.off{:type => "button", :'data-repo' => own_repo[:full_name]}

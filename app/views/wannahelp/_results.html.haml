@@ -1,0 +1,30 @@
+#repo-list
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+        %th Author/Project
+        %th # Issues
+        %th # Forks
+        %th Last Update
+        %th Helping?
+    %tbody
+      - @repos.each do |repo|
+        %tr
+          %td
+            - if repo.description
+              %a.results-tooltip{:href => '#', :rel => 'tooltip', :'data-placement' => 'top', :'data-original-title' => repo.description, :'data-content' => repo.description }
+                %i.icon-question-sign
+          %td
+            = link_to repo.full_name, repo.github_url
+          %td= repo.open_issues
+          %td= repo.forks
+          %td
+            %small= time_ago_in_words(repo.pushed_at) if repo.pushed_at
+          %td
+            - if repo.is_being_helped_by?(current_user)
+              = link_to "Stop Helping", "#", class: "btn btn-danger wanna-help-btn", :"data-id" => repo[:id]
+            - else
+              = link_to "Wanna Help!", "#", class: "btn btn-success wanna-help-btn", :"data-id" => repo[:id]
+
+  = paginate @repos

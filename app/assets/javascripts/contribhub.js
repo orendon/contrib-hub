@@ -26,4 +26,15 @@ $(function() {
     availableTags: gon.tags
   });
 
+  $("#user-tabs li a").click(function(e){
+    e.preventDefault();
+    target = $(this).attr('href');
+
+    $("#user-tabs li").removeClass('active');
+    $(".tab-pane.active").removeClass('active');
+
+    $(this).parent().addClass('active')
+    $(target).addClass('active');
+  });
+
 })

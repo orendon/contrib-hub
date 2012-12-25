@@ -1,4 +1,4 @@
-<aside class="left-column span4" style="width:270px;">
+<aside class="left-column span4" style="width:290px;">
   <div style="padding-left:20px;">
     <%= search_form_for @search, url: user_wannahelp_index_path(current_user), html: { method: :get } do |f| %>
       <h4>Filters</h4>
@@ -16,5 +16,9 @@
       <%= f.submit "Search", class: "btn btn-primary" %>
       <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
     <% end %>
+
+    <div style="padding-bottom: 20px;">
+      <%= image_tag MapUrlBuilder.search_map(@repos) %>
+    </div>
   </div>
 </aside>

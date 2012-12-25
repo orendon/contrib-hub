@@ -26,10 +26,6 @@ class Repo < ActiveRecord::Base
     update_attribute(:need_help, !need_help)
   end
 
-  def is_fork?
-    fork
-  end
-
   ## class methods
 
   class << self

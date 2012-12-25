@@ -10,28 +10,28 @@ class MapUrlBuilder
   end
 
   def self.user_map(user)
-    MapUrlBuilder.new('250x250').add_marker('blue', user.coords).url
+    MapUrlBuilder.new('350x350').add_marker('blue', user.coords).url
   end
 
   def add_marker(colour, coords)
     @markers << build_string(colour, coords[:latitude], coords[:longitude])
     self
   end
-  
+
   def add_markers(colour, items)
     items.each{ |i| @markers << build_string( colour, i[:latitude], i[:longitude] ) }
     self
   end
-  
+
   def url
     "http://maps.google.com/maps/api/staticmap?&size=#{@size}&maptype=roadmap#{@markers.join}&sensor=false"
   end
-  
+
   private
-  
+
   def build_string(colour, latitude, longitude)
     return '' if [latitude, longitude].any?{|l| l.nil? }
     "&markers=color:#{colour}%7Clabel:O%7C#{latitude},#{longitude}"
   end
-  
+
 end

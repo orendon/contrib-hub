@@ -37,6 +37,7 @@ $(function() {
     $(target).addClass('active');
   });
 
-  $(".results-tooltip").popover();
+  $(".results-tooltip").tooltip();
+  $(".results-tooltip").click(function(e) { e.preventDefault(); });
 
 })

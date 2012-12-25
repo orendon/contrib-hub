@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence(:github_id) {|n| n }
     name { Faker::Lorem.word }
     need_help true
+    description { Faker::Lorem.paragraph }
     user_description { Faker::Lorem.paragraph }
     language "Ruby"
   end

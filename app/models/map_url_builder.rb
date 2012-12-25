@@ -4,17 +4,15 @@ class MapUrlBuilder
     @size, @markers = size, []
   end
 
-  def self.helper_map(users, repo)
-    user_coords = users.map{|u| u.coords }
-    MapUrlBuilder.new('500x300').add_markers('blue', user_coords).add_marker('red', repo.coords).url
-  end
-
   def self.user_map(user)
-    MapUrlBuilder.new('350x350').add_marker('blue', user.coords).url
+    map = MapUrlBuilder.new('350x350')
+    map.add_marker('blue', user.coords)
+    map.add_markers('red', user.helped_repos_coords)
+    map.url
   end
 
   def self.search_map(repos)
-    MapUrlBuilder.new('250x250').add_markers('red', repos).url
+    MapUrlBuilder.new('250x250').add_markers('red', repos.map(&:coords)).url
   end
 
   def add_marker(colour, coords)
@@ -23,12 +21,14 @@ class MapUrlBuilder
   end
 
   def add_markers(colour, items)
-    items.each{ |i| @markers << build_string( colour, i.coords[:latitude], i.coords[:longitude] ) }
+    items.each{ |i| @markers << build_string( colour, i[:latitude], i[:longitude] ) }
     self
   end
 
   def url
-    "http://maps.google.com/maps/api/staticmap?&size=#{@size}&maptype=roadmap#{@markers.join}&sensor=false"
+    map_url = "http://maps.google.com/maps/api/staticmap?&size=#{@size}&maptype=roadmap#{@markers.join}&sensor=false"
+    map_url << "&zoom=13" if map_url.scan(/markers/).count == 1
+    map_url
   end
 
   private

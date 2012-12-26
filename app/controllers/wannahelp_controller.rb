@@ -27,7 +27,7 @@ class WannahelpController < ApplicationController
   def default_search_opts
     {
       :need_help_true => true,
-      # :user_id_not_eq => current_user.id
+      :user_id_not_eq => current_user.id
     }
   end
 

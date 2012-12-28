@@ -21,5 +21,9 @@ Report issues/features/requests on [GitHub Issues](http://github.com/orendon/con
 
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. Travis is watching you.
+* Add specs for it. Travis is looking at you!
+* Ensure all test are passing and your branch is updated
 * Submit a pull request. Karma points for topic branches.
+
+# Discuss
+[Join the Google group](http://groups.google.com/group/contribhub)

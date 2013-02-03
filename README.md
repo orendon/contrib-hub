@@ -1,6 +1,6 @@
 # ContribHub
 [![Build Status](https://secure.travis-ci.org/orendon/contrib-hub.png?branch=master)](https://travis-ci.org/orendon/contrib-hub)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/orendon/contrib-hub)
+[![Code Climate](https://codeclimate.com/github/orendon/contrib-hub.png)](https://codeclimate.com/github/orendon/contrib-hub)
 [![endorse](http://api.coderwall.com/orendon/endorsecount.png)](http://coderwall.com/orendon)
 
 Open source lovers, making easier to find cool projects to hack on! Wanna help?

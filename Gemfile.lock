@@ -64,7 +64,7 @@ GEM
       multipart-post (~> 1.1)
     friendly_id (4.0.9)
     geocoder (1.1.8)
-    github_api (0.10.0)
+    github_api (0.10.1)
       addressable
       faraday (~> 0.8.1)
       hashie (>= 1.2)
@@ -107,7 +107,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    multi_json (1.7.3)
+    multi_json (1.7.4)
     multipart-post (1.2.0)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.9)

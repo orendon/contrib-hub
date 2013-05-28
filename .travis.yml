@@ -6,7 +6,7 @@ before_install:
   - gem update --system
   - gem --version
 env:
-  - RAILS=3.2.12
+  - RAILS=3.2.13
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rake db:test:prepare

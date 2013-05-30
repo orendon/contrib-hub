@@ -27,3 +27,6 @@ Report issues/features/requests on [GitHub Issues](http://github.com/orendon/con
 
 # Discuss
 [Join the Google group](http://groups.google.com/group/contribhub)
+
+# License
+ContribHub is released under the [MIT License](https://github.com/orendon/contrib-hub/blob/master/LICENSE.md)

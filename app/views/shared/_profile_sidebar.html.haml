@@ -1,0 +1,32 @@
+%aside.left-column.span4
+  %header.headerprofile
+    %h4.username= current_user.name
+    = image_tag current_user.avatar_url, size:'100x100', class: "img-polaroid"
+  #center-text
+    %p
+      %i.icon-user.icon-white
+      %a{:href => current_user.github_url, :target => "_blank"} GitHub Profile
+      %br
+      %i.icon-home.icon-white
+      = current_user.location
+    %ul.unstyled.stats
+      %li
+        %strong= current_user.followers
+        %span Followers
+      %li
+        %strong= current_user.following
+        %span Following
+      %li
+        %strong= current_user.public_gists
+        %span Gists
+      %li
+        %strong= current_user.public_repos
+        %span Own Repos
+      %li
+        %strong#need-help= @repos_needing_help
+        %span Need Help
+      %li
+        %strong= current_user.helped_repos.count
+        %span Helping
+    .minimap
+      = image_tag MapUrlBuilder.user_map(current_user), alt: "user map"

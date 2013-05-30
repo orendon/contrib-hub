@@ -1,0 +1,41 @@
+%section.content-main.container
+  .row-fluid
+    = render "shared/profile_sidebar"
+
+    .span9
+      %h3
+        %a{:href => repo.github_url, :target => "_blank"}= repo.name
+      %p
+        %i.icon-user
+        %a{:href => user.github_url, :target => "_blank"}= user.name
+        %i.icon-home
+        = user.location
+
+      .span9.border-left
+        %p= repo.description
+        %p= repo.user_description
+      
+        %ul.unstyled.stats
+          %li
+            %strong= repo.watchers
+            %span Watchers
+          %li
+            %strong= repo.forks
+            %span Forks
+          %li
+            %strong= repo.open_issues
+            %span Issues
+          %li
+            %strong
+            %span Stars
+          %li
+            %strong
+            %span Pull Requests
+        
+    .span9
+      %ul.helpers
+        - helpers.each do |helper|
+          %li
+            %strong= helper.name    
+
+  .row-fluid

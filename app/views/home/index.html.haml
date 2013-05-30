@@ -1,0 +1,53 @@
+= render 'map'
+
+%section.content-main.container
+  .row
+    %aside.left-column.span4
+      %header
+        %h4.title Featured Repos
+      .sidebar-body
+        %ul
+          - @featured_repos.each do |repo|
+            %li
+              .icon.sprites.compu
+              %ul.submenu
+                %li
+                  %strong Repo: 
+                  %a{:href => repo.github_url}= repo.name
+                %li
+                  %strong Author:
+                  = repo.user.name
+                %li
+                  %strong From: 
+                  = repo.user.location
+                %li
+                  %strong Language: 
+                  = repo.language
+                %li
+                  %strong Issues:
+                  = repo.open_issues
+    .center-column.span8
+      %article
+        %header
+          %h3.slogan Making easier to find cool repos to hack on!
+        .article-body
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          .button-zone
+            %a#auth-login{:href => "/auth/github"}
+              %button#i-want-to-contrib.nostyle.contrib
+                %span.sprites.i-want-to-contrib
+                  I Want to contrib
+              %button#log-in-git-hub.nostyle
+                %span.sprites.github-black
+                  Login github
+              %button#i-wat-to-be-contrib.nostyle.contrib
+                %span.sprites.i-want-to-be-contrib
+                  I Want to be contrib
+          .leyend-zone
+            #flechas.flechas.sprites
+            %p.to-contrib Search for an Open Source project and help them
+            %p.to-be-contrib Ask your GitHub's friends so they can contribute to your Open Source project

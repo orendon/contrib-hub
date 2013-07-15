@@ -1,12 +1,12 @@
 class ReposController < ApplicationController
-  
+
   def show
     repo = Repo.find_by_name(params['project_name'])
     user = User.find(repo.user_id)
     helpers = User.joins(:helped_repos).joins(:repos).where('repos.id' => 1)
     render :show, :locals => {:repo => repo, :user => user, :helpers => helpers}
   end
-  
+
   def toggle_need_help
     @repo_name = params[:repo]
     @repo = Repo.find_by_full_name(@repo_name)

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :repo do
-  	association :user
+    association :user
     github_url "https://github.com/orendon/contrib-hub"
     sequence(:github_id) {|n| n }
     name { Faker::Lorem.word }

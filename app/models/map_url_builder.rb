@@ -21,12 +21,14 @@ class MapUrlBuilder
   end
 
   def add_markers(colour, items)
-    items.each{ |i| @markers << build_string( colour, i[:latitude], i[:longitude] ) }
+    items.each{ |i| @markers << build_string( colour, i[:latitude],
+      i[:longitude] ) }
     self
   end
 
   def url
-    map_url = "http://maps.google.com/maps/api/staticmap?&size=#{@size}&maptype=roadmap#{@markers.join}&sensor=false"
+    map_url = "http://maps.google.com/maps/api/staticmap?&size=#{@size}&" +
+      "maptype=roadmap#{@markers.join}&sensor=false"
     map_url << "&zoom=13" if map_url.scan(/markers/).count == 1
     map_url
   end

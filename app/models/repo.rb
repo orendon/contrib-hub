@@ -30,7 +30,8 @@ class Repo < ActiveRecord::Base
 
   class << self
     def get_featured_repos(counter)
-      self.includes(:user).where(need_help: true).order("RANDOM()").limit(counter)
+      self.includes(:user).where(need_help: true).order(
+        "RANDOM()").limit(counter)
     end
 
     def extract_info(github_repo)

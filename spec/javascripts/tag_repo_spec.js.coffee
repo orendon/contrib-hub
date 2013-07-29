@@ -16,5 +16,5 @@ describe "TagIt", ->
     t = new TagIt()
     t.placeNewTags(form, tags)
     expect(current).toContain('a.tag')
-    
-    
+
+

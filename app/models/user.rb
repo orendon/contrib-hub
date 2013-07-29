@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   include UserPresenter
 
-  attr_accessible :github_id, :name, :token, :location, :latitude, :longitude, :email,
-    :avatar_url, :github_url, :public_repos, :public_gists, :followers, :following, :last_sync
+  attr_accessible :github_id, :name, :token, :location, :latitude,
+    :longitude, :email, :avatar_url, :github_url, :public_repos,
+    :public_gists, :followers, :following, :last_sync
 
   ## friendly url
   friendly_id :github_id, use: :slugged
@@ -25,7 +26,8 @@ class User < ActiveRecord::Base
     if repo.is_being_helped_by?(self)
       HelpedRepo.find_by_user_id_and_repo_id(self.id, repo.id).destroy
     else
-      HelpedRepo.create!(user_id: self.id, repo_id: repo.id, really_helping: false)
+      HelpedRepo.create!(user_id: self.id, repo_id: repo.id,
+        really_helping: false)
     end
   end
 

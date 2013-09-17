@@ -51,7 +51,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'simplecov', :require => false
   gem "faker"
-  gem "database_cleaner"
+  gem "database_cleaner", '1.0.1'
   gem "capybara"
   gem "launchy"
   gem "jasminerice"
@@ -62,7 +62,7 @@ group :production do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

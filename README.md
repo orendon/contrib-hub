@@ -30,3 +30,6 @@ Report issues/features/requests on [GitHub Issues](http://github.com/orendon/con
 
 # License
 ContribHub is released under the [MIT License](https://github.com/orendon/contrib-hub/blob/master/LICENSE.md)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/orendon/contrib-hub/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

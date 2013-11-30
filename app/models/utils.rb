@@ -2,7 +2,7 @@ module Utils
 
   def get_all_languages
     languages_list = Repo.select(:language).uniq
-    languages_list.collect(&:language).reject { |l| l.nil? || l.empty? }
+    languages_list.collect(&:language).reject { |l| l.nil? || l.empty? }.sort
   end
 
   def get_all_tag_names

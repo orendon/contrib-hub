@@ -4,17 +4,24 @@ describe GithubUtils do
   let(:token) { 'x' * 30 }
   let(:user) { double(github_id: 'test', token: token) }
 
-  context "when retrieving a user's repository list" do
+  context "when retrieving information about a user's repositories" do
     let(:repos_instance) { double(Github::Repos.name) }
+    let(:repos_list) { [double(full_name: 'contrib-hub')] }
 
     before do
       Github::Repos.stub(:new) { repos_instance }
       repos_instance.should_receive(:auto_pagination=).with(true)
       repos_instance.should_receive(:all).with(user: 'test')
+        .and_return(repos_list)
     end
 
     it "retrieves all of the user's repositories" do
       GithubUtils.get_repos_list_for(user)
+    end
+
+    it "retrieves a repository's details" do
+      repo = GithubUtils.get_repo_details(user, 'contrib-hub')
+      repo.full_name.should eq('contrib-hub')
     end
   end
 

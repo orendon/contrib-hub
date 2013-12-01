@@ -13,4 +13,5 @@
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require jquery.tagit
+ *= require dataTables/jquery.dataTables.bootstrap
  */

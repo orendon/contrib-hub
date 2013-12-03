@@ -37,7 +37,7 @@ class Repo < ActiveRecord::Base
     def extract_info(github_repo)
       {
         :name => github_repo['name'],
-        :github_url => github_repo['url'],
+        :github_url => github_repo['html_url'],
         :full_name => github_repo['full_name'],
         :description => github_repo['description'],
         :language => github_repo['language'],

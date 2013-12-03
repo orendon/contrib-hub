@@ -17,7 +17,7 @@ gem "friendly_id"
 
 # searches
 gem 'ransack'
-gem 'kaminari'
+gem 'will_paginate'
 
 # geolocation
 gem 'geocoder'
@@ -36,6 +36,7 @@ gem 'thin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes

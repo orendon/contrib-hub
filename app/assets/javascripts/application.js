@@ -17,10 +17,7 @@
 //= require jquery.ui.autocomplete
 //= require jquery.ui.effect-blind
 //= require jquery.ui.effect-highlight
-//= require dataTables/jquery.dataTables
 //= require tag-it.min
 
 //= require bootstrap.min
 //= require google-analytics
-//= require dataTables/jquery.dataTables.bootstrap
-//= require repos

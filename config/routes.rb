@@ -6,7 +6,7 @@ ContribHub::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy"
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :edit, :update] do
     resources :wannahelp, only: [:index]
   end
 
@@ -19,6 +19,9 @@ ContribHub::Application.routes.draw do
   get '/repos/:project_name' => 'repos#show'
   get '/users_map' => "home#users_map"
 
+  get '/users/:id/edit' => 'users#edit'
+  put '/users/:id' => 'users#update'
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

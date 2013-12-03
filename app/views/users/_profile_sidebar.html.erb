@@ -10,6 +10,12 @@
       <br/>
       <i class="icon-home icon-white"></i>&nbsp;
       <%= current_user.location %>
+      &nbsp;
+      <%= link_to(edit_user_path(current_user)) do %>
+        <i class="icon-pencil icon-white"></i>
+      <% end %>
+      
+      <!-- <%= link_to "edit", :action => 'edit'  %> -->
     </p>
     <ul class="unstyled stats">
       <li>

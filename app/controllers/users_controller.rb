@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     @repos_needing_help = current_user.need_help_counter
     gon.tags = get_all_tag_names
   end
+  
+  def update
+    current_user.location = params["location"]
+    current_user.save!
+    redirect_to user_path(current_user)
+  end
 
   private
 

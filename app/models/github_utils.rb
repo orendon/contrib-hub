@@ -1,6 +1,7 @@
 class GithubUtils
   def self.get_repos_list_for(user)
     repos = Github::Repos.new
+    repos.auto_pagination = true
     repos.all user: user.github_id
   end
 
@@ -18,10 +19,11 @@ class GithubUtils
 
   def self.normalize_user(user)
     normalized_user = {}
-    %w(email name avatar_url followers following public_repos public_gists)
-      .each { |attr| normalized_user[attr.to_sym] = user.get.send(attr.to_sym) }
+    retrieved_user = user.get  # Only fetch the user once
+    %i(email name avatar_url followers following public_repos public_gists)
+      .each { |attr| normalized_user[attr.to_sym] = retrieved_user[attr] }
 
-    normalized_user[:github_url]  = user.get[:html_url]
+    normalized_user[:github_url]  = retrieved_user[:html_url]
     normalized_user[:last_sync]   = Time.now
     normalized_user
   end

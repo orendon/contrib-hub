@@ -60,5 +60,7 @@ module ContribHub
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    I18n.config.enforce_available_locales = false
   end
 end

@@ -8,5 +8,12 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph }
     user_description { Faker::Lorem.paragraph }
     language "Ruby"
+    open_issues { rand(999) }
+    forks       { rand(999) }
+    pushed_at   { rand(20).days.ago }
+  end
+
+  def rand(int)
+    Random.new.rand(int)
   end
 end

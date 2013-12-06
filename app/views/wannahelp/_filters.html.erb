@@ -5,13 +5,6 @@
       <%= f.label :language_eq, "Language:" %>
       <%= f.select :language_eq, options_for_select(get_filter(@languages), current_value(:language_eq)), {},
         {class: "input-medium"} %>
-      <!--
-      <%= f.label :user_location_matches, "Location:" %>
-      <%= f.text_field :user_location_matches, class: "input-medium" %>
-      <%= f.label :tags, "Tagged with:" %>
-      <ul class="repo-tags">
-      </ul>
-      -->
       <br/><br/>
       <%= f.submit "Search", class: "btn btn-primary" %>
       <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>

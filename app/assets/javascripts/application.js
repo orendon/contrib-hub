@@ -14,10 +14,5 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require jquery.ui.autocomplete
-//= require jquery.ui.effect-blind
-//= require jquery.ui.effect-highlight
-//= require tag-it.min
-
 //= require bootstrap.min
 //= require google-analytics

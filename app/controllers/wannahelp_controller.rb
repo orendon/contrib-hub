@@ -11,7 +11,6 @@ class WannahelpController < ApplicationController
     @search = Repo.search(search_options)
     @repos = @search.result(distinct: true).page(params[:page]).per(12)
     @languages = get_all_languages
-    gon.tags = get_all_tag_names
   end
 
   def toggle

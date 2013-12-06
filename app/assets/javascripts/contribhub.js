@@ -22,10 +22,6 @@ $(function() {
     e.preventDefault();
   });
 
-  $(".repo-tags").tagit({
-    availableTags: gon.tags
-  });
-
   $("#user-tabs li a").click(function(e){
     e.preventDefault();
     target = $(this).attr('href');

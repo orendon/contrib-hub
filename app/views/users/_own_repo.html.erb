@@ -1,51 +1,11 @@
 <li class="repo-entry">
   <%= image_tag "repo-icon.png", :size => "30x30" %>
-  <!--
-  <% if own_repo.is_fork? %>
-    <span>Forked!</span>
-  <% end%>
-  -->
   <%= link_to own_repo[:name], own_repo[:html_url], :target => "_blank" %>
   <p class='right'>
     <% if own_repo[:need_help] %>
-      <!--
-      <span><%= image_tag 'github-admin.png', class: 'expand-description', :"data-repo" => own_repo[:full_name] %></span>
-      -->
       <button class="help-button on" type="button" data-repo="<%= own_repo[:full_name] %>"></button>
     <% else %>
-      <!--
-      <span><%= image_tag 'github-admin.png', class: 'expand-description hidden', :"data-repo" => own_repo[:full_name] %></span>
-      -->
       <button class="help-button off" type="button" data-repo="<%= own_repo[:full_name] %>"></button>
     <% end %>
   </p>
-  <!--
-  <div class="current-tags">
-    <% own_repo.current_tags.each do |tag| %>
-      <%= link_to tag, "#", class: 'tag' %>
-    <% end if own_repo[:need_help] %>
-    <%= link_to 'add/remove tag', nil, class: "add-tag-link smaller-link #{status(own_repo)}", :"data-repo" => own_repo[:full_name] %>
-  </div>
-  <div class="tagging">
-    <%= form_tag tagging_update_tags_path, remote: true do %>
-      <ul class="repo-tags">
-        <% own_repo.current_tags.each do |tag| %>
-          <li><span><%= tag %></span></li>
-        <% end if own_repo[:need_help] %>
-      </ul>
-      <%= hidden_field_tag :repo_name, own_repo[:full_name], class: 'hidden-repo-name'%>
-      <%= submit_tag 'Save', class: 'btn btn-primary save-tags-btn' %>
-    <% end %>
-  </div>
-  <div class='repo-user-description'>
-    <h4>Describe what help do you need</h4>
-    <%= form_for 'repo', :url => '/repos/update_user_description', :remote => true,
-      :html => { :class => 'help-desc' } do |f| %>
-      <%= text_area_tag :user_description, "", size: '60x5' %>
-      <br>
-      <%= hidden_field_tag :repo_name, own_repo[:full_name], class: 'hidden-repo-name'%>
-      <%= submit_tag "Save", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  -->
 </li>

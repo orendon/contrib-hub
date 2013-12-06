@@ -3,10 +3,10 @@
     <thead>
       <tr>
         <th></th>
-        <th>Author/Project</th>
-        <th># Issues</th>
-        <th># Forks</th>
-        <th>Last Update</th>
+        <th><%= sort_link @search, :full_name, "Author/Project"%></th>
+        <th><%= sort_link @search, :open_issues, "# Issues"%></th>
+        <th><%= sort_link @search, :forks, "# Forks"%></th>
+        <th><%= sort_link @search, :pushed_at, "Last Update"%></th>
         <th>Helping?</th>
       </tr>
     </thead>

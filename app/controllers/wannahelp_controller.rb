@@ -5,8 +5,10 @@ class WannahelpController < ApplicationController
     search_options = default_search_opts
     search_options.merge!(:tags_name_in => params[:undefined][:tags]
       ) if search_with_tags?
-    search_options.merge!(:language_eq => params[:q][:language_eq]
-      ) if params[:q]
+    if params[:q]
+      search_options.merge!(:language_eq => params[:q][:language_eq])
+      search_options.merge!(:s => sort_opts)
+    end
 
     @search = Repo.search(search_options)
     @repos = @search.result(distinct: true).page(params[:page]).per(12)
@@ -35,6 +37,10 @@ class WannahelpController < ApplicationController
 
   def search_with_tags?
     params[:undefined].present? && !params[:undefined][:tags].empty?
+  end
+
+  def sort_opts
+    params[:q][:s]
   end
 
   def star(user, repo)

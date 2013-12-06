@@ -7,9 +7,8 @@ class UsersController < ApplicationController
     saved_repos = current_user.repos
     @own_repos = merge_github_repos(current_user, saved_repos.to_a)
     @repos_needing_help = current_user.need_help_counter
-    gon.tags = get_all_tag_names
   end
-  
+
   def update
     current_user.location = params["location"]
     current_user.save!

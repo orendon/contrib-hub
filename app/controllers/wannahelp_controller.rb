@@ -2,16 +2,20 @@ class WannahelpController < ApplicationController
   include Utils
 
   def index
-    search_options = default_search_opts
-    search_options.merge!(:tags_name_in => params[:undefined][:tags]
-      ) if search_with_tags?
-    search_options.merge!(:language_eq => params[:q][:language_eq]
-      ) if params[:q]
+    #search_options = default_search_opts
+    #search_options.merge!(:tags_name_in => params[:undefined][:tags]
+      #) if search_with_tags?
+    #search_options.merge!(:language_eq => params[:q][:language_eq]
+      #) if params[:q]
 
-    @search = Repo.search(search_options)
-    @repos = @search.result(distinct: true).page(params[:page]).per(12)
-    @languages = get_all_languages
-    gon.tags = get_all_tag_names
+    #@search = Repo.search(search_options)
+    #@repos = @search.result(distinct: true).page(params[:page]).per(12)
+    #@languages = get_all_languages
+    #gon.tags = get_all_tag_names
+    respond_to do |format|
+      format.html
+      format.json { render json: ReposDatatable.new(view_context) }
+    end
   end
 
   def toggle

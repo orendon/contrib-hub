@@ -65,11 +65,11 @@ GEM
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
     geocoder (1.1.8)
-    github_api (0.10.2)
-      addressable
-      faraday (~> 0.8.7)
+    github_api (0.11.0)
+      addressable (~> 2.3)
+      faraday (~> 0.8, < 0.10)
       hashie (>= 1.2)
-      multi_json (~> 1.4)
+      multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.0)
       oauth2
     haml (4.0.4)

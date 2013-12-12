@@ -9,9 +9,9 @@ describe GithubUtils do
     let(:repos_list) { [double(full_name: 'contrib-hub')] }
 
     before do
-      Github::Repos.stub(:new) { repos_instance }
-      repos_instance.should_receive(:auto_pagination=).with(true)
-      repos_instance.should_receive(:all).with(user: 'test')
+      allow(Github::Repos).to receive(:new) { repos_instance }
+      expect(repos_instance).to receive(:auto_pagination=).with(true)
+      expect(repos_instance).to receive(:all).with(user: 'test')
         .and_return(repos_list)
     end
 
@@ -21,7 +21,7 @@ describe GithubUtils do
 
     it "retrieves a repository's details" do
       repo = GithubUtils.get_repo_details(user, 'contrib-hub')
-      repo.full_name.should eq('contrib-hub')
+      expect(repo.full_name).to eq('contrib-hub')
     end
   end
 
@@ -30,11 +30,11 @@ describe GithubUtils do
     let(:users) { double(get: {}) }
 
     before do
-      Github
-        .should_receive(:new)
+      expect(Github)
+        .to receive(:new)
         .with(oauth_token: token)
         .and_return(github_instance)
-      github_instance.should_receive(:users).and_return(users)
+      expect(github_instance).to receive(:users).and_return(users)
     end
 
     it "retrieves and normalizes the user's details" do

@@ -15,8 +15,8 @@ feature "user signs in" do
   }
 
   it "gets the user to his/her profile page" do
-    User.should_receive(:find_or_create_from).and_return(user)
+    expect(User).to receive(:find_or_create_from).and_return(user)
     click_link 'Login GitHub'
-    page.should have_content "My Repos, Help Wanted?"
+    expect(page).to have_content "My Repos, Help Wanted?"
   end
 end

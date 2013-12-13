@@ -8,7 +8,7 @@ describe Utils do
     FactoryGirl.create(:repo, language: "")
     FactoryGirl.create(:repo, language: nil)
 
-    get_all_languages.should == ["Ruby"]
+    expect(get_all_languages).to eq(["Ruby"])
   end
 
 end

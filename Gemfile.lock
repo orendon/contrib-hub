@@ -64,7 +64,7 @@ GEM
       multipart-post (~> 1.2.0)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
-    geocoder (1.1.8)
+    geocoder (1.1.9)
     github_api (0.11.0)
       addressable (~> 2.3)
       faraday (~> 0.8, < 0.10)
@@ -205,7 +205,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    uglifier (2.3.2)
+    uglifier (2.3.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     xpath (2.0.0)

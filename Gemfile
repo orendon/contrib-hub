@@ -41,11 +41,15 @@ end
 group :development, :test do
   gem 'quiet_assets'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-  gem 'simplecov', :require => false
-  gem 'faker'
+  gem 'simplecov', require: false
+  gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner', '1.0.1'
   gem 'capybara'
   gem 'jasminerice'

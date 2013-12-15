@@ -10,4 +10,5 @@ env:
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+  - COVERALLS=1 bundle exec rspec spec/
+

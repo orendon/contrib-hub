@@ -6,6 +6,7 @@ map = null
 initialize_map = ->
   mapOptions =
     zoom: 2,
+    scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: map_center
 

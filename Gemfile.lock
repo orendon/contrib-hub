@@ -54,6 +54,7 @@ GEM
       thor
     daemons (1.1.9)
     database_cleaner (1.0.1)
+    descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
     docile (1.1.1)
     erubis (2.7.0)
@@ -71,8 +72,9 @@ GEM
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
     geocoder (1.1.9)
-    github_api (0.11.0)
+    github_api (0.11.1)
       addressable (~> 2.3)
+      descendants_tracker (~> 0.0.1)
       faraday (~> 0.8, < 0.10)
       hashie (>= 1.2)
       multi_json (>= 1.7.5, < 2.0)

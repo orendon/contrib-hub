@@ -43,10 +43,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
 
+
 group :test do
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'coveralls', require: false # https://coveralls.io

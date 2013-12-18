@@ -7,6 +7,8 @@ initialize_map = ->
   mapOptions =
     zoom: 2,
     scrollwheel: false,
+    draggable: true,
+    panControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: map_center
 

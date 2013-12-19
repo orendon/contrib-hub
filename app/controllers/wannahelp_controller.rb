@@ -3,7 +3,7 @@ class WannahelpController < ApplicationController
   include Utils
 
   def index
-    @repos = Repo.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 12, :page => params[:page])
+    @repos = Repo.where("need_help = ? and user_id != ?", true, current_user.id).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 12, :page => params[:page])
     @languages = get_all_languages
   end
 
@@ -25,17 +25,6 @@ class WannahelpController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
-  def default_search_opts
-    {
-      :need_help_true => true,
-      :user_id_not_eq => current_user.id
-    }
-  end
-
-  def search_with_tags?
-    params[:undefined].present? && !params[:undefined][:tags].empty?
   end
 
   def star(user, repo)

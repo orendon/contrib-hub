@@ -1,16 +1,13 @@
-<aside class="left-column span4" style="width:290px;">
-  <div style="padding-left:20px;">
-    <%= search_form_for @search, url: user_wannahelp_index_path(current_user), html: { method: :get } do |f| %>
-      <h4>Filters</h4>
-      <%= f.label :language_eq, "Language:" %>
-      <%= f.select :language_eq, options_for_select(get_filter(@languages), current_value(:language_eq)), {},
-        {class: "input-medium"} %>
-      <br/><br/>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-      <%= link_to "Clear", user_wannahelp_index_path(current_user), class: "btn" %>
+<aside class="left-column span3" style="width:270px;">
+  <div style="padding-left:10px;">
+    <%= form_tag user_wannahelp_index_path, :method => 'get', :id => "wannahelp_search", :class=>"form-search" do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <br/>
+      <%= text_field_tag :search, params[:search], :class=> "input-medium search-query" %>
+      <%= submit_tag "Search", :name => nil, :class=> "btn" %>
     <% end %>
-
-    <div style="padding-bottom: 20px;">
+    <div style="padding-bottom: 10px;">
       <%= image_tag MapUrlBuilder.search_map(@repos), alt: "search map" %>
     </div>
   </div>

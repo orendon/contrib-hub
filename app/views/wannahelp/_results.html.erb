@@ -3,10 +3,11 @@
     <thead>
       <tr>
         <th></th>
-        <th>Author/Project</th>
-        <th># Issues</th>
-        <th># Forks</th>
-        <th>Last Update</th>
+        <th><%= sortable "full_name", "Author/Project" %></th>
+        <th><%= sortable "language", "Language" %></th>
+        <th><%= sortable "open_issues", "# Issues" %></th>
+        <th><%= sortable "forks", "# Forks" %></th>
+        <th><%= sortable "pushed_at", "Last Update" %></th>
         <th>Helping?</th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@
           <td>
             <%= link_to repo.full_name, "#{repo.github_url}" %>
           </td>
+          <td><%= repo.language %></td>
           <td><%= repo.open_issues %></td>
           <td><%= repo.forks %></td>
           <td>
@@ -39,5 +41,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= paginate @repos %>
+  <%= will_paginate @repos %>
 </div>

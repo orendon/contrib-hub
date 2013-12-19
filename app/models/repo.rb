@@ -28,6 +28,16 @@ class Repo < ActiveRecord::Base
     update_attribute(:need_help, !need_help)
   end
 
+  #search
+
+  def self.search(search)
+    if search
+      where('full_name like :sSearch or language like :sSearch', sSearch: "%#{search}%")
+    else
+      scoped
+    end
+  end
+
   ## class methods
 
   class << self

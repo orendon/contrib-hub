@@ -16,7 +16,7 @@ gem 'friendly_id'
 
 # searches
 gem 'ransack'
-gem 'kaminari'
+gem 'will_paginate'
 
 # geolocation
 gem 'geocoder'

@@ -1,15 +1,9 @@
 class WannahelpController < ApplicationController
+  helper_method :sort_column, :sort_direction
   include Utils
 
   def index
-    search_options = default_search_opts
-    search_options.merge!(:tags_name_in => params[:undefined][:tags]
-      ) if search_with_tags?
-    search_options.merge!(:language_eq => params[:q][:language_eq]
-      ) if params[:q]
-
-    @search = Repo.search(search_options)
-    @repos = @search.result(distinct: true).page(params[:page]).per(12)
+    @repos = Repo.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 12, :page => params[:page])
     @languages = get_all_languages
   end
 
@@ -24,6 +18,14 @@ class WannahelpController < ApplicationController
   end
 
   private
+
+  def sort_column
+    Repo.column_names.include?(params[:sort]) ? params[:sort] : "full_name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
   def default_search_opts
     {

@@ -41,5 +41,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @repos %>
+  <%= will_paginate @repos, renderer: BootstrapPagination::Rails %>
 </div>

@@ -22,7 +22,7 @@
               <ul role="menu" aria-labelledby="drop3" class="dropdown-menu">
                 <li><%= link_to "My Profile", user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to "Sign Out", signout_path() %></li>
+                <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
               </ul>
             </li>
           </ul>

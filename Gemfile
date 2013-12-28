@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails', '3.2.16'
 
@@ -45,7 +45,6 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
 end
-
 
 group :test do
   gem 'shoulda-matchers'

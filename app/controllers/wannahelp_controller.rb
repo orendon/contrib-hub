@@ -3,7 +3,7 @@ class WannahelpController < ApplicationController
   include Utils
 
   def index
-    @repos = Repo.where("need_help = ? and user_id != ?", true, current_user.id).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 12, :page => params[:page])
+    @repos = Repo.help_wanted_repos.except_from(current_user.id).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page])
     @languages = get_all_languages
   end
 

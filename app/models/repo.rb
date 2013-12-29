@@ -8,6 +8,9 @@ class Repo < ActiveRecord::Base
   ## tagging
   acts_as_taggable
 
+  ## default "per_page" value
+  self.per_page = 12
+
   ## relations
   belongs_to :user
 

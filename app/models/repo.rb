@@ -16,6 +16,7 @@ class Repo < ActiveRecord::Base
   validates :github_id, :uniqueness => true
 
   scope :help_wanted_repos, -> { includes(:user).where(need_help: true) }
+  scope :except_from, ->(user_id){ where("user_id != ?", user_id) }
 
   ## instance methods
 

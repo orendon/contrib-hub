@@ -8,6 +8,9 @@ class Repo < ActiveRecord::Base
   ## tagging
   acts_as_taggable
 
+  ## default "per_page" value
+  self.per_page = 12
+
   ## relations
   belongs_to :user
 
@@ -16,6 +19,7 @@ class Repo < ActiveRecord::Base
   validates :github_id, :uniqueness => true
 
   scope :help_wanted_repos, -> { includes(:user).where(need_help: true) }
+  scope :except_from, ->(user_id){ where("user_id != ?", user_id) }
 
   ## instance methods
 
@@ -26,6 +30,16 @@ class Repo < ActiveRecord::Base
 
   def toggle_need_help!
     update_attribute(:need_help, !need_help)
+  end
+
+  #search
+
+  def self.search(search)
+    if search
+      where('full_name like :sSearch or language like :sSearch', sSearch: "%#{search}%")
+    else
+      scoped
+    end
   end
 
   ## class methods

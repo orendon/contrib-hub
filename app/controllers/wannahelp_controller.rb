@@ -1,15 +1,9 @@
 class WannahelpController < ApplicationController
+  helper_method :sort_column, :sort_direction
   include Utils
 
   def index
-    search_options = default_search_opts
-    search_options.merge!(:tags_name_in => params[:undefined][:tags]
-      ) if search_with_tags?
-    search_options.merge!(:language_eq => params[:q][:language_eq]
-      ) if params[:q]
-
-    @search = Repo.search(search_options)
-    @repos = @search.result(distinct: true).page(params[:page]).per(12)
+    @repos = Repo.help_wanted_repos.except_from(current_user.id).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page])
     @languages = get_all_languages
   end
 
@@ -25,15 +19,12 @@ class WannahelpController < ApplicationController
 
   private
 
-  def default_search_opts
-    {
-      :need_help_true => true,
-      :user_id_not_eq => current_user.id
-    }
+  def sort_column
+    Repo.column_names.include?(params[:sort]) ? params[:sort] : "full_name"
   end
 
-  def search_with_tags?
-    params[:undefined].present? && !params[:undefined][:tags].empty?
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   def star(user, repo)

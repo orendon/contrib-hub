@@ -49,7 +49,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'coveralls', require: false # https://coveralls.io
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'jasminerice'
 end

@@ -53,7 +53,7 @@ GEM
       term-ansicolor
       thor
     daemons (1.1.9)
-    database_cleaner (1.0.1)
+    database_cleaner (1.2.0)
     descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
     docile (1.1.1)
@@ -108,7 +108,7 @@ GEM
     mini_portile (0.5.2)
     multi_json (1.8.2)
     multipart-post (1.2.0)
-    newrelic_rpm (3.7.1.180)
+    newrelic_rpm (3.7.1.182)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
@@ -228,7 +228,7 @@ DEPENDENCIES
   capybara
   coffee-rails
   coveralls
-  database_cleaner (= 1.0.1)
+  database_cleaner
   factory_girl_rails
   faker
   friendly_id

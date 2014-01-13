@@ -24,7 +24,7 @@ loadUsersData = ->
 addMarker = (place, github_id) ->
 
   infowindow = new google.maps.InfoWindow
-    content: github_id
+    content: 'Github: <a href="http://github.com/' + github_id + '">' + github_id + '</a>'
 
   marker = new google.maps.Marker
     map: map,

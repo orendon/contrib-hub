@@ -1,7 +1,4 @@
 module UserPresenter
-  def coords
-    { latitude: self.latitude, longitude: self.longitude }
-  end
 
   def coords_and_github_id
     { latitude: self.latitude, longitude: self.longitude, github_id: self.github_id }

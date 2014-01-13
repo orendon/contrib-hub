@@ -1,14 +1,15 @@
 module UserPresenter
-  def coords
-    { latitude: self.latitude, longitude: self.longitude }
+
+  def coords_and_github_id
+    { latitude: self.latitude, longitude: self.longitude, github_id: self.github_id }
   end
 
   def helped_repos_coords
-    coords = []
+    coords_and_github_id = []
     helped_repos.each do |helping|
-      coords << helping.repo.user.coords if helping.repo.user.location
+      coords_and_github_id << helping.repo.user.coords_and_github_id if helping.repo.user.location
     end
-    coords
+    coords_and_github_id
   end
 
   def need_help_counter

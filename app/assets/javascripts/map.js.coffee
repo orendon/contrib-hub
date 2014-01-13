@@ -19,29 +19,20 @@ loadUsersData = ->
   $.getJSON '/users_map.json', (data) ->
     $.each data, (key, value) ->
       user_location = new google.maps.LatLng(value.latitude, value.longitude)
-      addMarker(user_location)
+      addMarker(user_location, value.github_id)
 
-addMarker = (place) ->
+addMarker = (place, github_id) ->
+
+  infowindow = new google.maps.InfoWindow
+    content: 'Github: <a href="http://github.com/' + github_id + '">' + github_id + '</a>'
+
   marker = new google.maps.Marker
     map: map,
-    draggable:true,
-    animation: google.maps.Animation.DROP,
     position: place
 
-  google.maps.event.addListener(marker, 'click', bounceOnce)
+  google.maps.event.addListener marker, 'click', ->
+    infowindow.open(map, this)
 
-bounceOnce = ->
-  marker.setAnimation(google.maps.Animation.BOUNCE)
-  setInterval(stopBounce, 1000)
-
-stopBounce = ->
-  marker.setAnimation(null)
-
-toggleBounce = ->
-  if marker.getAnimation() != null
-    marker.setAnimation(null)
-  else
-    marker.setAnimation(google.maps.Animation.BOUNCE)
 
 $(document).ready ->
   initialize_map()

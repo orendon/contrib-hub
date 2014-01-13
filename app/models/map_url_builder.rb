@@ -6,17 +6,17 @@ class MapUrlBuilder
 
   def self.user_map(user)
     map = MapUrlBuilder.new('350x350')
-    map.add_marker('blue', user.coords)
+    map.add_marker('blue', user.coords_and_github_id)
     map.add_markers('red', user.helped_repos_coords)
     map.url
   end
 
   def self.search_map(repos)
-    MapUrlBuilder.new('250x250').add_markers('red', repos.map(&:coords)).url
+    MapUrlBuilder.new('250x250').add_markers('red', repos.map(&:coords_and_github_id)).url
   end
 
-  def add_marker(colour, coords)
-    @markers << build_string(colour, coords[:latitude], coords[:longitude])
+  def add_marker(colour, coords_and_github_id)
+    @markers << build_string(colour, coords_and_github_id[:latitude], coords_and_github_id[:longitude])
     self
   end
 

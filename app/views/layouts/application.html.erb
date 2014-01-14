@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>ContribHub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <meta name="description" content="ContribHub">
     <meta name="author" content="">
     <%= csrf_meta_tags %>
@@ -32,7 +32,7 @@
     <%= javascript_include_tag "application" %>
 
     <%- if @home_page %>
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ></script>
       <%= javascript_include_tag "map" %>
     <% else %>
       <%= javascript_include_tag "contribhub" %>

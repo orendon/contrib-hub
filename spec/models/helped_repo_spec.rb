@@ -25,7 +25,5 @@ describe HelpedRepo do
       helped_repo.user = nil
       expect(helped_repo).to_not be_valid
     end
-
   end
-
 end

@@ -1,4 +1,2 @@
 --colour
 --format progress
---format html -o "spec/rspec_report.html"
---format doc

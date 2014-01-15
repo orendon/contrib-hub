@@ -4,7 +4,7 @@ class MapUrlBuilder
   USER_PROFILE_DIMENSIONS   = '350x350'
   SEARCH_RESULTS_DIMENSIONS = '250x250'
 
-  def initialize(size)
+  def initialize(size='100x100')
     @size, @markers = size, []
   end
 

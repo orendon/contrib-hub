@@ -14,7 +14,7 @@ describe MapUrlBuilder do
   end
 
   describe "#add_markers" do
-    it "builds one single marker correctly" do
+    it "builds multiple markers correctly" do
       map_url = "http://maps.google.com/maps/api/staticmap?&size=100x100&maptype=roadmap&markers=color:blue%7Clabel:O%7C67,67&markers=color:blue%7Clabel:O%7C40,40&sensor=false"
       expect( subject.add_markers('blue', data).url ).to eq(map_url)
     end

@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'github_api'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'faraday', '0.8.9'
 
 # friendly urls
 gem 'friendly_id'

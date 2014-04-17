@@ -192,6 +192,8 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    skylight (0.3.11)
+      activesupport (>= 3.0.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -249,6 +251,7 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   simplecov
+  skylight
   sqlite3
   thin
   uglifier

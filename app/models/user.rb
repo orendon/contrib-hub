@@ -2,10 +2,6 @@ class User < ActiveRecord::Base
   extend FriendlyId
   include UserPresenter
 
-  attr_accessible :github_id, :name, :token, :location, :latitude,
-    :longitude, :email, :avatar_url, :github_url, :public_repos,
-    :public_gists, :followers, :following, :last_sync
-
   ## friendly url
   friendly_id :github_id, use: :slugged
 
@@ -52,17 +48,17 @@ class User < ActiveRecord::Base
     def find_or_create_from(auth_hash)
       user_data = OmniauthUtils.normalize_hash(auth_hash)
       user_data[:last_sync] = Time.now
-
+      omni_data = omni_params(user_data)
       user = find_by_github_id(user_data[:github_id])
       if user
-        user.update_attributes!(user_data)
+        user.update_attributes!(omni_data)
       else
-        user = User.create!(user_data)
+        user = User.create!(omni_data)
       end
 
       github_repos = GithubUtils.get_repos_list_for(user)
       github_repos.each do |remote_repo|
-        data = Repo.extract_info(remote_repo)
+        data = Repo.github_params remote_repo
         user.repos.create(data)
       end
 
@@ -73,5 +69,13 @@ class User < ActiveRecord::Base
       self.joins(:repos).where("repos.need_help=?", true)
     end
 
+private
+    def omni_params(user_data)
+      user_data = ActionController::Parameters.new(user_data)
+      user_data.permit(:github_id, :token, :name, :email, :location, :avatar_url, :github_url,
+                       :public_repos, :public_gists, :followers, :following, :last_sync)
+    end
+
   end
+
 end

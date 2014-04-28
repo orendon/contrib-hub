@@ -4,8 +4,5 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ContribHub::Application.config.secret_token = if Rails.env.development? or Rails.env.test?
-  ('x' * 30) # meets minimum requirement of 30 chars long
-else
-  ENV['SECRET_TOKEN']
-end
+ContribHub::Application.config.secret_token = Rails.env.production? ? ENV['SECRET_TOKEN'] : ('x' * 30)
+ContribHub::Application.config.secret_key_base = Rails.env.production? ? ENV['SECRET_KEY_BASE'] : ('x' * 30)

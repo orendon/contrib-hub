@@ -1,10 +1,6 @@
 class Repo < ActiveRecord::Base
   include RepoPresenter
 
-  attr_accessible :github_url, :name, :need_help, :user_id, :user_description,
-    :github_id, :full_name, :description, :language, :forks, :watchers,
-    :open_issues, :pushed_at, :tag_list, :last_sync, :fork
-
   ## tagging
   acts_as_taggable
 
@@ -38,7 +34,7 @@ class Repo < ActiveRecord::Base
     if search
       where('full_name like :sSearch or language like :sSearch', sSearch: "%#{search}%")
     else
-      scoped
+      all
     end
   end
 
@@ -63,6 +59,12 @@ class Repo < ActiveRecord::Base
         :github_id => github_repo['id'],
         :fork => github_repo['fork']
       }
+    end
+
+    def github_params(github_repo)
+      repo_info = extract_info(github_repo)
+      repo_data = ActionController::Parameters.new repo_info
+      repo_data.permit repo_info.keys
     end
   end
 end

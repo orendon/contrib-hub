@@ -8,15 +8,15 @@ role :app, %w{orendon@107.170.154.49}
 role :web, %w{orendon@107.170.154.49}
 role :db,  %w{orendon@107.170.154.49}
 
-
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '107.170.154.49', user: 'orendon', roles: %w{web app}, my_property: :my_value
+server '107.170.154.49', user: 'orendon', roles: %w{web app}
 
+set :ssh_options, { forward_agent: true }
 
 # Custom SSH Options
 # ==================

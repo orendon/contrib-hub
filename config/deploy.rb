@@ -28,6 +28,10 @@ set :linked_files, %w{config/database.yml}
 set :keep_releases, 10
 set :rbenv_ruby, '2.1.1'
 
+set :hipchat_token, "4922bfbba9b945e14ebaaf9b47f52f"
+set :hipchat_room_name, "ContribHub"
+set :hipchat_announce, true
+
 namespace :deploy do
 
   desc 'Restart application'

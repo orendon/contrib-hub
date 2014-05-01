@@ -1,7 +1,6 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'contribhub'
 set :repo_url, 'git@github.com:orendon/contrib-hub.git'
 
 # Default branch is :master

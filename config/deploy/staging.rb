@@ -1,4 +1,4 @@
-set :application, 'contribhub'
+set :application, 'contribhub-staging'
 
 set :cap_user, ENV['cap_user']
 set :role, ["#{fetch(:cap_user)}@107.170.154.49"]
@@ -9,5 +9,5 @@ role :db,  fetch(:role)
 
 server '107.170.154.49', user: fetch(:cap_user), roles: %w{web app}
 
-set :deploy_to, ENV['production_deploy_path']
+set :deploy_to, ENV['staging_deploy_path']
 set :ssh_options, { forward_agent: true }

@@ -1,12 +1,10 @@
-# Simple Role Syntax
-# ==================
-# Supports bulk-adding hosts to roles, the primary server in each group
-# is considered to be the first unless any hosts have the primary
-# property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{orendon@107.170.154.49}
-role :web, %w{orendon@107.170.154.49}
-role :db,  %w{orendon@107.170.154.49}
+set :cap_user, ENV['cap_user']
+set :role, ["#{fetch(:cap_user)}@107.170.154.49"]
+
+role :app, fetch(:role)
+role :web, fetch(:role)
+role :db,  fetch(:role)
 
 # Extended Server Syntax
 # ======================
@@ -14,8 +12,9 @@ role :db,  %w{orendon@107.170.154.49}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '107.170.154.49', user: 'orendon', roles: %w{web app}
+server '107.170.154.49', user: fetch(:cap_user), roles: %w{web app}
 
+set :deploy_to, ENV['cap_deploy_path']
 set :ssh_options, { forward_agent: true }
 
 # Custom SSH Options

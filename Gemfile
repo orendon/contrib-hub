@@ -2,13 +2,15 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '4.1.0'
-gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'
 
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier',  '~> 2.5.0'
+
+gem 'thin'
+gem 'dotenv-rails'
 
 # authentication
 gem 'github_api'
@@ -33,13 +35,12 @@ gem 'skylight'
 # tagging
 gem 'acts-as-taggable-on'
 
-gem 'hipchat', require: false
-
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
+  gem 'hipchat', require: false
 end
 
 group :development, :test do

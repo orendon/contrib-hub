@@ -36,6 +36,13 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', :platforms => :ruby
 gem 'uglifier',  '~> 2.5.0'
 
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'quiet_assets'

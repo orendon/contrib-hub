@@ -21,3 +21,6 @@
 .DS_Store
 *DS_Store
 
+# ENV vars
+.env
+

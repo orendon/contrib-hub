@@ -51,10 +51,12 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.3.0"
   gem 'faker'
   gem "rspec-rails", "~> 2.14.0"
+  gem 'spring'
+  gem "spring-commands-rspec"
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner'

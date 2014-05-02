@@ -233,6 +233,7 @@ GEM
     skylight (0.3.12)
       activesupport (>= 3.0.0)
     slop (3.5.0)
+    spring (1.1.2)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -309,6 +310,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   skylight
+  spring
   sqlite3
   thin
   uglifier (~> 2.5.0)

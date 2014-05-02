@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier',  '~> 2.5.0'
 
 gem 'thin'
+gem 'dotenv-deployment'
 gem 'dotenv-rails'
 
 # authentication

@@ -284,6 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
+  dotenv-deployment
   dotenv-rails
   factory_girl_rails (~> 4.3.0)
   faker

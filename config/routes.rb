@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'admin_constraint'
 
 ContribHub::Application.routes.draw do
   root :to => "home#index"
@@ -21,5 +22,5 @@ ContribHub::Application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   put '/users/:id' => 'users#update'
 
-  mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 end

@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 ContribHub::Application.routes.draw do
   root :to => "home#index"
   get "/auth/:provider/callback" => "sessions#create"
@@ -18,4 +20,6 @@ ContribHub::Application.routes.draw do
 
   get '/users/:id/edit' => 'users#edit'
   put '/users/:id' => 'users#update'
+
+  mount Sidekiq::Web => '/sidekiq'
 end

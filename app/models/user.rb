@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :github_id, :token, :presence => true
   validates :github_id, :uniqueness => true
 
+  scope :recent, -> { where("updated_at > ?", 3.months.ago)  }
+
   ## instance methods
   def update_repo_status(repo)
     if repo.is_being_helped_by?(self)

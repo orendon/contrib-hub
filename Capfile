@@ -10,6 +10,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'hipchat/capistrano'
+require 'whenever/capistrano'
 
 require 'dotenv'
 Dotenv.load

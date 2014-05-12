@@ -23,7 +23,7 @@ set :linked_files, %w{config/database.yml config/secrets.yml .env}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 set :keep_releases, 10
-set :rbenv_ruby, '2.1.1'
+set :rbenv_ruby, '2.1.2'
 
 set :hipchat_token, ENV['hipchat_token']
 set :hipchat_room_name, "ContribHub"

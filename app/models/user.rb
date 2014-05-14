@@ -30,15 +30,39 @@ class User < ActiveRecord::Base
   end
 
   def sync_github_data
+    sync_github_user
+    sync_github_repos
+  end
+
+  def sync_github_user
     user_data = GithubUtils.get_user_details_for(self)
     self.update_attributes!(user_data)
+  end
 
+  def sync_github_repos
     github_repos = GithubUtils.get_repos_list_for(self)
-    self.repos.each do |repo|
-      matched_repo = github_repos.find { |x| x.full_name == repo.full_name }
+    sync_repos = github_repos.map(&:id)
+    user_repos = self.repos.map(&:github_id)
+    remove_deleted_repos(user_repos, sync_repos)
+    sync_repos(github_repos)
+  end
+
+  private
+
+  def remove_deleted_repos(user_repos, sync_repos)
+    removed_repos = user_repos - sync_repos
+    self.repos.where(github_id: removed_repos).delete if removed_repos.any?
+  end
+
+  def sync_repos(github_repos)
+    github_repos.each do |repo|
+      matched_repo = self.repos.find_by_github_id repo.id
       if matched_repo
-        repo_data = GithubUtils.normalize_repo(matched_repo)
-        repo.update_attributes!(repo_data)
+        repo_data = GithubUtils.normalize_repo(repo)
+        matched_repo.update_attributes!(repo_data)
+      else
+        repo_data = Repo.github_params repo
+        self.repos.create(repo_data)
       end
     end
   end

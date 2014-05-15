@@ -8,11 +8,11 @@ pg: &pg
 
 development:
   <<: *pg
-  database: sumedico_dev
+  database: contribhub_dev
 
 test:
   <<: *pg
-  database: sumedico_test
+  database: contribhub_test
 
 # SQLite
 

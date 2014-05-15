@@ -6,8 +6,9 @@ before_install:
   - gem --version
 env:
   - RAILS=4.1.1
+before_script:
+  - cp -n config/database.yml.sample config/database.yml
+  - bundle exec rake db:create:all db:migrate:all
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
-  - bundle exec rake db:test:prepare
   - COVERALLS=1 bundle exec rspec spec/
 

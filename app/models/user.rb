@@ -82,11 +82,7 @@ class User < ActiveRecord::Base
         user = User.create!(omni_data)
       end
 
-      github_repos = GithubUtils.get_repos_list_for(user)
-      github_repos.each do |remote_repo|
-        data = Repo.github_params remote_repo
-        user.repos.create(data)
-      end
+      SyncUserWorker.perform_async(user.id)
 
       user
     end

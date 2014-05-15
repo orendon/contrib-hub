@@ -17,6 +17,11 @@ There is still a lot of work to do, but these are the core features:
 * Find projects needing help or people "near you" doing cool stuff
 * Contribute, collaborate.
 
+## Vagrant
+Just run `vagrant up` to start the VM and `vagrant ssh` to access it, by defaults it forwards port 3000 to your host machine
+
+Tested using Vagrant 1.6.2 and Virtualbox 4.3.10
+
 # Contributing
 Report issues/features/requests on [GitHub Issues](http://github.com/orendon/contrib-hub/issues).
 

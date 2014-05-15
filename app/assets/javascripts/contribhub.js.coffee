@@ -32,3 +32,9 @@ $ ->
 
   $(".results-tooltip").click (e) ->
     e.preventDefault()
+
+  $("#sync_repos_btn").click (e) ->
+    $.get "/sync", (data) ->
+        $("#sync_repos_btn").text ' Synchronizing Repos...' if data
+    $(this).attr 'disabled','disabled'
+    $(this).addClass 'disabled'

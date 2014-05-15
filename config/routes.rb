@@ -17,10 +17,12 @@ ContribHub::Application.routes.draw do
   post '/repos/update_user_description' => "repos#update_user_description"
 
   get '/repos/:project_name' => 'repos#show'
+
   get '/users_map' => "home#users_map"
 
   get '/users/:id/edit' => 'users#edit'
-  put '/users/:id' => 'users#update'
+  put '/users/:id'      => 'users#update'
+  get '/sync'           => 'users#sync'
 
   mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 end

@@ -1,0 +1,29 @@
+pg: &pg
+  adapter: postgresql
+  encoding: unicode
+  username: pgadmin
+  password: secret
+  host: localhost
+  pool: 5
+
+development:
+  <<: *pg
+  database: sumedico_dev
+
+test:
+  <<: *pg
+  database: sumedico_test
+
+# SQLite
+
+# development:
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   pool: 5
+#   timeout: 5000
+
+# test:
+#   adapter: sqlite3
+#   database: db/test.sqlite3
+#   pool: 5
+#   timeout: 5000

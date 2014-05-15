@@ -25,3 +25,4 @@ config/database.yml
 # ENV vars
 .env
 
+.vagrant/

@@ -1,0 +1,12 @@
+pg: &pg
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *pg
+  database: contribhub_dev
+
+test:
+  <<: *pg
+  database: contribhub_test

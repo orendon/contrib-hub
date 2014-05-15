@@ -9,34 +9,37 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140428153920) do
+ActiveRecord::Schema.define(version: 20140428153920) do
 
-  create_table "error_logs", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "error_logs", force: true do |t|
     t.string   "message"
     t.string   "action"
     t.text     "backtrace"
     t.string   "extras"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "helped_repos", :force => true do |t|
+  create_table "helped_repos", force: true do |t|
     t.integer  "repo_id"
     t.integer  "user_id"
     t.boolean  "really_helping"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "repos", :force => true do |t|
+  create_table "repos", force: true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "github_url"
     t.boolean  "need_help"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "github_id"
     t.string   "full_name"
     t.text     "description"
@@ -50,31 +53,31 @@ ActiveRecord::Schema.define(:version => 20140428153920) do
     t.boolean  "fork"
   end
 
-  create_table "taggings", :force => true do |t|
+  create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
     t.integer  "tagger_id"
     t.string   "tagger_type"
-    t.string   "context",       :limit => 128
+    t.string   "context",       limit: 128
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
-  create_table "tags", :force => true do |t|
+  create_table "tags", force: true do |t|
     t.string  "name"
-    t.integer "taggings_count", :default => 0
+    t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "github_id"
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
@@ -89,6 +92,6 @@ ActiveRecord::Schema.define(:version => 20140428153920) do
     t.datetime "last_sync"
   end
 
-  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

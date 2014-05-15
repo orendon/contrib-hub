@@ -1,13 +1,14 @@
 before_install: gem install bundler --pre
 language: ruby
 rvm:
- - 2.1.2
+  - 2.1.2
 before_install:
   - gem --version
 env:
   - RAILS=4.1.1
+before_script:
+  - cp -n config/database.travis.yml config/database.yml
+  - RAILS_ENV=test bundle exec rake db:create db:migrate
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
-  - bundle exec rake db:test:prepare
-  - COVERALLS=1 bundle exec rspec spec/
-
+  - bundle exec rake db:seed
+  - COVERALLS=1 bundle exec rspec --color -f Fivemat

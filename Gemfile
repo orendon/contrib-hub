@@ -19,7 +19,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 # friendly urls
-gem "friendly_id", "~> 5.0.2"
+gem 'friendly_id', '~> 5.0.2'
 
 # searches
 gem 'ransack'
@@ -48,11 +48,12 @@ group :development, :test do
   gem 'pry'
   gem 'quiet_assets'
   gem 'sqlite3'
-  gem "factory_girl_rails", "~> 4.3.0"
+  gem 'factory_girl_rails', '~> 4.3.0'
   gem 'faker'
-  gem "rspec-rails", "~> 2.14.0"
+  gem 'rspec-rails', '~> 2.14.0'
   gem 'spring'
-  gem "spring-commands-rspec"
+  gem 'spring-commands-rspec'
+  gem 'fivemat', require: false
 end
 
 group :test do
@@ -61,7 +62,7 @@ group :test do
   gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner'
   gem 'capybara'
-  gem "jasminerice", git: "https://github.com/bradphelan/jasminerice", branch: "master"
+  gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice', branch: 'master'
 end
 
 group :production do

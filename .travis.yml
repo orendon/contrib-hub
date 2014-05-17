@@ -14,5 +14,8 @@ script:
 - COVERALLS=1 bundle exec rspec --color -f Fivemat
 notifications:
   hipchat:
-    secure: "HDy2eQyH2IuaEX3PnI1PSKnIPGNmNGWo6OMdh8fQiQyupv8+N938oSQghTUpQlfLQBrlI/7EPNKC85uT3/qLzWnKuOhmYOL1iWxHSrlygfSiyV3lptQCJDHK8pzxmD6SHsm0f8V4UOn8hOvI7yKdV4V+vhf5oc1mNCs/Ixbvhkk="
+    rooms:
+      - secure: "HDy2eQyH2IuaEX3PnI1PSKnIPGNmNGWo6OMdh8fQiQyupv8+N938oSQghTUpQlfLQBrlI/7EPNKC85uT3/qLzWnKuOhmYOL1iWxHSrlygfSiyV3lptQCJDHK8pzxmD6SHsm0f8V4UOn8hOvI7yKdV4V+vhf5oc1mNCs/Ixbvhkk="
+    template:
+      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 

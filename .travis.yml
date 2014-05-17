@@ -1,14 +1,18 @@
-before_install: gem install bundler --pre
+before_install:
+- gem --version
 language: ruby
 rvm:
-  - 2.1.2
-before_install:
-  - gem --version
+- 2.1.2
 env:
+  matrix:
   - RAILS=4.1.1
 before_script:
-  - cp -n config/database.travis.yml config/database.yml
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
+- cp -n config/database.travis.yml config/database.yml
+- RAILS_ENV=test bundle exec rake db:create db:migrate
 script:
-  - bundle exec rake db:seed
-  - COVERALLS=1 bundle exec rspec --color -f Fivemat
+- bundle exec rake db:seed
+- COVERALLS=1 bundle exec rspec --color -f Fivemat
+notifications:
+  hipchat:
+    secure: "HDy2eQyH2IuaEX3PnI1PSKnIPGNmNGWo6OMdh8fQiQyupv8+N938oSQghTUpQlfLQBrlI/7EPNKC85uT3/qLzWnKuOhmYOL1iWxHSrlygfSiyV3lptQCJDHK8pzxmD6SHsm0f8V4UOn8hOvI7yKdV4V+vhf5oc1mNCs/Ixbvhkk="
+

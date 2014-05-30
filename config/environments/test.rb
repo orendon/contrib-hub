@@ -32,4 +32,22 @@ ContribHub::Application.configure do
   config.active_support.deprecation = :stderr
 
   OmniAuth.config.test_mode = true
+
+  Geocoder.configure(:lookup => :test, :ip_lookup => :test)
+
+  Geocoder::Lookup::Test.set_default_stub(
+    [
+      {
+        'ip'           => '123.123.123.123',
+        'city'         => 'new york city',
+        'latitude'     => 40.7143528,
+        'longitude'    => -74.0059731,
+        'address'      => 'New York, NY, USA',
+        'state'        => 'New York',
+        'state_code'   => 'NY',
+        'country'      => 'United States',
+        'country_code' => 'US'
+      }
+    ]
+  )
 end

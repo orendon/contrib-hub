@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428153920) do
+ActiveRecord::Schema.define(version: 20140511215159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140428153920) do
     t.integer  "public_repos"
     t.integer  "public_gists"
     t.datetime "last_sync"
+    t.boolean  "admin",        default: false
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

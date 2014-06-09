@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def sync
+    SyncUserWorker.perform_async(current_user.id)
+    render :json => { status: "processing" }
+  end
+
   private
 
   def merge_github_repos(user, user_repos)

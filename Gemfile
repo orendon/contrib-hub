@@ -13,6 +13,11 @@ gem 'thin'
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
 
+gem 'sidekiq', '~> 3.0.2'
+gem 'sinatra', '>= 1.3.0', require: false
+gem 'whenever', require: false
+gem 'capistrano-sidekiq'
+
 # authentication
 gem 'github_api'
 gem 'omniauth'

@@ -1,6 +1,0 @@
----
-# The Skylight ID for the application.
-application: ENV['skylight_id']
-
-# The authentication token for the application.
-authentication: ENV['skylight_token']

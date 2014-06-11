@@ -31,7 +31,6 @@ gem 'geocoder'
 
 # analytics
 gem 'newrelic_rpm'
-gem 'skylight'
 
 # tagging
 gem 'acts-as-taggable-on'

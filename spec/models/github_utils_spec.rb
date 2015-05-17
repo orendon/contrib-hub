@@ -5,11 +5,11 @@ describe GithubUtils do
   let(:user) { double(github_id: 'test', token: token) }
 
   context "when retrieving information about a user's repositories" do
-    let(:repos_instance) { double(Github::Repos.name) }
+    let(:repos_instance) { double(Github::Client::Repos.name) }
     let(:repos_list) { [double(full_name: 'contrib-hub')] }
 
     before do
-      allow(Github::Repos).to receive(:new) { repos_instance }
+      allow(Github::Client::Repos).to receive(:new) { repos_instance }
       expect(repos_instance).to receive(:auto_pagination=).with(true)
       expect(repos_instance).to receive(:all).with(user: 'test')
         .and_return(repos_list)

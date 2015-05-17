@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.6'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.10'
 gem 'jquery-rails'
 gem 'haml-rails'
 
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier',  '~> 2.5.0'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'thin'
-gem 'dotenv-deployment'
 gem 'dotenv-rails'
 
 # authentication
@@ -19,7 +18,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 # friendly urls
-gem 'friendly_id', '~> 5.0.2'
+gem 'friendly_id'
 
 # searches
 gem 'ransack'
@@ -47,9 +46,9 @@ group :development, :test do
   gem 'pry'
   gem 'quiet_assets'
   gem 'sqlite3'
-  gem 'factory_girl_rails', '~> 4.3.0'
+  gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec-rails', '2.14.2'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'fivemat', require: false

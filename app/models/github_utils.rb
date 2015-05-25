@@ -1,6 +1,6 @@
 class GithubUtils
   def self.get_repos_list_for(user)
-    repos = Github::Repos.new
+    repos = Github::Client::Repos.new
     repos.auto_pagination = true
     repos.all user: user.github_id
   end

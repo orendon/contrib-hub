@@ -119,7 +119,7 @@ GEM
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     hashie (3.4.2)
-    hipchat (1.5.1)
+    hipchat (1.5.2)
       httparty
       mimemagic
     html2haml (2.0.0)

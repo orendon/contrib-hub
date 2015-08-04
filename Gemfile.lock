@@ -102,13 +102,13 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     geocoder (1.2.9)
-    github_api (0.12.3)
+    github_api (0.12.4)
       addressable (~> 2.3)
       descendants_tracker (~> 0.0.4)
       faraday (~> 0.8, < 0.10)
-      hashie (>= 3.3)
+      hashie (>= 3.4)
       multi_json (>= 1.7.5, < 2.0)
-      nokogiri (~> 1.6.3)
+      nokogiri (~> 1.6.6)
       oauth2
     haml (4.0.6)
       tilt

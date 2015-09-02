@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.2.3'
 
-gem 'rails', '4.1.12'
+gem 'rails', '4.2.4'
 gem 'jquery-rails'
 gem 'haml-rails'
 

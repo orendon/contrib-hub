@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/bradphelan/jasminerice
+  remote: git://github.com/bradphelan/jasminerice.git
   revision: 091349c27343bfa728b8e5745675f9ddbb7d9699
   branch: master
   specs:

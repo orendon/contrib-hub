@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
+gem 'rails', '4.2.5'
 
-gem 'rails', '4.2.4'
 gem 'jquery-rails'
 gem 'haml-rails'
 
@@ -60,7 +60,7 @@ group :test do
   gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice', branch: 'master'
+  gem 'jasminerice', github: 'bradphelan/jasminerice', branch: 'master'
 end
 
 group :production do

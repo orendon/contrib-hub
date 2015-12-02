@@ -5,7 +5,7 @@ class CreateHelpedRepos < ActiveRecord::Migration
       t.integer :user_id
       t.boolean :really_helping
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

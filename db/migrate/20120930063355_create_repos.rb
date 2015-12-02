@@ -6,7 +6,7 @@ class CreateRepos < ActiveRecord::Migration
       t.string :github_url
       t.boolean :need_help
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

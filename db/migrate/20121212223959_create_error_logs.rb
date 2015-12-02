@@ -6,7 +6,7 @@ class CreateErrorLogs < ActiveRecord::Migration
       t.text   :backtrace
       t.string :extras
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

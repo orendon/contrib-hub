@@ -6,7 +6,7 @@
 
 Open source lovers, making easier to find cool projects to hack on! Wanna help?
 
-http://contribhub.com
+http://contribhub.org
 
 # About
 [ContribHub](http://contribhub.com) was born on 2012 at PulsoConf/BogotaConf hackathon after 14 hours of sleep-deprived programming, with the goal of creating a good tool to help other open source lovers to find projects to contribute.

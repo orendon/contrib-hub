@@ -267,7 +267,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
-    spring (1.5.0)
+    spring (1.6.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (3.5.2)
@@ -351,4 +351,4 @@ DEPENDENCIES
   will_paginate-bootstrap (= 0.2.5)
 
 BUNDLED WITH
-   1.10.6
+   1.11.0

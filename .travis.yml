@@ -2,10 +2,10 @@ before_install:
 - gem --version
 language: ruby
 rvm:
-- 2.2.3
+- 2.2.4
 env:
   matrix:
-  - RAILS=4.2.4
+  - RAILS=4.2.5
 before_script:
 - cp -n config/database.travis.yml config/database.yml
 - RAILS_ENV=test bundle exec rake db:create db:migrate

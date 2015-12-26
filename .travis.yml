@@ -2,7 +2,7 @@ before_install:
 - gem --version
 language: ruby
 rvm:
-- 2.2.4
+- 2.3.0
 env:
   matrix:
   - RAILS=4.2.5

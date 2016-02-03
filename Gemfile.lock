@@ -261,7 +261,7 @@ GEM
     sexp_processor (4.6.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    simplecov (0.11.1)
+    simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
@@ -298,7 +298,7 @@ GEM
       json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.1)
+    unf_ext (0.0.7.2)
     will_paginate (3.1.0)
     will_paginate-bootstrap (0.2.5)
       will_paginate (>= 3.0.3)

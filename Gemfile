@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '4.2.6'
-gem 'rake', '10.5.0' # LOCKED DOWN
 
 gem 'jquery-rails'
 gem 'haml-rails'

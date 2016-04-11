@@ -23,7 +23,7 @@ gem 'friendly_id'
 # searches
 gem 'ransack'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap', '0.2.5'
+gem 'will_paginate-bootstrap'
 
 # geolocation
 gem 'geocoder'

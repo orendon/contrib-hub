@@ -65,4 +65,6 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  config.infer_spec_type_from_file_location!
 end

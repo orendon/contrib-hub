@@ -48,7 +48,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails', '2.14.2' # LOCKED DOWN
+  gem 'rspec-rails', '2.99.0' # LOCKED DOWN
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'fivemat', require: false

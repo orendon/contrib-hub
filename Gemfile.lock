@@ -85,7 +85,7 @@ GEM
       thor (~> 0.19.1)
       tins (~> 1.6.0)
     daemons (1.2.3)
-    database_cleaner (1.5.2)
+    database_cleaner (1.5.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)

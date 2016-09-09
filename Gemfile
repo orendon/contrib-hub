@@ -61,7 +61,7 @@ group :test do
   gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'jasminerice', github: 'bradphelan/jasminerice', branch: 'master'
+  gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice', branch: 'master'
 end
 
 group :production do

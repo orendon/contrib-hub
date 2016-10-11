@@ -245,7 +245,7 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
-    ruby_parser (3.8.2)
+    ruby_parser (3.8.3)
       sexp_processor (~> 4.1)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -346,4 +346,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.2
+   1.13.3

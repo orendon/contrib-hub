@@ -166,7 +166,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
-    newrelic_rpm (3.16.3.323)
+    newrelic_rpm (3.17.0.325)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.2.0)
@@ -290,7 +290,7 @@ GEM
     tins (1.12.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.2)
+    uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
     will_paginate (3.1.5)
     will_paginate-bootstrap (1.0.1)
@@ -346,4 +346,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.5
+   1.13.6

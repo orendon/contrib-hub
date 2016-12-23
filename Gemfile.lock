@@ -230,7 +230,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.3)
-    rspec-collection_matchers (1.1.2)
+    rspec-collection_matchers (1.1.3)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (2.99.2)
     rspec-expectations (2.99.2)

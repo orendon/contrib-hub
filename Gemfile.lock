@@ -50,7 +50,7 @@ GEM
     airbrussh (1.1.2)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.4)
-    builder (3.2.2)
+    builder (3.2.3)
     capistrano (3.7.1)
       airbrussh (>= 1.0.0)
       capistrano-harrow

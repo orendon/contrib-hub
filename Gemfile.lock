@@ -177,7 +177,7 @@ GEM
     omniauth (1.4.2)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
-    omniauth-github (1.2.1)
+    omniauth-github (1.2.2)
       omniauth (~> 1.4.0)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth2 (1.4.0)

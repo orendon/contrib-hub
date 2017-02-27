@@ -81,7 +81,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     coveralls (0.8.19)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -289,7 +289,7 @@ GEM
     tins (1.13.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.4)
+    uglifier (3.1.0)
       execjs (>= 0.3.0, < 3)
     will_paginate (3.1.5)
     will_paginate-bootstrap (1.0.1)

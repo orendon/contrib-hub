@@ -287,7 +287,7 @@ GEM
     tins (1.13.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.8)
+    uglifier (3.1.9)
       execjs (>= 0.3.0, < 3)
     will_paginate (3.1.5)
     will_paginate-bootstrap (1.0.1)

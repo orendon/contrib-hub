@@ -112,7 +112,7 @@ GEM
     friendly_id (5.2.1)
       activerecord (>= 4.0.0)
     geocoder (1.4.3)
-    github_api (0.16.0)
+    github_api (0.17.0)
       addressable (~> 2.4.0)
       descendants_tracker (~> 0.0.4)
       faraday (~> 0.8, < 0.10)

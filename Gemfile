@@ -18,6 +18,7 @@ gem 'dotenv-rails'
 gem 'github_api'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'hashie', '3.4.6' # LOCKED DOWN to avoid warning (expect to work separately)
 
 # friendly urls
 gem 'friendly_id'

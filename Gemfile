@@ -15,7 +15,7 @@ gem 'thin'
 gem 'dotenv-rails'
 
 # authentication
-gem 'github_api'
+gem 'github_api', '0.15.0' # LOCKED DOWN
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'hashie', '3.4.6' # LOCKED DOWN to avoid warning (expect to work separately)

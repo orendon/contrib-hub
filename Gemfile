@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
-gem 'rails', '4.2.5.1'
+
+gem 'rails', '4.2.10'
+
+ruby '2.4.2'
 
 gem 'jquery-rails'
 gem 'haml-rails'
@@ -13,9 +15,10 @@ gem 'thin'
 gem 'dotenv-rails'
 
 # authentication
-gem 'github_api'
+gem 'github_api', '0.15.0' # LOCKED DOWN
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'hashie', '3.4.6' # LOCKED DOWN to avoid warning (expect to work separately)
 
 # friendly urls
 gem 'friendly_id'
@@ -23,7 +26,7 @@ gem 'friendly_id'
 # searches
 gem 'ransack'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap', '0.2.5'
+gem 'will_paginate-bootstrap'
 
 # geolocation
 gem 'geocoder'
@@ -44,11 +47,10 @@ end
 
 group :development, :test do
   gem 'pry'
-  gem 'quiet_assets'
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails', '2.14.2'
+  gem 'rspec-rails', '2.99.0' # LOCKED DOWN
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'fivemat', require: false
@@ -60,7 +62,7 @@ group :test do
   gem 'coveralls', require: false # https://coveralls.io
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'jasminerice', github: 'bradphelan/jasminerice', branch: 'master'
+  gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice', branch: 'master'
 end
 
 group :production do
